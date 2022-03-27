@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ForceSurge" thread-count="1">
+
+    <!--<test name="AccountTest">
+        <classes>
+            <class name="saleforce.tests.AddAccountTest"/>
+        </classes>
+    </test>
+    <test name="ContactTest">
+        <classes>
+            <class name="saleforce.tests.AddContactTest"/>
+        </classes>
+    </test>-->
+</suite>
