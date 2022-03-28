@@ -9,6 +9,7 @@ import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import pages.SignUpPage;
 
 // Добавить в @Listener(TestListener.class)
 @Listeners()
@@ -17,6 +18,10 @@ public class BaseTest {
 
     protected WebDriver driver;
     protected MainSteps mainSteps;
+    protected SignUpPage signUpPage;
+
+
+
 
     @BeforeMethod
     public void setup(ITestContext iTestContext) {
@@ -29,8 +34,8 @@ public class BaseTest {
         iTestContext.setAttribute(attributeKey, attributeValue);
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void teardown() {
-        driver.quit();
-    }
+ //   @AfterMethod(alwaysRun = true)
+ //   public void teardown() {
+ //       driver.quit();
+ //   }
 }
