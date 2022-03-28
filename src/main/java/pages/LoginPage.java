@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 @Log4j2
 public class LoginPage extends BasePage {
 
-    private static final String BASE_URL = "https://log.finalsurge.com/";
+    private static final String BASE_URL = "https://log.finalsurge.com/login.cshtml";
 
     private static final By USERNAME_FIELD = By.id("login_name");
     private static final By PASSWORD_FIELD = By.id("login_password");

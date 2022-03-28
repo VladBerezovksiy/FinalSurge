@@ -4,13 +4,13 @@
 
 | ID | Page     | Test                                                               | Who did | Status | 
 |----|----------|--------------------------------------------------------------------|---------|--------|
-| 1  | Login    | Sign in with valid credential                                      | Vlad    | 
-| 2  | Login    | Sign in with invalid credential                                    | Vlad    | 
-| 3  | Login    | Sign in with invalid 'Email' and valid 'Password'                  | Vlad    | 
-| 4  | Login    | Sign in with valid 'Email' and invalid 'Password'                  | Vlad    | 
-| 5  | Login    | Sign in with empty 'Email' and 'Password' fields                   | Vlad    |
-| 6  | Login    | Sign in with empty 'Email' field                                   | Vlad    |
-| 7  | Login    | Sign in with empty 'Password' field                                | Vlad    |
+| 1  | Login    | Sign in with valid credential                                      | Vlad    | Done   |
+| 2  | Login    | Sign in with invalid credential                                    | Vlad    | Done   |
+| 3  | Login    | Sign in with invalid 'Email' and valid 'Password'                  | Vlad    | Done   |
+| 4  | Login    | Sign in with valid 'Email' and invalid 'Password'                  | Vlad    | Done   |
+| 5  | Login    | Sign in with empty 'Email' and 'Password' fields                   | Vlad    | Done   |
+| 6  | Login    | Sign in with empty 'Email' field                                   | Vlad    | Done   |
+| 7  | Login    | Sign in with empty 'Password' field                                | Vlad    | Done   |
 | 8  | Login    | Check that 'Forgot password?' link is working                      | Vlad    |
 | 9  | Login    | Check that 'Not registered? Sign up here for free' link is working | Vlad    |
 | 10 | Register | Sign up with valid credential                                      | *       |
