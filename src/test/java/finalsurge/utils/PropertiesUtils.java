@@ -6,7 +6,6 @@ import java.util.Properties;
 
 public class PropertiesUtils {
 
-    // В дальнейшем изменить путь CONFIG_PATH!
     private static final String CONFIG_PATH = "src/test/resources/config.properties";
     private static Properties PROPERTIES = null;
 
