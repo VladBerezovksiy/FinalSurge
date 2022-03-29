@@ -93,9 +93,9 @@ public class MainSteps extends AbstractSteps {
         return this;
     }
     @Step("Open SignUp page")
-    public SignUpPage openSignUpPage(){
+    public SignUpSteps openSignUpPage(){
         signUpPage = new SignUpPage(driver);
         signUpPage.openSignInPage();
-        return new SignUpPage(driver);
+        return new SignUpSteps(driver);
     }
 }
