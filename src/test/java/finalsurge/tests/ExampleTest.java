@@ -8,7 +8,8 @@ public class ExampleTest extends BaseTest {
     public void example1() {
         mainSteps.
                 openFinalSurge()
-                .loginWithValidCredits();
+                .loginWithValidCredits()
+                .openAddWorkout();
     }
 
     @Test

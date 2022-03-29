@@ -1,5 +1,6 @@
 package finalsurge.steps;
 
+import component.button.menu.AddWorkoutButton;
 import finalsurge.utils.PropertiesUtils;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +11,7 @@ public class MainSteps extends AbstractSteps {
 
     private LoginPage loginPage;
     private DashboardPage dashboardPage;
+    private AddWorkoutButton addWorkoutButton;
 
     private static final String VALID_LOGIN = PropertiesUtils.getEnv("valid_login");
     private static final String VALID_PASSWORD = PropertiesUtils.getEnv("valid_password");
@@ -88,6 +90,15 @@ public class MainSteps extends AbstractSteps {
                 ""
         );
         validatePageIsLoaded(loginPage);
+        return this;
+    }
+
+    @Step("Open 'Add Workout' page")
+    public MainSteps openAddWorkout() {
+        addWorkoutButton = new AddWorkoutButton(driver);
+//        Нужно сделать Assert для того чтоб, проверить что пункты выпадающего списка отображаются
+        addWorkoutButton.click();
+//        validatePageIsLoaded();
         return this;
     }
 }

@@ -12,7 +12,7 @@ public abstract class AbstractSteps {
         this.driver = driver;
     }
 
-    protected void validatePageIsLoaded(BasePage page){
+    protected void validatePageIsLoaded(BasePage page) {
         Assert.assertTrue(page.isPageLoaded(), page.getClass().getSimpleName().concat(" is not opened!"));
     }
 }
