@@ -10,7 +10,7 @@ public class FileUtils {
         try (FileOutputStream outputStream = new FileOutputStream(file)) {
             outputStream.write(bytes);
         } catch (Exception e) {
-            System.out.println(" ERROR during save file " + e.getMessage());
+            System.out.println("ERROR during save file " + e.getMessage());
         }
         return file;
     }
