@@ -4,6 +4,8 @@ import component.button.menu.AddWorkoutButton;
 import finalsurge.utils.PropertiesUtils;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import pages.AddWorkoutPage;
 import pages.DashboardPage;
 import pages.LoginPage;
 
@@ -94,11 +96,14 @@ public class MainSteps extends AbstractSteps {
     }
 
     @Step("Open 'Add Workout' page")
-    public MainSteps openAddWorkout() {
+    public MainSteps createAddWorkout() {
         addWorkoutButton = new AddWorkoutButton(driver);
-//        Нужно сделать Assert для того чтоб, проверить что пункты выпадающего списка отображаются
+        Assert.assertTrue(
+                addWorkoutButton.isComponentDisplayed(),
+                addWorkoutButton.getClass().getSimpleName().concat(" not displayed")
+        );
         addWorkoutButton.click();
-//        validatePageIsLoaded();
+        validatePageIsLoaded(new AddWorkoutPage(driver));
         return this;
     }
 }

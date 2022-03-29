@@ -23,7 +23,7 @@
 | *   | Register | Sign up with empty 'Last Name'                                     | Nadya   | Done   |
 | *   | Register | Sign up with password which doesn't match the rule                 | Nadya   | Done   |
 | *   | Register | Sign up: password doesn't match retype password                    | Nadya   | Done   |
-| *   | Home     | Header display                                                     | Vlad    | Done   |
+| *   | Home     | Header option display                                              | Vlad    | Done   |
 | *   | Home     | Home page loaded                                                   | Vlad    | Done   |
 | *   | Home     | Breadcrumbs display                                                | *       |        |
 | *   | Home     |                                                                    | *       |        |

@@ -9,7 +9,7 @@ public class ExampleTest extends BaseTest {
         mainSteps.
                 openFinalSurge()
                 .loginWithValidCredits()
-                .openAddWorkout();
+                .createAddWorkout();
     }
 
     @Test

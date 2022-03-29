@@ -21,6 +21,7 @@ public abstract class BasePage {
     abstract public BasePage openPage();
 
     public boolean isPageLoaded() {
+
         try {
             waitPageLoaded();
         } catch (TimeoutException exception) {
