@@ -20,12 +20,10 @@ public class BaseTest {
     protected MainSteps mainSteps;
     protected SignUpPage signUpPage;
 
-
-
-
     @BeforeMethod
     public void setup(ITestContext iTestContext) {
         driver = new ChromeDriver(CapabilitiesGenerator.getChromeOptions());
+        driver.manage().window().maximize();
         setContextAttribute(iTestContext, "driver", driver);
         mainSteps = new MainSteps(driver);
     }
