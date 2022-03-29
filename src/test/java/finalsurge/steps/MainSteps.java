@@ -1,17 +1,19 @@
 package finalsurge.steps;
 
+import component.button.menu.AddWorkoutButton;
 import finalsurge.utils.PropertiesUtils;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import pages.AddWorkoutPage;
 import pages.DashboardPage;
 import pages.LoginPage;
-import pages.SignUpPage;
 
 public class MainSteps extends AbstractSteps {
 
     private LoginPage loginPage;
-    private SignUpPage signUpPage;
     private DashboardPage dashboardPage;
+    private AddWorkoutButton addWorkoutButton;
 
     private static final String VALID_LOGIN = PropertiesUtils.getEnv("valid_login");
     private static final String VALID_PASSWORD = PropertiesUtils.getEnv("valid_password");
@@ -92,10 +94,16 @@ public class MainSteps extends AbstractSteps {
         validatePageIsLoaded(loginPage);
         return this;
     }
-    @Step("Open SignUp page")
-    public SignUpSteps openSignUpPage(){
-        signUpPage = new SignUpPage(driver);
-        signUpPage.openSignInPage();
-        return new SignUpSteps(driver);
+
+    @Step("Open 'Add Workout' page")
+    public MainSteps createAddWorkout() {
+        addWorkoutButton = new AddWorkoutButton(driver);
+        Assert.assertTrue(
+                addWorkoutButton.isComponentDisplayed(),
+                addWorkoutButton.getClass().getSimpleName().concat(" not displayed")
+        );
+        addWorkoutButton.click();
+        validatePageIsLoaded(new AddWorkoutPage(driver));
+        return this;
     }
 }

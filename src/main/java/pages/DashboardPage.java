@@ -6,8 +6,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class DashboardPage extends BasePage {
 
-    private static final String BASE_URL = "https://log.finalsurge.com/";
-    private static final By HEADER = By.id("fade-menu");
+    private static final String BASE_URL = "https://log.finalsurge.com/Default.cshtml";
+
+    public static final By HEADER = By.id("fade-menu");
 
     public DashboardPage(WebDriver driver) {
         super(driver);
