@@ -1,40 +1,30 @@
 package finalsurge.tests;
 
+import constants.SignUpPageConstants;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
 public class SignUpTest extends BaseTest {
-    private static final String firstname = "Tom";
-    private static final String lastname = "Rich";
-    private static final int random = (int) (Math.random() * 1000);
-    private static final String email = "test" + random + "@gmail.com";
-    private static final String password = "1qaz2WSX";
-    private static final String retypePassword = "1qaz2WSX";
-    private static final String wrongpassword = "12345678";
-    private static final String wrongretypePassword = "1qaz22345";
-
-    public static final String REQUIRED_FIELD_MESSAGE = "This field is required.";
-    public static final String WRONG_PASSWORD_MESSAGE = "Error: *Please enter a Password value with at least one number, lower-case letter, and upper-case letter between 7 and 15 characters in length.";
-    public static final String WRONG_RETYPE_PASSWORD_MESSAGE = "Error: The passwords you entered did not match.";
-    @Test
+     @Test
     public void createNewUser() {
         mainSteps
                 .openFinalSurge()
                 .openSignUpPage()
-                .signUp(firstname, lastname, email, password, retypePassword);
+                .signUp(SignUpPageConstants.FIRSTNAME_CONST, SignUpPageConstants.LASTNAME_CONST,
+                        SignUpPageConstants.EMAIL_CONST, SignUpPageConstants.PASSWORD_CONST, SignUpPageConstants.RETYPE_PASSWORD_CONST);
     }
 
     @DataProvider(name = "Input data for auth")
     public Object[][] inputForSignUpTask() {
         return new Object[][]{
 
-                {"", lastname, email, password, retypePassword, REQUIRED_FIELD_MESSAGE, "The text message when firstname is absent  is not correct"},
-                {firstname, "", email, password, retypePassword, REQUIRED_FIELD_MESSAGE, "The text message when password is absent  is not correct"},
-                {firstname, lastname, "", password, retypePassword, REQUIRED_FIELD_MESSAGE, "The text message when credentials are wrong is not correct"},
-                {firstname, lastname, email, "", retypePassword, REQUIRED_FIELD_MESSAGE, "The text message when password is absent  is not correct"},
-                {firstname, lastname, email, password, "", REQUIRED_FIELD_MESSAGE, "The text message when credentials are wrong is not correct"},
+                {"", SignUpPageConstants.LASTNAME_CONST, SignUpPageConstants.EMAIL_CONST, SignUpPageConstants.PASSWORD_CONST, SignUpPageConstants.RETYPE_PASSWORD_CONST, SignUpPageConstants.REQUIRED_FIELD_MESSAGE, "The text message when firstname is absent  is not correct"},
+                {SignUpPageConstants.FIRSTNAME_CONST,"", SignUpPageConstants.EMAIL_CONST, SignUpPageConstants.PASSWORD_CONST, SignUpPageConstants.RETYPE_PASSWORD_CONST, SignUpPageConstants.REQUIRED_FIELD_MESSAGE, "The text message when password is absent  is not correct"},
+                {SignUpPageConstants.FIRSTNAME_CONST, SignUpPageConstants.LASTNAME_CONST, "", SignUpPageConstants.PASSWORD_CONST, SignUpPageConstants.RETYPE_PASSWORD_CONST, SignUpPageConstants.REQUIRED_FIELD_MESSAGE, "The text message when credentials are wrong is not correct"},
+                {SignUpPageConstants.FIRSTNAME_CONST, SignUpPageConstants.LASTNAME_CONST, SignUpPageConstants.EMAIL_CONST, "", SignUpPageConstants.RETYPE_PASSWORD_CONST, SignUpPageConstants.REQUIRED_FIELD_MESSAGE, "The text message when password is absent  is not correct"},
+                {SignUpPageConstants.FIRSTNAME_CONST, SignUpPageConstants.LASTNAME_CONST, SignUpPageConstants.EMAIL_CONST, SignUpPageConstants.PASSWORD_CONST, "", SignUpPageConstants.REQUIRED_FIELD_MESSAGE, "The text message when credentials are wrong is not correct"},
         };
     }
 
@@ -42,8 +32,8 @@ public class SignUpTest extends BaseTest {
     public Object[][] inputForCheckPasswordTask() {
         return new Object[][]{
 
-                {firstname, lastname, email, wrongpassword, wrongpassword, WRONG_PASSWORD_MESSAGE, "The text message when password is incorrect  is not correct"},
-                {firstname, lastname, email, password, wrongretypePassword, WRONG_RETYPE_PASSWORD_MESSAGE, "The text message when password isn't matched retype password  is not correct"},
+                {SignUpPageConstants.FIRSTNAME_CONST, SignUpPageConstants.LASTNAME_CONST, SignUpPageConstants.EMAIL_CONST, SignUpPageConstants.WRONG_PASSWORD_CONST, SignUpPageConstants.WRONG_PASSWORD_CONST, SignUpPageConstants.WRONG_PASSWORD_MESSAGE, "The text message when password is incorrect  is not correct"},
+                {SignUpPageConstants.FIRSTNAME_CONST, SignUpPageConstants.LASTNAME_CONST, SignUpPageConstants.EMAIL_CONST, SignUpPageConstants.PASSWORD_CONST, SignUpPageConstants.WRONG_RETYPE_PASSWORD_CONST, SignUpPageConstants.WRONG_RETYPE_PASSWORD_MESSAGE, "The text message when password isn't matched retype password  is not correct"},
         };
     }
 
