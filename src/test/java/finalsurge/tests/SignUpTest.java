@@ -47,7 +47,7 @@ public class SignUpTest extends BaseTest {
         };
     }
 
-    @Test(dataProvider = "Input data for auth")
+    @Test(dataProvider = "Input data for auth", description="check a=that all fields are required")
     public void checkRequiredFieldsTest(String firstname, String lastname, String email, String password, String retypePassword, String exp_message, String act_message) {
         Assert.assertEquals(
                 mainSteps.openFinalSurge()
@@ -57,7 +57,7 @@ public class SignUpTest extends BaseTest {
                 , act_message);
     }
 
-    @Test(dataProvider = "Input data for checking password and retypePassword")
+    @Test(dataProvider = "Input data for checking password and retypePassword", description="check that the password matches the rules and retype password field")
     public void checkPasswordTest(String firstname, String lastname, String email, String password, String retypePassword, String exp_message, String act_message) {
         Assert.assertEquals(
                 mainSteps.openFinalSurge()

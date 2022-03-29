@@ -92,6 +92,7 @@ public class MainSteps extends AbstractSteps {
         validatePageIsLoaded(loginPage);
         return this;
     }
+    @Step("Open SignUp page")
     public SignUpPage openSignUpPage(){
         signUpPage = new SignUpPage(driver);
         signUpPage.openSignInPage();
