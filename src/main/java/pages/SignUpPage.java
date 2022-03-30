@@ -19,16 +19,8 @@ public class SignUpPage extends BasePage {
 
     private static final By ALLERT_MESSAGE = By.className("alert");
 
-    private static final By SIGNIN1_LINK = By.xpath("//div[@class='signup']/a");
-
-
     public SignUpPage(WebDriver driver) {
         super(driver);
-    }
-
-    public void openSignInPage() {
-        log.info("Click [{}] link", "Not registered?  Sign up here for free!");
-        driver.findElement(SIGNIN1_LINK).click();
     }
 
     public void signUp(String firstname, String lastname, String email, String password, String retypePassword) {
