@@ -13,9 +13,8 @@ import pages.SignUpPage;
 public class MainSteps extends AbstractSteps {
 
     private LoginPage loginPage;
-    private DashboardPage dashboardPage;
-    private AddWorkoutButton addWorkoutButton;
     private SignUpPage signUpPage;
+    private AddWorkoutButton addWorkoutButton;
 
     private static final String VALID_LOGIN = PropertiesUtils.getEnv("valid_login");
     private static final String VALID_PASSWORD = PropertiesUtils.getEnv("valid_password");
@@ -28,13 +27,55 @@ public class MainSteps extends AbstractSteps {
         super(driver);
     }
 
-    @Step("Open FinalSurge page")
-    public MainSteps openFinalSurge() {
+    @Step("Open 'Login' page")
+    public MainSteps openLoginPage() {
         loginPage = new LoginPage(driver);
         loginPage.openPage();
         validatePageIsLoaded(loginPage);
         return this;
     }
+
+    @Step("Open SignUp page")
+    public MainSteps openSignUpPage() {
+        signUpPage = new SignUpPage(driver);
+        signUpPage.openPage();
+        validatePageIsLoaded(signUpPage);
+        return this;
+    }
+
+    @Step("Sign up with valid credentials")
+    public MainSteps signUpPageWithValidCredits() {
+        signUpPage.signUp(
+                "",
+                "",
+                "",
+                "",
+                ""
+        );
+        validatePageIsLoaded(new DashboardPage(driver));
+        return this;
+    }
+
+    @Step("Sign up with invalid credentials")
+    public MainSteps signUpPageWithInvalidCredits() {
+        signUpPage.signUp(
+                "",
+                "",
+                "",
+                "",
+                ""
+        );
+        validatePageIsLoaded(new DashboardPage(driver));
+        validatePageIsLoaded(signUpPage);
+        return this;
+    }
+
+
+
+    // Еще доделать остальные кейсы с 'Sign-up' page!!!
+
+
+
 
     @Step("Sign in with valid credentials")
     public MainSteps loginWithValidCredits() {
@@ -42,8 +83,7 @@ public class MainSteps extends AbstractSteps {
                 VALID_LOGIN,
                 VALID_PASSWORD
         );
-        dashboardPage = new DashboardPage(driver);
-        validatePageIsLoaded(dashboardPage);
+        validatePageIsLoaded(new DashboardPage(driver));
         return this;
     }
 
@@ -97,15 +137,8 @@ public class MainSteps extends AbstractSteps {
         return this;
     }
 
-    @Step("Open SignUp page")
-    public SignUpSteps openSignUpPage(){
-        signUpPage = new SignUpPage(driver);
-        signUpPage.openSignInPage();
-        return new SignUpSteps(driver);
-    }
-
     @Step("Open 'Add Workout' page")
-    public MainSteps createAddWorkout() {
+    public AddWorkoutSteps openAddWorkout() {
         addWorkoutButton = new AddWorkoutButton(driver);
         Assert.assertTrue(
                 addWorkoutButton.isComponentDisplayed(),
@@ -113,6 +146,6 @@ public class MainSteps extends AbstractSteps {
         );
         addWorkoutButton.click();
         validatePageIsLoaded(new AddWorkoutPage(driver));
-        return this;
+        return new AddWorkoutSteps(driver);
     }
 }

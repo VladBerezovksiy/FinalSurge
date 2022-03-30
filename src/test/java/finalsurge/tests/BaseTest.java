@@ -1,9 +1,11 @@
 package finalsurge.tests;
 
+import finalsurge.constants.WindowSizeConstants;
 import finalsurge.steps.MainSteps;
 import finalsurge.utils.CapabilitiesGenerator;
 import finalsurge.utils.TestListener;
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestContext;
@@ -11,6 +13,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import pages.SignUpPage;
+
 
 @Log4j2
 @Listeners(TestListener.class)
@@ -23,8 +26,12 @@ public class BaseTest {
     @BeforeMethod
     public void setup(ITestContext iTestContext) {
         driver = new ChromeDriver(CapabilitiesGenerator.getChromeOptions());
-        driver.manage().window().maximize();
+        Dimension dimension = new Dimension(
+                WindowSizeConstants.WIGHT_WINDOW,
+                WindowSizeConstants.HEIGHT_WINDOW
+        );
         setContextAttribute(iTestContext, "driver", driver);
+        driver.manage().window().setSize(dimension);
         mainSteps = new MainSteps(driver);
     }
 

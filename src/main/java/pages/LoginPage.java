@@ -32,7 +32,6 @@ public class LoginPage extends BasePage {
         driver.findElement(LOGIN_BUTTON).click();
     }
 
-
     @Override
     public BasePage openPage() {
         driver.get(BASE_URL);

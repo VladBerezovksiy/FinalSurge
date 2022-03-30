@@ -14,7 +14,7 @@
 | *   | Login       | Sign in with empty 'Password' field                                | Vlad    | Done   |
 | *   | Login       | Login button display                                               | Vlad    | Done   |
 | *   | Login       | Check that 'Forgot password?' link is working                      | Vlad    | *      |
-| *   | Login       | Check that 'Not registered? Sign up here for free' link is working | Nadya   | Done   |
+| *   | Login       | Check that 'Not registered? Sign up here for free' link is working | Vlad    | *      |
 | *   | Register    | Sign up with valid credential                                      | Nadya   | Done   |
 | *   | Register    | Sign up with empty 'Email'                                         | Nadya   | Done   |
 | *   | Register    | Sign up with empty 'Password'                                      | Nadya   | Done   |
