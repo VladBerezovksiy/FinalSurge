@@ -25,8 +25,8 @@ public class AddWorkoutPage extends BasePage {
         );
         driver.findElement(By.xpath(String.format(
                 OPTION_ACTIVITY_PATTERN,
-                SELECT_ACTIVITY_PATTERN, option
-        ))).click();
+                SELECT_ACTIVITY_PATTERN, option))
+        ).click();
     }
 
     @Override
