@@ -1,14 +1,9 @@
-package finalsurge.tests;
+package finalsurge.utils;
 
-import finalsurge.utils.PropertiesUtils;
-import io.qameta.allure.Description;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 
-public class SignUpTest extends BaseTest {
-
-    /*private static final String FIRSTNAME_PARAM = PropertiesUtils.getEnv("firstname_param");
+public class DataProviders {
+    private static final String FIRSTNAME_PARAM = PropertiesUtils.getEnv("firstname_param");
     private static final String LASTNAME_PARAM = PropertiesUtils.getEnv("lastname_param");
     private static final int random = (int) (Math.random() * 1000);
     private static final String EMAIL_PARAM = PropertiesUtils.getEnv("email_login_param") + random + PropertiesUtils.getEnv("email_domain_param");
@@ -41,36 +36,11 @@ public class SignUpTest extends BaseTest {
         };
     }
 
-    @Test
-    public void createNewUser() {
-        mainSteps
-                .openFinalSurge()
-                .openSignUpPage()
-                .signUpWithValidCredits(FIRSTNAME_PARAM, FIRSTNAME_PARAM, EMAIL_PARAM, PASSWORD_PARAM, RETYPE_PASSWORD_PARAM);
+    @DataProvider(name = "Input data for valid reg")
+    public Object[][] inputForValidRegTask() {
+        return new Object[][]{
+
+                {FIRSTNAME_PARAM, LASTNAME_PARAM, EMAIL_PARAM, PASSWORD_PARAM, RETYPE_PASSWORD_PARAM},
+         };
     }
-
-    @Test(dataProvider = "Input data for auth")
-    @Description("Check a=that all fields are required")
-    public void checkRequiredFieldsTest(String firstname, String lastname, String email, String password, String retypePassword, String exp_message, String act_message) {
-        Assert.assertEquals(
-                mainSteps
-                        .openFinalSurge()
-                        .openSignUpPage()
-                        .returnSignUpRequiredMessage(firstname, lastname, email, password, retypePassword)
-                , exp_message
-                , act_message);
-    }
-
-    @Test(dataProvider = "Input data for checking password and retypePassword")
-    @Description("Check that the password matches the rules and retype password field")
-    public void checkPasswordTest(String firstname, String lastname, String email, String password, String retypePassword, String exp_message, String act_message) {
-        Assert.assertEquals(
-                mainSteps
-                        .openFinalSurge()
-                        .openSignUpPage()
-                        .returnSignUpErrorPasswordMessage(firstname, lastname, email, password, retypePassword)
-                , exp_message
-                , act_message);
-    }*/
-
 }

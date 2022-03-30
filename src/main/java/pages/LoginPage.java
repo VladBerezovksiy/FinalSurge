@@ -13,7 +13,7 @@ public class LoginPage extends BasePage {
     private static final By USERNAME_FIELD = By.id("login_name");
     private static final By PASSWORD_FIELD = By.id("login_password");
     private static final By LOGIN_BUTTON = By.xpath("//button[@type='submit' and text()='Login']");
-    private static final By SIGNIN_LINK = By.xpath("//div[@class='signup']/a");
+
 
 
     public LoginPage(WebDriver driver) {
@@ -25,9 +25,7 @@ public class LoginPage extends BasePage {
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_BUTTON));
     }
 
-    public void openSignInPage() {
-        driver.findElement(SIGNIN_LINK).click();
-    }
+
 
     public void authentication(String username, String password) {
         log.info("Insert [{}] into [{}] field", username,"username");

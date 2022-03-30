@@ -34,40 +34,18 @@ public class MainSteps extends AbstractSteps {
         validatePageIsLoaded(loginPage);
         return this;
     }
-
+    @Step("Open FinalSurge page")
+    public MainSteps openFinalSurge() {
+        loginPage = new LoginPage(driver);
+        loginPage.openPage();
+        validatePageIsLoaded(loginPage);
+        return this;
+    }
     @Step("Open SignUp page")
-    public MainSteps openSignUpPage() {
+    public SignUpSteps openSignUpPage() {
         signUpPage = new SignUpPage(driver);
-        signUpPage.openPage();
-        validatePageIsLoaded(signUpPage);
-        return this;
-    }
-
-    @Step("Sign up with valid credentials")
-    public MainSteps signUpPageWithValidCredits() {
-        signUpPage.signUp(
-                "",
-                "",
-                "",
-                "",
-                ""
-        );
-        validatePageIsLoaded(new DashboardPage(driver));
-        return this;
-    }
-
-    @Step("Sign up with invalid credentials")
-    public MainSteps signUpPageWithInvalidCredits() {
-        signUpPage.signUp(
-                "",
-                "",
-                "",
-                "",
-                ""
-        );
-        validatePageIsLoaded(new DashboardPage(driver));
-        validatePageIsLoaded(signUpPage);
-        return this;
+        signUpPage.openSignInPage();
+        return new SignUpSteps(driver);
     }
 
     @Step("Sign in with valid credentials")

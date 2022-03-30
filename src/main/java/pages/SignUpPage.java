@@ -16,13 +16,15 @@ public class SignUpPage extends BasePage {
     private static final String PASSWORD_FIELD = "password_meter";
     private static final String RETYPE_PASSWORD_FIELD = "create_passwordmatch";
     private static final By CREATE_ACCOUNT_BUTTON = By.xpath("//button[@type='submit' and text()='Create New Account']");
-
+    private static final By SIGNIN_LINK = By.xpath("//div[@class='signup']/a");
     private static final By ALLERT_MESSAGE = By.className("alert");
 
     public SignUpPage(WebDriver driver) {
         super(driver);
     }
-
+    public void openSignInPage() {
+        driver.findElement(SIGNIN_LINK).click();
+    }
     public void signUp(String firstname, String lastname, String email, String password, String retypePassword) {
         log.info("Insert [{}] into [{}] field", firstname, "firstname");
         driver.findElement(By.id(FIRSTNAME_FIELD)).sendKeys(firstname);
@@ -84,8 +86,6 @@ public class SignUpPage extends BasePage {
         }
         return str;
     }
-
-
     public String getErrorText(String fieldName) {
         String required_message = "//input[@id='" + fieldName + "']/ancestor::td//label[@class='error']";
         return driver.findElement(By.xpath(required_message)).getText();
@@ -93,19 +93,6 @@ public class SignUpPage extends BasePage {
 
     public String getAllertTextForPassword() {
         return driver.findElement(ALLERT_MESSAGE).getText();
-    }
-
-
-    public String returnSignUpRequiredMessage(String firstname, String lastname, String email, String password, String retypePassword) {
-        checkEmptyField(firstname, lastname, email, password, retypePassword);
-        requiredFieldsInSignUp(firstname, lastname, email, password, retypePassword);
-        return getErrorText(checkEmptyField(firstname, lastname, email, password, retypePassword));
-    }
-
-    public String returnSignUpErrorPasswordMessage(String firstname, String lastname, String email, String password, String retypePassword) {
-
-        requiredFieldsInSignUp(firstname, lastname, email, password, retypePassword);
-        return getAllertTextForPassword();
     }
 
 }

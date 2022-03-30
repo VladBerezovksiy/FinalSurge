@@ -1,6 +1,7 @@
 package finalsurge.tests.positive;
 
 import finalsurge.tests.BaseTest;
+import finalsurge.utils.DataProviders;
 import org.testng.annotations.Test;
 
 public class SmokeTests extends BaseTest {
@@ -13,13 +14,6 @@ public class SmokeTests extends BaseTest {
     }
 
     @Test
-    public void signUpTest() {
-        mainSteps
-                .openSignUpPage()
-                .signUpPageWithValidCredits();
-    }
-
-    @Test
     public void addWorkoutTest() {
         mainSteps
                 .openLoginPage()
@@ -27,5 +21,11 @@ public class SmokeTests extends BaseTest {
                 .openAddWorkout();
     }
 
-
+    @Test (dataProvider = "Input data for valid reg", dataProviderClass = DataProviders.class)
+    public void createNewUser(String firstname, String lastname, String email, String password, String retypePassword) {
+        mainSteps
+                .openFinalSurge()
+                .openSignUpPage()
+                .signUpWithValidCredits( firstname,  lastname,  email,  password,  retypePassword);
+    }
 }
