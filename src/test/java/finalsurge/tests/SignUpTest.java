@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class SignUpTest extends BaseTest {
 
-    private static final String FIRSTNAME_PARAM = PropertiesUtils.getEnv("firstname_param");
+    /*private static final String FIRSTNAME_PARAM = PropertiesUtils.getEnv("firstname_param");
     private static final String LASTNAME_PARAM = PropertiesUtils.getEnv("lastname_param");
     private static final int random = (int) (Math.random() * 1000);
     private static final String EMAIL_PARAM = PropertiesUtils.getEnv("email_login_param") + random + PropertiesUtils.getEnv("email_domain_param");
@@ -71,6 +71,6 @@ public class SignUpTest extends BaseTest {
                         .returnSignUpErrorPasswordMessage(firstname, lastname, email, password, retypePassword)
                 , exp_message
                 , act_message);
-    }
+    }*/
 
 }
