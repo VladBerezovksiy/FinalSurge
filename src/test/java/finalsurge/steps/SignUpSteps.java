@@ -8,7 +8,6 @@ import pages.SignUpPage;
 public class SignUpSteps extends AbstractSteps {
 
     private SignUpPage signUpPage;
-    private DashboardPage dashboardPage;
 
     public SignUpSteps(WebDriver driver) {
         super(driver);
@@ -18,8 +17,7 @@ public class SignUpSteps extends AbstractSteps {
     public SignUpSteps signUpWithValidCredits(String firstname, String lastname, String email, String password, String retype_password) {
         signUpPage = new SignUpPage(driver);
         signUpPage.signUp(firstname, lastname, email, password, retype_password);
-        dashboardPage = new DashboardPage(driver);
-        validatePageIsLoaded(dashboardPage);
+        validatePageIsLoaded(new DashboardPage(driver));
         return this;
     }
 
