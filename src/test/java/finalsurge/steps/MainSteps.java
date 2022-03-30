@@ -70,13 +70,6 @@ public class MainSteps extends AbstractSteps {
         return this;
     }
 
-
-
-    // Еще доделать остальные кейсы с 'Sign-up' page!!!
-
-
-
-
     @Step("Sign in with valid credentials")
     public MainSteps loginWithValidCredits() {
         loginPage.authentication(

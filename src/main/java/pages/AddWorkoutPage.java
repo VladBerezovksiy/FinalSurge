@@ -39,4 +39,5 @@ public class AddWorkoutPage extends BasePage {
         driver.get(BASE_URL);
         return this;
     }
+
 }
