@@ -1,11 +1,7 @@
 package component.button.menu;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
+import org.openqa.selenium.WebDriver;
 
 public class ReportButton extends AbstractMenuButton {
 

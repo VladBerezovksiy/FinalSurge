@@ -22,30 +22,19 @@ public class Table extends AbstractComponent {
         return false;
     }
 
-    public boolean CheckListOfProducts() {
+    public boolean CheckListInReport() {
         return driver.findElements(TABLE_PATTERN).isEmpty();
     }
 
-
-    /*
-          public String CheckCountIcon() {
-              return driver.findElement(By.cssSelector(COUNT_ICON)).getText();
-          }
-      */
     public List<String> ListOfDate() {
         List<WebElement> elems;
-        List<String> expectedProductList = new ArrayList<>();
-        String str;
-        if (!CheckListOfProducts()) {
+        List<String> expectedReportList = new ArrayList<>();
+        if (!CheckListInReport()) {
             elems = driver.findElements(TABLE_PATTERN);
-            System.out.println("size:"+elems.size());
             for (int i = 0; i < elems.size(); i++) {
-                //  expectedProductList.add("[class='cart_item']");
-                str=driver.findElements(By.xpath(ROW_NAME)).get(i).getText();
-                System.out.println("str"+str);
-                expectedProductList.add(driver.findElements(By.xpath(ROW_NAME)).get(i).getText());
+                expectedReportList.add(driver.findElements(By.xpath(ROW_NAME)).get(i).getText());
             }
-            return expectedProductList;
+            return expectedReportList;
         } else {
             return null;
         }
@@ -53,18 +42,13 @@ public class Table extends AbstractComponent {
 
     public List<String> ListOfDateActivity(String activity) {
         List<WebElement> elems;
-        List<String> expectedProductList = new ArrayList<>();
-        String str;
-        if (!CheckListOfProducts()) {
+        List<String> expectedReportList = new ArrayList<>();
+        if (!CheckListInReport()) {
             elems = driver.findElements(TABLE_PATTERN);
-            System.out.println("size:"+elems.size());
             for (int i = 0; i < elems.size(); i++) {
-                //  expectedProductList.add("[class='cart_item']");
-                str=driver.findElements(By.xpath(String.format(ROW_ACTIVITY_NAME, activity))).get(i).getText();
-                System.out.println("str"+str);
-                expectedProductList.add(driver.findElements(By.xpath(String.format(ROW_ACTIVITY_NAME, activity))).get(i).getText());
+                expectedReportList.add(driver.findElements(By.xpath(String.format(ROW_ACTIVITY_NAME, activity))).get(i).getText());
             }
-            return expectedProductList;
+            return expectedReportList;
         } else {
             return null;
         }

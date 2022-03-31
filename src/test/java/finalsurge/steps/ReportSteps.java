@@ -54,6 +54,7 @@ public class ReportSteps extends AbstractSteps {
         return this;
     }
 
+    @Step("Check report by dates")
     public ReportSteps checkDateInReport() {
         Table table = new Table(driver);
         String partOfStartDate = startDate.substring(0, startDate.length() - 5);
@@ -70,11 +71,11 @@ public class ReportSteps extends AbstractSteps {
                 }
             }
         }
-
         Assert.assertTrue(result, "Selected data doesn't match the result");
         return this;
     }
 
+    @Step("Check report by dates and Activity")
     public ReportSteps checkDateAndActivityInReport() {
         Table table = new Table(driver);
         String partOfStartDate = startDate.substring(0, startDate.length() - 5);
@@ -93,7 +94,6 @@ public class ReportSteps extends AbstractSteps {
                 }
             }
         }
-
         Assert.assertTrue(result, "Selected data doesn't match the result");
         return this;
     }

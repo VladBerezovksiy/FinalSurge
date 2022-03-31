@@ -1,7 +1,6 @@
 package finalsurge.tests.positive;
 
 import finalsurge.tests.BaseTest;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ReportTest extends BaseTest {
