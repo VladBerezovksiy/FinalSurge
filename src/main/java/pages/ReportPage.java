@@ -16,6 +16,7 @@ public class ReportPage extends BasePage {
 
     @Override
     public void waitPageLoaded() {
+        explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(BREADCRUMBS));
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(REPORT_FILTERS_TITLE));
     }
 
