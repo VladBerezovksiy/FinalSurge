@@ -7,8 +7,8 @@ public class ReportTest extends BaseTest {
 
     @Test
     public void checkReportByDate() {
-            mainSteps.
-                openFinalSurge()
+        mainSteps
+                .openFinalSurge()
                 .loginWithValidCredits()
                 .openReportPage()
                 .removeValueByDefaultFromCalendars()
@@ -19,13 +19,13 @@ public class ReportTest extends BaseTest {
 
     @Test
     public void checkReportByDateAndActivityType() {
-        mainSteps.
-                openFinalSurge()
+        mainSteps
+                .openFinalSurge()
                 .loginWithValidCredits()
                 .openReportPage()
                 .removeValueByDefaultFromCalendars()
                 .addValueToCalendars()
-                  .selectActivityType()
+                .selectActivityType()
                 .clickButtonViewReport()
                 .checkDateAndActivityInReport();
     }

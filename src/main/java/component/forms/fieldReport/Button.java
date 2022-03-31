@@ -5,16 +5,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class Button extends AbstractComponent {
+
     private static final By BUTTON_PATTERN = By.id("saveButton");
-    private String label;
+
+
     public Button(WebDriver driver) {
         super(driver);
     }
 
-
     @Override
     public boolean isComponentDisplayed() {
-        return false;
+        return driver.findElement(BUTTON_PATTERN).isDisplayed();
     }
 
     public void clickButton() {

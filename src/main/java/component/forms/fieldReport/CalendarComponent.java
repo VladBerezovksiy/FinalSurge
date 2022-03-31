@@ -6,9 +6,10 @@ import org.openqa.selenium.WebDriver;
 
 public class CalendarComponent extends AbstractComponent {
 
-    private static final String CALENDAR_PATTERN = "//label[contains(.,'%s')]/ancestor::div[@class='span2']//input";
-    private String label;
-    private By inputLocator;
+    private static final String CALENDAR_PATTERN =
+            "//label[contains(.,'%s')]/ancestor::div[@class='span2']//input";
+    private final String label;
+    private final By inputLocator;
 
     public CalendarComponent(WebDriver driver, String label) {
         super(driver);
@@ -18,7 +19,7 @@ public class CalendarComponent extends AbstractComponent {
 
     @Override
     public boolean isComponentDisplayed() {
-        return false;
+        return driver.findElement(inputLocator).isDisplayed();
     }
 
     public void deleteValueByDefault() {

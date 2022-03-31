@@ -5,13 +5,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-
 public class Select extends AbstractComponent {
 
-    private static final String SELECT_OPTION_PATTERN = "//label[contains(.,'%s')]/ancestor::form[@id='dash-form']//select/option[contains(.,'%s')]";
-    private static final String SELECT_PATTERN = "//label[contains(.,'%s')]/ancestor::form[@id='dash-form']//select";
-    private String label;
-    private By selectLocator;
+    private static final String SELECT_OPTION_PATTERN =
+            "//label[contains(.,'%s')]/ancestor::form[@id='dash-form']//select/option[contains(.,'%s')]";
+    private static final String SELECT_PATTERN =
+            "//label[contains(.,'%s')]/ancestor::form[@id='dash-form']//select";
+    private final String label;
+    private final By selectLocator;
+
 
     public Select(WebDriver driver, String label) {
         super(driver);
@@ -21,7 +23,7 @@ public class Select extends AbstractComponent {
 
     @Override
     public boolean isComponentDisplayed() {
-        return false;
+        return driver.findElement(selectLocator).isDisplayed();
     }
 
     private void openOptionsPopup() {

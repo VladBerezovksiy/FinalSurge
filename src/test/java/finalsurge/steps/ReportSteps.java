@@ -10,6 +10,7 @@ import org.testng.Assert;
 import pages.ReportPage;
 
 public class ReportSteps extends AbstractSteps {
+
     private ReportPage reportPage;
     private String startDate = "4/4/2022";
     private String endDate = "4/6/2022";
@@ -86,7 +87,7 @@ public class ReportSteps extends AbstractSteps {
             for (int i = 0; i < table.ListOfDate().size(); i++) {
                 if (((table.ListOfDate().get(i).contains(partOfStartDate)) ||
                         (table.ListOfDate().get(i).contains(partOfEndDate))) &&
-                        (table.ListOfDateActivity(option).get(i).contains(option))) {
+                        (table.listOfDateActivity(option).get(i).contains(option))) {
 
                     result = true;
                 } else {

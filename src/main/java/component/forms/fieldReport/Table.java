@@ -9,10 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Table extends AbstractComponent {
-    private static final By TABLE_PATTERN = By.xpath("//div[contains(@class,'w-box-content')]/table");
-    private static final String ROW_NAME="//td[@nowrap]";
-    private static final String ROW_ACTIVITY_NAME= "//td/a[contains(.,'%s')]";
-    private String label;
+
+    private static final By TABLE_PATTERN =
+            By.xpath("//div[contains(@class,'w-box-content')]/table");
+    private static final String ROW_NAME = "//td[@nowrap]";
+    private static final String ROW_ACTIVITY_NAME = "//td/a[contains(.,'%s')]";
+
+
     public Table(WebDriver driver) {
         super(driver);
     }
@@ -22,14 +25,14 @@ public class Table extends AbstractComponent {
         return false;
     }
 
-    public boolean CheckListInReport() {
+    public boolean checkListInReport() {
         return driver.findElements(TABLE_PATTERN).isEmpty();
     }
 
     public List<String> ListOfDate() {
         List<WebElement> elems;
         List<String> expectedReportList = new ArrayList<>();
-        if (!CheckListInReport()) {
+        if (!checkListInReport()) {
             elems = driver.findElements(TABLE_PATTERN);
             for (int i = 0; i < elems.size(); i++) {
                 expectedReportList.add(driver.findElements(By.xpath(ROW_NAME)).get(i).getText());
@@ -40,13 +43,15 @@ public class Table extends AbstractComponent {
         }
     }
 
-    public List<String> ListOfDateActivity(String activity) {
+    public List<String> listOfDateActivity(String activity) {
         List<WebElement> elems;
         List<String> expectedReportList = new ArrayList<>();
-        if (!CheckListInReport()) {
+        if (!checkListInReport()) {
             elems = driver.findElements(TABLE_PATTERN);
             for (int i = 0; i < elems.size(); i++) {
-                expectedReportList.add(driver.findElements(By.xpath(String.format(ROW_ACTIVITY_NAME, activity))).get(i).getText());
+                expectedReportList.add(
+                        driver.findElements(By.xpath(String.format(ROW_ACTIVITY_NAME, activity))).get(i).getText()
+                );
             }
             return expectedReportList;
         } else {
