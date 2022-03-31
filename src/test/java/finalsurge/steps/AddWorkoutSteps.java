@@ -1,9 +1,9 @@
 package finalsurge.steps;
 
 import component.forms.CreateActivityFormComponent;
-import component.forms.field.DropDown;
-import component.forms.field.Input;
-import component.forms.field.RadioButton;
+import component.forms.fieldAddWorkout.DropDown;
+import component.forms.fieldAddWorkout.Input;
+import component.forms.fieldAddWorkout.RadioButton;
 import io.qameta.allure.Step;
 import models.WorkoutModel;
 import org.openqa.selenium.WebDriver;

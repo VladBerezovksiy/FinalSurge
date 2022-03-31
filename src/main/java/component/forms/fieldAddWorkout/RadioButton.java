@@ -1,4 +1,4 @@
-package component.forms.field;
+package component.forms.fieldAddWorkout;
 
 import component.AbstractComponent;
 import org.openqa.selenium.By;
