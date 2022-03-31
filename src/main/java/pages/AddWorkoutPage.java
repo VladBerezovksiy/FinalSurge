@@ -11,7 +11,8 @@ public class AddWorkoutPage extends BasePage {
     private static final By BREADCRUMBS = By.xpath("//ul[@id='breadcrumbs']//a[contains(.,'Add Workout')]");
     private static final String SELECT_ACTIVITY_PATTERN =
             "//div[@id='blog_accordion_left']//a[contains(.,'%s')]/ancestor::div[@class='accordion-group']";
-    private static final String OPTION_ACTIVITY_PATTERN = "%s//a[text()='%s']";
+    private static final String OPTION_ACTIVITY_PATTERN =
+            "//div[@id='blog_accordion_left']//a[contains(.,'%s')]/ancestor::div[@class='accordion-group']//a[text()='%s']";
 
     public AddWorkoutPage(WebDriver driver) {
         super(driver);
@@ -19,14 +20,10 @@ public class AddWorkoutPage extends BasePage {
 
     public void selectAnyActivityType(String label, String option) {
         driver.findElement(By.xpath(String.format(SELECT_ACTIVITY_PATTERN, label))).click();
-        explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(
-                        OPTION_ACTIVITY_PATTERN,
-                        SELECT_ACTIVITY_PATTERN, option)))
-        );
+        explicitlyWait.until(ExpectedConditions
+                .visibilityOfElementLocated(By.xpath(String.format(OPTION_ACTIVITY_PATTERN, label, option))));
         driver.findElement(By.xpath(String.format(
-                OPTION_ACTIVITY_PATTERN,
-                SELECT_ACTIVITY_PATTERN, option))
-        ).click();
+                OPTION_ACTIVITY_PATTERN, label, option))).click();
     }
 
     @Override

@@ -21,9 +21,11 @@ public class SignUpPage extends BasePage {
     public SignUpPage(WebDriver driver) {
         super(driver);
     }
+
     public void openSignInPage() {
         driver.findElement(SIGNIN_LINK).click();
     }
+
     public void signUp(String firstname, String lastname, String email, String password, String retypePassword) {
         log.info("Insert [{}] into [{}] field", firstname, "firstname");
         driver.findElement(By.id(FIRSTNAME_FIELD)).sendKeys(firstname);

@@ -15,7 +15,6 @@ public class LoginPage extends BasePage {
     private static final By LOGIN_BUTTON = By.xpath("//button[@type='submit' and text()='Login']");
 
 
-
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -24,8 +23,6 @@ public class LoginPage extends BasePage {
     public void waitPageLoaded() {
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_BUTTON));
     }
-
-
 
     public void authentication(String username, String password) {
         log.info("Insert [{}] into [{}] field", username,"username");

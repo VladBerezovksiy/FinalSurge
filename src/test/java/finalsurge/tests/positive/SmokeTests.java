@@ -13,14 +13,6 @@ public class SmokeTests extends BaseTest {
                 .loginWithValidCredits();
     }
 
-    @Test
-    public void addWorkoutTest() {
-        mainSteps
-                .openLoginPage()
-                .loginWithValidCredits()
-                .openAddWorkout();
-    }
-
     @Test (dataProvider = "Input data for valid reg", dataProviderClass = DataProviders.class)
     public void createNewUser(String firstname, String lastname, String email, String password, String retypePassword) {
         mainSteps
