@@ -14,6 +14,7 @@ public class MainSteps extends AbstractSteps {
     private SignUpPage signUpPage;
     private AddWorkoutButton addWorkoutButton;
     private ReportButton reportButton;
+    private ReportPage reportPage;
 
     private static final String VALID_LOGIN = PropertiesUtils.getEnv("valid_login");
     private static final String VALID_PASSWORD = PropertiesUtils.getEnv("valid_password");
@@ -120,7 +121,7 @@ public class MainSteps extends AbstractSteps {
     }
 
     @Step("Open 'Report' page")
-    public MainSteps openReportPage() {
+    public ReportSteps openReportPage() {
         reportButton = new ReportButton(driver);
         Assert.assertTrue(
                 reportButton.isComponentDisplayed(),
@@ -128,6 +129,6 @@ public class MainSteps extends AbstractSteps {
         );
         reportButton.click();
         validatePageIsLoaded(new ReportPage(driver));
-        return this;
+        return new ReportSteps(driver);
     }
 }
