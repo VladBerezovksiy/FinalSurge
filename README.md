@@ -36,12 +36,11 @@
 | *   | Add Workout     | Add workout with valid data                                        | Vlad    | Done   |
 | *   | Workout Details | 'Workout Details' page loaded                                      | Vlad    | Done   |
 | *   | Workout Details | Check that added workout value matched                             | Vlad    | Done   |
-| *   | Reports         | Open "Reports & Statistics" page                                   | Nadya   |        |
-| *   | Reports         | Displaying the report when only the period is selected             | Nadya   |        |
-| *   | Reports         | Displaying the report when all filters are selected                | Nadya   |        |
+| *   | Reports         | Opening "Reports & Statistics" page from the main menu             | Nadya   | Done   |
+| *   | Reports         | Displaying the report when only the period is selected             | Nadya   | Done   |
+| *   | Reports         | Displaying the report when all filters are selected                | Nadya   | Done   |
 | *   | Reports         | Displaying the message if data isn't matched the filter's elements | Nadya   |        |
 | *   | Reports         | Displaying the message if "End Date" is less "Start Date"          | Nadya   |        |
 | *   | Reports         | Adding the comment to the workout                                  | Nadya   |        |
 | *   | Reports         | Deleting the comment from the workout                              | Nadya   |        |
 | *   | Reports         | Opening "Reports & Statistics" page from the home page             | Nadya   |        |
-| *   | Reports         | Opening "Reports & Statistics" page from the main menu             | Nadya   |        |
