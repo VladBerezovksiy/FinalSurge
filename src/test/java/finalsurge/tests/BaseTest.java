@@ -28,6 +28,8 @@ public class BaseTest {
                 WindowSizeConstants.HEIGHT_WINDOW
         );
         setContextAttribute(iTestContext, "driver", driver);
+        log.info("Size of window browser [{}]x[{}]",
+                WindowSizeConstants.HEIGHT_WINDOW, WindowSizeConstants.WIGHT_WINDOW);
         driver.manage().window().setSize(dimension);
         mainSteps = new MainSteps(driver);
     }

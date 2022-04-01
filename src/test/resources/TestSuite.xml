@@ -2,28 +2,27 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="ForceSurge" parallel="tests" thread-count="4">
 
-    <!--Надо разделить по группам, дописать тесты с 'negative' папки,
-     увеличить потоки, и то чо по требования в Дипломе-->
+    <!--Разбить на группы и изм. параллель-->
 
     <test name="AddWorkoutTest">
         <classes>
             <class name="finalsurge.tests.positive.AddWorkoutTest"/>
         </classes>
     </test>
-    <test name="ReportTest">
+    <!--<test name="ReportTest">
         <classes>
             <class name="finalsurge.tests.positive.ReportTest"/>
         </classes>
-    </test>
+    </test>-->
     <!--<test name="RegistrationTest">
         <classes>
             <class name="finalsurge.tests.negative.Regis"/>
         </classes>
     </test>-->
-    <test name="SignUpTest">
+    <!--<test name="SignUpTest">
         <classes>
             <class name="finalsurge.tests.positive.SignUpTest"/>
         </classes>
-    </test>
+    </test>-->
 
 </suite>

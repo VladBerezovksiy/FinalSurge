@@ -28,8 +28,9 @@ public class MainSteps extends AbstractSteps {
         super(driver);
     }
 
+    // Надо добавить URL
     @Step("Open 'Login' page")
-    @Link("https://log.finalsurge.com/login.cshtml")
+    @Link(url = "https://log.finalsurge.com/login.cshtml", name = "Final Surge")
     public MainSteps openLoginPage() {
         loginPage = new LoginPage(driver);
         loginPage.openPage();
@@ -53,7 +54,8 @@ public class MainSteps extends AbstractSteps {
         return new SignUpSteps(driver);
     }
 
-    @Step("Sign in with valid credentials")
+    // Надо добавить кредентиалс
+    @Step("Sign in with valid credential")
     @Description("Check that it is possible to enter the site with a valid login and password")
     public MainSteps loginWithValidCredits() {
         loginPage.authentication(
@@ -64,6 +66,7 @@ public class MainSteps extends AbstractSteps {
         return this;
     }
 
+    // Надо добавить кредентиалс
     @Step("Sign in with invalid credentials")
     @Description("Check that it is impossible to enter the site with a invalid login and password")
     public MainSteps loginWithInvalidCredits() {
@@ -75,6 +78,7 @@ public class MainSteps extends AbstractSteps {
         return this;
     }
 
+    // Надо добавить кредентиалс
     @Step("Sign in with invalid Email")
     @Description("Check that it is impossible to enter the site with a invalid login")
     public MainSteps loginWithInvalidEmail() {
@@ -86,6 +90,7 @@ public class MainSteps extends AbstractSteps {
         return this;
     }
 
+    // Надо добавить кредентиалс
     @Step("Sign in with invalid Password")
     @Description("Check that it is impossible to enter the site with a invalid password")
     public MainSteps loginWithInvalidPassword() {
@@ -97,6 +102,7 @@ public class MainSteps extends AbstractSteps {
         return this;
     }
 
+    // Надо добавить кредентиалс
     @Step("Sign in with empty Email field")
     @Description("Check that it is impossible to enter the site without a login")
     public MainSteps loginWithEmptyEmailField() {
@@ -108,6 +114,7 @@ public class MainSteps extends AbstractSteps {
         return this;
     }
 
+    // Надо добавить кредентиалс
     @Step("Sign in with empty Password field")
     @Description("Check that it is impossible to enter the site without a password")
     public MainSteps loginWithEmptyPasswordField() {

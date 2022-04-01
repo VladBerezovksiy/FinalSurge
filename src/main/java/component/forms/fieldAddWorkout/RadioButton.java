@@ -1,9 +1,11 @@
 package component.forms.fieldAddWorkout;
 
 import component.AbstractComponent;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class RadioButton extends AbstractComponent {
 
     public static final String RADIO_BUTTON_LOCATOR_PATTERN =
@@ -22,6 +24,7 @@ public class RadioButton extends AbstractComponent {
     }
 
     public void click() {
+        log.info("Click on RadioButton");
         driver.findElement(radioButtonLocator).click();
     }
 }

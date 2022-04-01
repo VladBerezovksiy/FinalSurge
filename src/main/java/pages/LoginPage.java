@@ -35,6 +35,7 @@ public class LoginPage extends BasePage {
 
     @Override
     public BasePage openPage() {
+        log.info("Insert [{}] into [{}] field", BASE_URL,"url");
         driver.get(BASE_URL);
         return this;
     }
