@@ -44,3 +44,12 @@
 | *   | Reports         | Adding the comment to the workout                                  | Nadya   |        |
 | *   | Reports         | Deleting the comment from the workout                              | Nadya   |        |
 | *   | Reports         | Opening "Reports & Statistics" page from the home page             | Nadya   |        |
+
+
+Запуск групп тестов: mvn clean test -Dgroups=negative,smoke
+
+Запуск allure: allure serve target/allure-results
+
+
+
+

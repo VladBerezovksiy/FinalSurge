@@ -7,54 +7,60 @@
 
 
     <test name="AddWorkoutTest">
-        <groups>
-            <run>
-                <include name="smoke"/>
-            </run>
-        </groups>
-        <classes>
-            <class name="finalsurge.tests.positive.AddWorkoutTest"/>
-        </classes>
-    </test>
-    <test name="ReportTest">
-        <groups>
-            <run>
-                <include name="smoke"/>
-                <exclude name="negative"/>
+        <!--      <groups>
+                 <run>
+                     <include name="smoke"/>
+                 </run>
+             </groups>-->
+             <classes>
+                 <class name="finalsurge.tests.positive.AddWorkoutTest"/>
+             </classes>
+         </test>
+         <test name="ReportTest">
+             <!--     <groups>
+                      <run>
+                          <include name="smoke"/>
+                          <exclude name="negative"/>
 
-            </run>
-        </groups>
+                      </run>
+                  </groups>-->
 
-        <classes>
-            <class name="finalsurge.tests.positive.ReportTest"/>
-        </classes>
-    </test>
-    <test name="ReportTest1">
-        <groups>
-            <run>
-                <include name="negative"/>
-                <exclude name="smoke"/>
-            </run>
-        </groups>
+                  <classes>
+                      <class name="finalsurge.tests.positive.ReportTest"/>
+                  </classes>
+              </test>
+              <test name="ReportTest1">
+                  <!--        <groups>
+                              <run>
+                                  <include name="negative"/>
+                                  <exclude name="smoke"/>
+                              </run>
+                          </groups>-->
 
-        <classes>
-            <class name="finalsurge.tests.positive.ReportTest"/>
-        </classes>
-    </test>
-    <!--<test name="RegistrationTest">
-        <classes>
-            <class name="finalsurge.tests.negative.Regis"/>
-        </classes>
-    </test>-->
-    <test name="SignUpTest">
-        <groups>
-            <run>
-                <include name="smoke"/>
-            </run>
-        </groups>
-        <classes>
-            <class name="finalsurge.tests.positive.SignUpTest"/>
-        </classes>
-    </test>
+                  <classes>
+                      <class name="finalsurge.tests.positive.ReportTest"/>
+                  </classes>
+              </test>
+              <test name="SignUpTest">
+                  <!--        <groups>
+                              <run>
+                                  <include name="smoke"/>
+                              </run>
+                          </groups>-->
+                  <classes>
+                      <class name="finalsurge.tests.positive.SignUpTest"/>
+                  </classes>
+              </test>
+              <test name="RegistrationTest">
+                  <!--        <groups>
+                              <run>
+                                  <include name="negative"/>
+                              </run>
+                          </groups>-->
 
-</suite>
+                  <classes>
+                      <class name="finalsurge.tests.negative.RegistrationTests"/>
+                  </classes>
+              </test>
+
+          </suite>

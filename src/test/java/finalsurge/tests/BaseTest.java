@@ -18,7 +18,7 @@ public class BaseTest {
     protected WebDriver driver;
     protected MainSteps mainSteps;
 
-    @BeforeMethod(alwaysRun = true, groups={"smoke", "negative"})
+    @BeforeMethod(alwaysRun = true)
     public void setup(ITestContext iTestContext) {
         driver = new ChromeDriver(CapabilitiesGenerator.getChromeOptions());
         Dimension dimension = new Dimension(
