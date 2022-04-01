@@ -1,13 +1,11 @@
 package finalsurge.tests.positive;
 
 import finalsurge.tests.BaseTest;
-import io.qameta.allure.Link;
 import org.testng.annotations.Test;
 
 public class ReportTest extends BaseTest {
 
     @Test (groups="negative")
-
     public void checkReportByDate() {
         mainSteps
                 .openFinalSurge()

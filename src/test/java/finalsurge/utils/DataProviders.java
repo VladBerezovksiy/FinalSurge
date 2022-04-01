@@ -3,6 +3,7 @@ package finalsurge.utils;
 import org.testng.annotations.DataProvider;
 
 public class DataProviders {
+
     private static final String FIRSTNAME_PARAM = PropertiesUtils.getEnv("firstname_param");
     private static final String LASTNAME_PARAM = PropertiesUtils.getEnv("lastname_param");
     private static final int random = (int) (Math.random() * 1000);

@@ -44,10 +44,21 @@
 | *   | Reports         | Adding the comment to the workout                                  | Nadya   |        |
 | *   | Reports         | Deleting the comment from the workout                              | Nadya   |        |
 | *   | Reports         | Opening "Reports & Statistics" page from the home page             | Nadya   |        |
+| *   | Workout Library | 'Workout Library' page loaded                                      | Vlad    |        |
+| *   | Workout Library | Breadcrumbs display                                                | Vlad    |        |
+| *   | Workout Library | Form display                                                       | Vlad    |        |
+| *   | Workout Library | Fields displayed                                                   | Vlad    |        |
+| *   | Workout Library | 'Add Workout' button display                                       | Vlad    |        |
+| *   | Workout Library | Choose any activity type from Form                                 | Vlad    |        |
+| *   | Workout Library |                                                                    | Vlad    |        |
+| *   | Workout Library |                                                                    | Vlad    |        |
+| *   | Workout Library |                                                                    | Vlad    |        |
 
 
+### TestNg command for run
 Запуск групп тестов: mvn clean test -Dgroups=negative,smoke
 
+### Allure command for run
 Запуск allure: allure serve target/allure-results
 
 
