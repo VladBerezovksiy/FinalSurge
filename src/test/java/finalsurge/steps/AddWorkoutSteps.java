@@ -20,7 +20,7 @@ public class AddWorkoutSteps extends AbstractSteps {
         super(driver);
     }
 
-    @Step("Create new Workout")
+    @Step("Create new Workout with {label} activity and {option} option")
     @Description("Check that it is possible to add valid data in Workout Form")
     public AddWorkoutSteps createNewWorkout(String label, String option) {
         addWorkoutPage = new AddWorkoutPage(driver);
@@ -44,7 +44,7 @@ public class AddWorkoutSteps extends AbstractSteps {
         new RadioButton(driver, workoutModel.getHowIFeel()).click();
     }
 
-    @Step("Check value from 'Workout Details' page is valid")
+    @Step("Check data from 'Workout Details' page is matched")
     @Description("Check that added data from 'Workout Details' page is matched")
     public void validateWorkoutCreated(WorkoutModel expectedModel) {
         Assert.assertEquals(

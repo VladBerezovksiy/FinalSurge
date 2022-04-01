@@ -1,9 +1,11 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+@Log4j2
 public class AddWorkoutPage extends BasePage {
 
     private static final String BASE_URL = "https://log.finalsurge.com/WorkoutAdd.cshtml";
@@ -14,14 +16,17 @@ public class AddWorkoutPage extends BasePage {
     private static final String OPTION_ACTIVITY_PATTERN =
             "//div[@id='blog_accordion_left']//a[contains(.,'%s')]/ancestor::div[@class='accordion-group']//a[text()='%s']";
 
+
     public AddWorkoutPage(WebDriver driver) {
         super(driver);
     }
 
     public void selectAnyActivityType(String label, String option) {
+        log.info("Click [{}] activity in sidebar", label);
         driver.findElement(By.xpath(String.format(SELECT_ACTIVITY_PATTERN, label))).click();
         explicitlyWait.until(ExpectedConditions
                 .visibilityOfElementLocated(By.xpath(String.format(OPTION_ACTIVITY_PATTERN, label, option))));
+        log.info("Click [{}] activity in [{}] option", label, option);
         driver.findElement(By.xpath(String.format(
                 OPTION_ACTIVITY_PATTERN, label, option))).click();
     }
