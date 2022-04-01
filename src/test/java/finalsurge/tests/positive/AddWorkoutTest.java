@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class AddWorkoutTest extends BaseTest {
 
-    @Test
+    @Test (groups="smoke")
     public void addWorkoutTest() {
         mainSteps
                 .openLoginPage()

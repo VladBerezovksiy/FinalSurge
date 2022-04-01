@@ -4,6 +4,7 @@ import component.forms.fieldReport.Button;
 import component.forms.fieldReport.CalendarComponent;
 import component.forms.fieldReport.Select;
 import component.forms.fieldReport.Table;
+import io.qameta.allure.Link;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -31,6 +32,7 @@ public class ReportSteps extends AbstractSteps {
     }
 
     @Step("Insert data to the calendar's fields")
+    @Link("https://instagram.com/dmitryrak11")
     public ReportSteps addValueToCalendars() {
         reportPage = new ReportPage(driver);
         reportPage.waitPageLoaded();
