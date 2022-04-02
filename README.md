@@ -1,4 +1,22 @@
-# FinalSurge
+# [FinalSurge](https://log.finalsurge.com/)
+
+### TestNg command for run
+**Запуск групп тестов:**
+```
+mvn clean test -Dgroups=negative,smoke
+```
+
+### Allure command for run
+**Запуск allure:**
+```
+allure serve target/allure-results_
+```
+```
+mvn allure:serve
+```
+```
+mvn allure:report
+```
 
 ### Tests
 
@@ -62,11 +80,6 @@
 | *   | Shoes           |                                                                    | Vlad    |        |
 
 
-### TestNg command for run
-Запуск групп тестов: mvn clean test -Dgroups=negative,smoke
-
-### Allure command for run
-Запуск allure: allure serve target/allure-results
 
 
 

@@ -1,13 +1,14 @@
-package finalsurge.steps;
+package finalsurge.steps.workouts;
 
 import component.forms.CreateActivityFormComponent;
 import component.forms.fieldWorkoutLibrary.DropDown;
 import component.forms.fieldWorkoutLibrary.Input;
+import finalsurge.steps.AbstractSteps;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import pages.WorkoutLibraryPage;
+import pages.workouts.WorkoutLibraryPage;
 
 public class WorkoutLibraryStep extends AbstractSteps {
 

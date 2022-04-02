@@ -1,15 +1,28 @@
-package finalsurge.steps;
+package finalsurge.steps.home;
 
-import component.button.menu.AddWorkoutButton;
-import component.button.menu.ReportButton;
-import component.button.menu.WorkoutLibraryButton;
+import component.button.menu.gearRoutes.ShoesButton;
+import component.button.menu.workouts.AddWorkoutButton;
+import component.button.menu.workouts.ReportButton;
+import component.button.menu.workouts.WorkoutLibraryButton;
+import finalsurge.steps.AbstractSteps;
+import finalsurge.steps.authorization.SignUpSteps;
+import finalsurge.steps.gearRoutes.ShoesSteps;
+import finalsurge.steps.workouts.AddWorkoutSteps;
+import finalsurge.steps.workouts.ReportSteps;
+import finalsurge.steps.workouts.WorkoutLibraryStep;
 import finalsurge.utils.PropertiesUtils;
 import io.qameta.allure.Description;
 import io.qameta.allure.Link;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import pages.*;
+import pages.authorization.LoginPage;
+import pages.authorization.SignUpPage;
+import pages.gearRoutes.ShoesPage;
+import pages.home.DashboardPage;
+import pages.workouts.AddWorkoutPage;
+import pages.workouts.ReportPage;
+import pages.workouts.WorkoutLibraryPage;
 
 public class MainSteps extends AbstractSteps {
 
@@ -18,6 +31,7 @@ public class MainSteps extends AbstractSteps {
     private AddWorkoutButton addWorkoutButton;
     private ReportButton reportButton;
     private WorkoutLibraryButton workoutLibraryButton;
+    private ShoesButton shoesButton;
 
     private static final String VALID_LOGIN = PropertiesUtils.getEnv("valid_login");
     private static final String VALID_PASSWORD = PropertiesUtils.getEnv("valid_password");
@@ -129,7 +143,7 @@ public class MainSteps extends AbstractSteps {
     }
 
     @Step("Open 'Add Workout' page")
-    @Description("Check that it is possible to open 'Add Workout' page from Header")
+    @Description("Check that it is possible to open 'Add Workout' page from Menu")
     public AddWorkoutSteps openAddWorkout() {
         addWorkoutButton = new AddWorkoutButton(driver);
         Assert.assertTrue(
@@ -154,7 +168,7 @@ public class MainSteps extends AbstractSteps {
     }
 
     @Step("Open 'Workout Library' page")
-    @Description("Check that it is possible to open 'Workout Library' page from Header")
+    @Description("Check that it is possible to open 'Workout Library' page from Menu")
     public WorkoutLibraryStep openWorkoutLibrary() {
         workoutLibraryButton = new WorkoutLibraryButton(driver);
         Assert.assertTrue(
@@ -164,5 +178,18 @@ public class MainSteps extends AbstractSteps {
         workoutLibraryButton.click();
         validatePageIsLoaded(new WorkoutLibraryPage(driver));
         return new WorkoutLibraryStep(driver);
+    }
+
+    @Step("Open 'Shoes' page")
+    @Description("Check that it is possible to open 'Shoes' page from Menu")
+    public ShoesSteps openShoes() {
+        shoesButton = new ShoesButton(driver);
+        Assert.assertTrue(
+                shoesButton.isComponentDisplayed(),
+                shoesButton.getClass().getSimpleName().concat(" is not displayed")
+        );
+        shoesButton.click();
+        validatePageIsLoaded(new ShoesPage(driver));
+        return  new ShoesSteps(driver);
     }
 }

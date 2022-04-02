@@ -16,10 +16,10 @@ public class DropDown extends AbstractComponent {
     private final By optionLocator;
     private final By dropDownLocator;
 
-    public DropDown(WebDriver driver,String label, String optionName) {
+    public DropDown(WebDriver driver, String label, String optionName) {
         super(driver);
-        this.optionLocator = By.xpath(String.format(OPTION_LIST_PATTERN, label, optionName));
         this.dropDownLocator = By.xpath(String.format(DROPDOWN_LOCATOR_PATTERN, label));
+        this.optionLocator = By.xpath(String.format(OPTION_LIST_PATTERN, label, optionName));
     }
 
     @Override

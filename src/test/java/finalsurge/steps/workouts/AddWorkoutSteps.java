@@ -1,16 +1,17 @@
-package finalsurge.steps;
+package finalsurge.steps.workouts;
 
 import component.forms.CreateActivityFormComponent;
 import component.forms.fieldAddWorkout.DropDown;
 import component.forms.fieldAddWorkout.Input;
 import component.forms.fieldAddWorkout.RadioButton;
+import finalsurge.steps.AbstractSteps;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import models.WorkoutModel;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import pages.AddWorkoutPage;
-import pages.WorkoutDetailsPage;
+import pages.workouts.AddWorkoutPage;
+import pages.workouts.WorkoutDetailsPage;
 
 public class AddWorkoutSteps extends AbstractSteps {
 

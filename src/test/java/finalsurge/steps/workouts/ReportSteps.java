@@ -1,14 +1,15 @@
-package finalsurge.steps;
+package finalsurge.steps.workouts;
 
 import component.forms.fieldReport.Button;
 import component.forms.fieldReport.CalendarComponent;
 import component.forms.fieldReport.Select;
 import component.forms.fieldReport.Table;
+import finalsurge.steps.AbstractSteps;
 import io.qameta.allure.Link;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import pages.ReportPage;
+import pages.workouts.ReportPage;
 
 public class ReportSteps extends AbstractSteps {
 

@@ -1,9 +1,10 @@
-package finalsurge.steps;
+package finalsurge.steps.authorization;
 
+import finalsurge.steps.AbstractSteps;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
-import pages.DashboardPage;
-import pages.SignUpPage;
+import pages.home.DashboardPage;
+import pages.authorization.SignUpPage;
 
 public class SignUpSteps extends AbstractSteps {
 

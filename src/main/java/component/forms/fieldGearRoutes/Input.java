@@ -1,11 +1,9 @@
-package component.forms.fieldAddWorkout;
+package component.forms.fieldGearRoutes;
 
 import component.AbstractComponent;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @Log4j2
 public class Input extends AbstractComponent {
@@ -21,12 +19,7 @@ public class Input extends AbstractComponent {
 
     @Override
     public boolean isComponentDisplayed() {
-        try {
-            explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(inputLocator));
-        } catch (TimeoutException exception) {
-            return false;
-        }
-        return true;
+        return driver.findElement(inputLocator).isDisplayed();
     }
 
     public void insert(String text) {

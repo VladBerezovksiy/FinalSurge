@@ -6,7 +6,7 @@ import pages.BasePage;
 
 public abstract class AbstractSteps {
 
-    WebDriver driver;
+    protected WebDriver driver;
 
     public AbstractSteps(WebDriver driver) {
         this.driver = driver;

@@ -1,5 +1,6 @@
-package component.button.menu;
+package component.button.menu.workouts;
 
+import component.button.menu.AbstractMenuButton;
 import org.openqa.selenium.WebDriver;
 
 public class AddWorkoutButton extends AbstractMenuButton {

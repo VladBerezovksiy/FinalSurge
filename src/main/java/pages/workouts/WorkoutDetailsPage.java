@@ -1,8 +1,9 @@
-package pages;
+package pages.workouts;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import pages.BasePage;
 
 public class WorkoutDetailsPage extends BasePage {
 
