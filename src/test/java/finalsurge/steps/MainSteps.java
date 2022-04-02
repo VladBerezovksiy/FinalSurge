@@ -2,6 +2,7 @@ package finalsurge.steps;
 
 import component.button.menu.AddWorkoutButton;
 import component.button.menu.ReportButton;
+import component.button.menu.WorkoutLibraryButton;
 import finalsurge.utils.PropertiesUtils;
 import io.qameta.allure.Description;
 import io.qameta.allure.Link;
@@ -16,6 +17,7 @@ public class MainSteps extends AbstractSteps {
     private SignUpPage signUpPage;
     private AddWorkoutButton addWorkoutButton;
     private ReportButton reportButton;
+    private WorkoutLibraryButton workoutLibraryButton;
 
     private static final String VALID_LOGIN = PropertiesUtils.getEnv("valid_login");
     private static final String VALID_PASSWORD = PropertiesUtils.getEnv("valid_password");
@@ -149,5 +151,18 @@ public class MainSteps extends AbstractSteps {
         reportButton.click();
         validatePageIsLoaded(new ReportPage(driver));
         return new ReportSteps(driver);
+    }
+
+    @Step("Open 'Workout Library' page")
+    @Description("Check that it is possible to open 'Workout Library' page from Header")
+    public WorkoutLibraryStep openWorkoutLibrary() {
+        workoutLibraryButton = new WorkoutLibraryButton(driver);
+        Assert.assertTrue(
+                workoutLibraryButton.isComponentDisplayed(),
+                workoutLibraryButton.getClass().getSimpleName().concat(" is not displayed")
+        );
+        workoutLibraryButton.click();
+        validatePageIsLoaded(new WorkoutLibraryPage(driver));
+        return new WorkoutLibraryStep(driver);
     }
 }

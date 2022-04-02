@@ -14,7 +14,6 @@ public class CreateActivityFormComponent extends AbstractComponent {
     private static final By HEADER = By.xpath("//h4[contains(.,'Add New Workout')]");
     private static final By SAVE_BUTTON = By.xpath("//input[@id='saveButton']");
 
-
     public CreateActivityFormComponent(WebDriver driver) {
         super(driver);
     }
