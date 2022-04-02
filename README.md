@@ -44,15 +44,22 @@
 | *   | Reports         | Adding the comment to the workout                                  | Nadya   |        |
 | *   | Reports         | Deleting the comment from the workout                              | Nadya   |        |
 | *   | Reports         | Opening "Reports & Statistics" page from the home page             | Nadya   |        |
-| *   | Workout Library | 'Workout Library' page loaded                                      | Vlad    |        |
-| *   | Workout Library | Breadcrumbs display                                                | Vlad    |        |
-| *   | Workout Library | Form display                                                       | Vlad    |        |
-| *   | Workout Library | Fields displayed                                                   | Vlad    |        |
-| *   | Workout Library | 'Add Workout' button display                                       | Vlad    |        |
-| *   | Workout Library | Choose any activity type from Form                                 | Vlad    |        |
-| *   | Workout Library |                                                                    | Vlad    |        |
-| *   | Workout Library |                                                                    | Vlad    |        |
-| *   | Workout Library |                                                                    | Vlad    |        |
+| *   | Workout Library | 'Workout Library' page loaded                                      | Vlad    | Done   |
+| *   | Workout Library | Breadcrumbs display                                                | Vlad    | Done   |
+| *   | Workout Library | Form display                                                       | Vlad    | Done   |
+| *   | Workout Library | Fields displayed                                                   | Vlad    | Done   |
+| *   | Workout Library | 'Add Workout' button display                                       | Vlad    | Done   |
+| *   | Workout Library | Choose any activity type from Form                                 | Vlad    | Done   |
+| *   | Workout Library | Check that added workout value matched                             | Vlad    | Done   |
+| *   | Workout Library | Table display wit data                                             | Vlad    | Done   |
+| *   | Shoes           |                                                                    | Vlad    |        |
+| *   | Shoes           |                                                                    | Vlad    |        |
+| *   | Shoes           |                                                                    | Vlad    |        |
+| *   | Shoes           |                                                                    | Vlad    |        |
+| *   | Shoes           |                                                                    | Vlad    |        |
+| *   | Shoes           |                                                                    | Vlad    |        |
+| *   | Shoes           |                                                                    | Vlad    |        |
+| *   | Shoes           |                                                                    | Vlad    |        |
 
 
 ### TestNg command for run
