@@ -33,7 +33,6 @@ public class ReportSteps extends AbstractSteps {
     }
 
     @Step("Insert data to the calendar's fields")
-    @Link("https://instagram.com/dmitryrak11")
     public ReportSteps addValueToCalendars() {
         reportPage = new ReportPage(driver);
         reportPage.waitPageLoaded();

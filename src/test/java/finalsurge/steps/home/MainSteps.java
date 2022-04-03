@@ -1,5 +1,6 @@
 package finalsurge.steps.home;
 
+import component.button.menu.dailyVitals.ViewAddVitalsButton;
 import component.button.menu.gearRoutes.ShoesButton;
 import component.button.menu.workouts.AddWorkoutButton;
 import component.button.menu.workouts.ReportButton;
@@ -7,6 +8,7 @@ import component.button.menu.workouts.WorkoutLibraryButton;
 import finalsurge.steps.AbstractSteps;
 import finalsurge.steps.authorization.SignUpSteps;
 import finalsurge.steps.gearRoutes.ShoesSteps;
+import finalsurge.steps.vitals.AddVitalsSteps;
 import finalsurge.steps.workouts.AddWorkoutSteps;
 import finalsurge.steps.workouts.ReportSteps;
 import finalsurge.steps.workouts.WorkoutLibraryStep;
@@ -16,6 +18,7 @@ import io.qameta.allure.Link;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import pages.DailyVitals.ViewPage;
 import pages.authorization.LoginPage;
 import pages.authorization.SignUpPage;
 import pages.gearRoutes.ShoesPage;
@@ -29,6 +32,7 @@ public class MainSteps extends AbstractSteps {
     private LoginPage loginPage;
     private SignUpPage signUpPage;
     private AddWorkoutButton addWorkoutButton;
+    private ViewAddVitalsButton viewAddVitalsButton;
     private ReportButton reportButton;
     private WorkoutLibraryButton workoutLibraryButton;
     private ShoesButton shoesButton;
@@ -165,6 +169,18 @@ public class MainSteps extends AbstractSteps {
         reportButton.click();
         validatePageIsLoaded(new ReportPage(driver));
         return new ReportSteps(driver);
+    }
+
+    @Step("Open 'Daily Vitals page")
+    public AddVitalsSteps openDailyVitalsPage() {
+        viewAddVitalsButton = new ViewAddVitalsButton(driver);
+        Assert.assertTrue(
+                viewAddVitalsButton.isComponentDisplayed(),
+                viewAddVitalsButton.getClass().getSimpleName().concat(" not displayed")
+        );
+        viewAddVitalsButton.click();
+        validatePageIsLoaded(new ReportPage(driver));
+        return new AddVitalsSteps(driver);
     }
 
     @Step("Open 'Workout Library' page")
