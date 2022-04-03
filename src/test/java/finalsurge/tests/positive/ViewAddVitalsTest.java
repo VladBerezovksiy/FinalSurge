@@ -5,11 +5,25 @@ import org.testng.annotations.Test;
 
 public class ViewAddVitalsTest extends BaseTest {
 
-    @Test(groups="smoke")
+    @Test(groups = "smoke")
     public void checkAddElementsNotDisplayed() {
         mainSteps
                 .openFinalSurge()
                 .loginWithValidCredits()
-                .openDailyVitalsPage();
+                .openDailyVitalsPage()
+                .checkingMissingDailyVitalsAdd();
     }
+
+    @Test(groups = "smoke")
+    public void addNewVital() {
+        mainSteps
+                .openFinalSurge()
+                .loginWithValidCredits()
+                .openDailyVitalsPage()
+                .addNewVitals()
+                .checkDateInTable();
+    }
+
+
+
 }

@@ -1,10 +1,12 @@
 package pages.DailyVitals;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.BasePage;
-
+import pages.authorization.SignUpPage;
+@Log4j2
 public class ViewPage extends BasePage {
 
     private static final By BREADCRUMBS =
@@ -31,6 +33,8 @@ public class ViewPage extends BasePage {
     }
 
     public boolean checkAddElementsDisplay() {
-        return driver.findElement(DAILY_VITALS_ADD_TABLE_LABEL).isDisplayed();
+        return driver.findElements(DAILY_VITALS_ADD_TABLE_LABEL).isEmpty();
     }
+
+
 }

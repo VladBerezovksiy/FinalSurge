@@ -36,8 +36,8 @@ public class BaseTest {
         iTestContext.setAttribute(attributeKey, attributeValue);
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void teardown() {
-        driver.quit();
-    }
+  //  @AfterMethod(alwaysRun = true)
+  //  public void teardown() {
+  //      driver.quit();
+  //  }
 }

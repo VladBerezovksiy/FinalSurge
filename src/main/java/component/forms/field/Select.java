@@ -1,16 +1,17 @@
-package component.forms.fieldReport;
+package component.forms.field;
 
 import component.AbstractComponent;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
+@Log4j2
 public class Select extends AbstractComponent {
 
     private static final String SELECT_OPTION_PATTERN =
-            "//label[contains(.,'%s')]/ancestor::form[@id='dash-form']//select/option[contains(.,'%s')]";
+            "//label[contains(.,'%s')]/ancestor::div[@class='span3']//select/option[contains(.,'%s')]";
     private static final String SELECT_PATTERN =
-            "//label[contains(.,'%s')]/ancestor::form[@id='dash-form']//select";
+            "//label[contains(.,'%s')]/ancestor::div[@class='span3']//select";
     private final String label;
     private final By selectLocator;
 
@@ -34,6 +35,7 @@ public class Select extends AbstractComponent {
         openOptionsPopup();
         By optionLocator = By.xpath(String.format(SELECT_OPTION_PATTERN, label, optionName1));
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(optionLocator));
+        log.info("Select [{}] ", "option");
         driver.findElement(optionLocator).click();
         explicitlyWait.until(ExpectedConditions.textToBePresentInElementLocated(selectLocator, optionName1));
     }

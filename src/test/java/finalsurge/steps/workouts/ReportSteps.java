@@ -1,11 +1,11 @@
 package finalsurge.steps.workouts;
 
-import component.forms.fieldReport.Button;
+//import component.forms.field.SaveButton;
+import component.forms.field.MainButton;
 import component.forms.fieldReport.CalendarComponent;
-import component.forms.fieldReport.Select;
-import component.forms.fieldReport.Table;
+import component.forms.field.Select;
+import component.forms.field.Table;
 import finalsurge.steps.AbstractSteps;
-import io.qameta.allure.Link;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -19,6 +19,7 @@ public class ReportSteps extends AbstractSteps {
     private String startDateField = "Start Date";
     private String endDateField = "End Date";
     private String option = "Hills";
+    private String button = "View Report";
 
     public ReportSteps(WebDriver driver) {
         super(driver);
@@ -53,7 +54,7 @@ public class ReportSteps extends AbstractSteps {
     public ReportSteps clickButtonViewReport() {
         reportPage = new ReportPage(driver);
         reportPage.waitPageLoaded();
-        new Button(driver).clickButton();
+        new MainButton(driver,button).clickButton();
         return this;
     }
 

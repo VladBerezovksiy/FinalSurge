@@ -179,7 +179,7 @@ public class MainSteps extends AbstractSteps {
                 viewAddVitalsButton.getClass().getSimpleName().concat(" not displayed")
         );
         viewAddVitalsButton.click();
-        validatePageIsLoaded(new ReportPage(driver));
+        validatePageIsLoaded(new ViewPage (driver));
         return new AddVitalsSteps(driver);
     }
 

@@ -32,7 +32,7 @@ mvn allure:report
 | *   | Login           | Sign in with empty 'Password' field                                | Vlad    | Done   |
 | *   | Login           | Login button display                                               | Vlad    | Done   |
 | *   | Login           | Check that 'Forgot password?' link is working                      | Vlad    | *      |
-| *   | Login           | Check that 'Not registered? Sign up here for free' link is working | Vlad    | *      |
+| *   | Login           | Check that 'Not registered? Sign up here for free' link is working | Nadya   | Done   |
 | *   | Register        | Sign up with valid credential                                      | Nadya   | Done   |
 | *   | Register        | Sign up with empty 'Email'                                         | Nadya   | Done   |
 | *   | Register        | Sign up with empty 'Password'                                      | Nadya   | Done   |
@@ -57,11 +57,11 @@ mvn allure:report
 | *   | Reports         | Opening "Reports & Statistics" page from the main menu             | Nadya   | Done   |
 | *   | Reports         | Displaying the report when only the period is selected             | Nadya   | Done   |
 | *   | Reports         | Displaying the report when all filters are selected                | Nadya   | Done   |
-| *   | Reports         | Displaying the message if data isn't matched the filter's elements | Nadya   |        |
-| *   | Reports         | Displaying the message if "End Date" is less "Start Date"          | Nadya   |        |
-| *   | Reports         | Adding the comment to the workout                                  | Nadya   |        |
-| *   | Reports         | Deleting the comment from the workout                              | Nadya   |        |
-| *   | Reports         | Opening "Reports & Statistics" page from the home page             | Nadya   |        |
+| *   | Reports         | Check that the data in the table match the selected period         | Nadya   | Done   |
+| *   | Reports         | Check that the data in the table match the selected period and type| Nadya   | Done   |
+| *   | Reports         | 'Report & Statistics' page loaded                                  | Nadya   | Done   |
+| *   | Reports         | 'View Report' button is displayed                                  | Nadya   | Done   |
+| *   | Reports         | Breadcrumbs display                                                | Nadya   | Done   |
 | *   | Workout Library | 'Workout Library' page loaded                                      | Vlad    | Done   |
 | *   | Workout Library | Breadcrumbs display                                                | Vlad    | Done   |
 | *   | Workout Library | Form display                                                       | Vlad    | Done   |
@@ -78,7 +78,15 @@ mvn allure:report
 | *   | Shoes           |                                                                    | Vlad    |        |
 | *   | Shoes           |                                                                    | Vlad    |        |
 | *   | Shoes           |                                                                    | Vlad    |        |
-
+| *   | Daily Vital     | 'View & Add Vitals' page loaded                                    | Nadya   | Done   |
+| *   | Daily Vital     | 'Add Vitals' button is displayed                                   | Nadya   | Done   |
+| *   | Daily Vital     | Check that the fiels for adding vilals are displayed
+|     |                 | after clicking the button 'Add Vitals'                             | Nadya   | Done   |
+| *   | Daily Vital     | Add new vital                                                      | Nadya   | Done   |
+| *   | Daily Vital     | Choose the period for 'Daily Vitals' table                         | Nadya   | Done   |
+| *   | Daily Vital     | 'View' button is displayed                                         | Nadya   | Done   |
+| *   | Daily Vital     | Table with data is displayed                                       | Nadya   | Done   |
+| *   | Daily Vital     | Check that entered data matches the data in the table              | Nadya   | Done   |
 
 
 

@@ -1,4 +1,4 @@
-package component.forms.fieldReport;
+package component.forms.field;
 
 import component.AbstractComponent;
 import org.openqa.selenium.By;
@@ -14,6 +14,8 @@ public class Table extends AbstractComponent {
             By.xpath("//div[contains(@class,'w-box-content')]/table");
     private static final String ROW_NAME = "//td[@nowrap]";
     private static final String ROW_ACTIVITY_NAME = "//td/a[contains(.,'%s')]";
+    private static final String ROW_VITAL = "//td/a";
+    private static final String ROW_VITAL_NAME = " //td[contains(.,'%s')]";
 
 
     public Table(WebDriver driver) {
@@ -43,6 +45,7 @@ public class Table extends AbstractComponent {
         }
     }
 
+
     public List<String> listOfDateActivity(String activity) {
         List<WebElement> elems;
         List<String> expectedReportList = new ArrayList<>();
@@ -51,6 +54,37 @@ public class Table extends AbstractComponent {
             for (int i = 0; i < elems.size(); i++) {
                 expectedReportList.add(
                         driver.findElements(By.xpath(String.format(ROW_ACTIVITY_NAME, activity))).get(i).getText()
+                );
+            }
+            return expectedReportList;
+        } else {
+            return null;
+        }
+    }
+
+    //-------------FOR VITALS----------------------
+    public List<String> ListOfVitalDate() {
+        List<WebElement> elems;
+        List<String> expectedReportList = new ArrayList<>();
+        if (!checkListInReport()) {
+            elems = driver.findElements(TABLE_PATTERN);
+            for (int i = 0; i < elems.size(); i++) {
+                expectedReportList.add(driver.findElements(By.xpath(ROW_VITAL)).get(i).getText());
+            }
+            return expectedReportList;
+        } else {
+            return null;
+        }
+    }
+
+    public List<String> listOfDateVatals(String vitals) {
+        List<WebElement> elems;
+        List<String> expectedReportList = new ArrayList<>();
+        if (!checkListInReport()) {
+            elems = driver.findElements(TABLE_PATTERN);
+            for (int i = 0; i < elems.size(); i++) {
+                expectedReportList.add(
+                        driver.findElements(By.xpath(String.format(ROW_VITAL_NAME, vitals))).get(i).getText()
                 );
             }
             return expectedReportList;
