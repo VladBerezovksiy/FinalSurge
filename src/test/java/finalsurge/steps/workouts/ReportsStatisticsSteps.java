@@ -2,18 +2,18 @@ package finalsurge.steps.workouts;
 
 //import component.forms.field.SaveButton;
 import component.forms.field.MainButton;
-import component.forms.fieldReport.CalendarComponent;
+import component.forms.fieldReportsStatistics.CalendarComponent;
 import component.forms.field.Select;
 import component.forms.field.Table;
 import finalsurge.steps.AbstractSteps;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import pages.workouts.ReportPage;
+import pages.workouts.ReportsStatisticsPage;
 
-public class ReportSteps extends AbstractSteps {
+public class ReportsStatisticsSteps extends AbstractSteps {
 
-    private ReportPage reportPage;
+    private ReportsStatisticsPage reportPage;
     private String startDate = "4/4/2022";
     private String endDate = "4/6/2022";
     private String startDateField = "Start Date";
@@ -21,21 +21,21 @@ public class ReportSteps extends AbstractSteps {
     private String option = "Hills";
     private String button = "View Report";
 
-    public ReportSteps(WebDriver driver) {
+    public ReportsStatisticsSteps(WebDriver driver) {
         super(driver);
     }
 
     @Step("Remove data from the calendar's fields")
-    public ReportSteps removeValueByDefaultFromCalendars() {
-        reportPage = new ReportPage(driver);
+    public ReportsStatisticsSteps removeValueByDefaultFromCalendars() {
+        reportPage = new ReportsStatisticsPage(driver);
         new CalendarComponent(driver, startDateField).deleteValueByDefault();
         new CalendarComponent(driver, endDateField).deleteValueByDefault();
         return this;
     }
 
     @Step("Insert data to the calendar's fields")
-    public ReportSteps addValueToCalendars() {
-        reportPage = new ReportPage(driver);
+    public ReportsStatisticsSteps addValueToCalendars() {
+        reportPage = new ReportsStatisticsPage(driver);
         reportPage.waitPageLoaded();
         new CalendarComponent(driver, startDateField).insertValue(startDate);
         new CalendarComponent(driver, endDateField).insertValue(endDate);
@@ -43,23 +43,23 @@ public class ReportSteps extends AbstractSteps {
     }
 
     @Step("Select option in the select")
-    public ReportSteps selectActivityType() {
-        reportPage = new ReportPage(driver);
+    public ReportsStatisticsSteps selectActivityType() {
+        reportPage = new ReportsStatisticsPage(driver);
         reportPage.waitPageLoaded();
         new Select(driver, "Activity Type").selectOption(option);
         return this;
     }
 
     @Step("Select option in the select")
-    public ReportSteps clickButtonViewReport() {
-        reportPage = new ReportPage(driver);
+    public ReportsStatisticsSteps clickButtonViewReport() {
+        reportPage = new ReportsStatisticsPage(driver);
         reportPage.waitPageLoaded();
         new MainButton(driver,button).clickButton();
         return this;
     }
 
     @Step("Check report by dates")
-    public ReportSteps checkDateInReport() {
+    public ReportsStatisticsSteps checkDateInReport() {
         Table table = new Table(driver);
         String partOfStartDate = startDate.substring(0, startDate.length() - 5);
         String partOfEndDate = endDate.substring(0, endDate.length() - 5);
@@ -80,7 +80,7 @@ public class ReportSteps extends AbstractSteps {
     }
 
     @Step("Check report by dates and Activity")
-    public ReportSteps checkDateAndActivityInReport() {
+    public ReportsStatisticsSteps checkDateAndActivityInReport() {
         Table table = new Table(driver);
         String partOfStartDate = startDate.substring(0, startDate.length() - 5);
         String partOfEndDate = endDate.substring(0, endDate.length() - 5);

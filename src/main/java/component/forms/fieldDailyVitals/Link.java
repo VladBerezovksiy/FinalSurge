@@ -4,6 +4,7 @@ import component.AbstractComponent;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
 @Log4j2
 public class Link extends AbstractComponent {
     private static final String BUTTON_PATTERN = "//a[contains(.,'%s')]";

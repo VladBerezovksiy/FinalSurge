@@ -13,14 +13,12 @@ public class DropDown extends AbstractComponent {
     private static final String OPTION_LOCATOR_PATTERN = "//select[@id='%s']/option[contains(.,'%s')]";
 
     private final By dropdownLocator;
-    private final By optionLocator;
     private final String label;
 
     public DropDown(WebDriver driver, String label) {
         super(driver);
         this.label = label;
         this.dropdownLocator = By.xpath(String.format(DROPDOWN_LOCATOR_PATTERN, label));
-        this.optionLocator = By.xpath(String.format(OPTION_LOCATOR_PATTERN, label));
     }
 
     @Override

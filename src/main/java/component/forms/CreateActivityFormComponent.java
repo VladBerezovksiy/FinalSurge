@@ -11,20 +11,22 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 @Log4j2
 public class CreateActivityFormComponent extends AbstractComponent {
 
-    private static final By HEADER = By.xpath("//h4[contains(.,'Add New Workout')]");
+    private static final String HEADER_LOCATOR_PATTERN = "//h4[contains(.,'%s')]";
     private static final String BUTTON_LOCATOR_PATTERN = "//input[@id='%s']";
 
+    private final By headerLocator;
     private final By buttonLocator;
 
-    public CreateActivityFormComponent(WebDriver driver, String label) {
+    public CreateActivityFormComponent(WebDriver driver, String buttonName, String headerName) {
         super(driver);
-        this.buttonLocator=By.xpath(String.format(BUTTON_LOCATOR_PATTERN, label));
+        this.headerLocator = By.xpath(String.format(HEADER_LOCATOR_PATTERN, headerName));
+        this.buttonLocator = By.xpath(String.format(BUTTON_LOCATOR_PATTERN, buttonName));
     }
 
     @Override
     public boolean isComponentDisplayed() {
         try {
-            explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(HEADER));
+            explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(headerLocator));
         } catch (TimeoutException exception) {
             return false;
         }

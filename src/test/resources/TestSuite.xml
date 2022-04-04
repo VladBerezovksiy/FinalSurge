@@ -22,7 +22,7 @@
              </groups>-->
 
         <classes>
-            <class name="finalsurge.tests.positive.ReportTest"/>
+            <class name="finalsurge.tests.positive.ReportsStatisticsTest"/>
         </classes>
     </test>
     <test name="ReportTest1">
@@ -34,7 +34,7 @@
                 </groups>-->
 
         <classes>
-            <class name="finalsurge.tests.positive.ReportTest"/>
+            <class name="finalsurge.tests.positive.ReportsStatisticsTest"/>
         </classes>
     </test>
     <test name="SignUpTest">

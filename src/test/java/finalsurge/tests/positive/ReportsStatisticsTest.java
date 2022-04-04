@@ -3,7 +3,7 @@ package finalsurge.tests.positive;
 import finalsurge.tests.BaseTest;
 import org.testng.annotations.Test;
 
-public class ReportTest extends BaseTest {
+public class ReportsStatisticsTest extends BaseTest {
 
     @Test (groups="negative")
     public void checkReportByDate() {

@@ -17,28 +17,28 @@ public class ShoesSteps extends AbstractSteps {
         super(driver);
     }
 
-    public ShoesSteps createNewShoe(String shoeName, String shoeModel, String shoeCost, String distance, String brand, String size) {
+    public ShoesSteps createNewShoe(String shoeName, String shoeModel, String shoeCost, String distance, String size) {
         shoesPage = new ShoesPage(driver);
-        CreateActivityFormComponent form = new CreateActivityFormComponent(driver, SaveButtonConstants.saveButton);
+        CreateActivityFormComponent form = new CreateActivityFormComponent(driver, SaveButtonConstants.saveButton, "Add New Shoe");
         Assert.assertTrue(
                 form.isComponentDisplayed(),
                 form.getClass().getSimpleName().concat(" not display")
         );
-        fillShoeForm(shoeName, shoeModel, shoeCost, distance, brand, size);
+        fillShoeForm(shoeName, shoeModel, shoeCost, distance, size);
         form.save();
         return this;
     }
 
-    private void fillShoeForm(String shoeName, String shoeModel, String shoeCost, String distance, String brand, String size) {
+    private void fillShoeForm(String shoeName, String shoeModel, String shoeCost, String distance, String size) {
         new Input(driver, "ShoeName").insert(shoeName);
         new Input(driver, "ShoeModel").insert(shoeModel);
         new Input(driver, "ShoeCost").insert(shoeCost);
         new Input(driver, "DistAlert").insert(distance);
-        new DropDown(driver, "ShoeBrand").selectOption(brand);
         new DropDown(driver, "ShoeSize").selectOption(size);
     }
 
-    public void validateShoeCreated() {
-
+    public void validateShoeCreated(String name, String model, String cost, String size, String distances) {
+        shoesPage.validateValueFromTable(name, model, cost, size, distances);
     }
+
 }

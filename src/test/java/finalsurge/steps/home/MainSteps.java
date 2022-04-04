@@ -3,14 +3,14 @@ package finalsurge.steps.home;
 import component.button.menu.dailyVitals.ViewAddVitalsButton;
 import component.button.menu.gearRoutes.ShoesButton;
 import component.button.menu.workouts.AddWorkoutButton;
-import component.button.menu.workouts.ReportButton;
+import component.button.menu.workouts.ReportsStatisticsButton;
 import component.button.menu.workouts.WorkoutLibraryButton;
 import finalsurge.steps.AbstractSteps;
 import finalsurge.steps.authorization.SignUpSteps;
 import finalsurge.steps.gearRoutes.ShoesSteps;
 import finalsurge.steps.vitals.AddVitalsSteps;
 import finalsurge.steps.workouts.AddWorkoutSteps;
-import finalsurge.steps.workouts.ReportSteps;
+import finalsurge.steps.workouts.ReportsStatisticsSteps;
 import finalsurge.steps.workouts.WorkoutLibraryStep;
 import finalsurge.utils.PropertiesUtils;
 import io.qameta.allure.Description;
@@ -24,7 +24,7 @@ import pages.authorization.SignUpPage;
 import pages.gearRoutes.ShoesPage;
 import pages.home.DashboardPage;
 import pages.workouts.AddWorkoutPage;
-import pages.workouts.ReportPage;
+import pages.workouts.ReportsStatisticsPage;
 import pages.workouts.WorkoutLibraryPage;
 
 public class MainSteps extends AbstractSteps {
@@ -33,7 +33,7 @@ public class MainSteps extends AbstractSteps {
     private SignUpPage signUpPage;
     private AddWorkoutButton addWorkoutButton;
     private ViewAddVitalsButton viewAddVitalsButton;
-    private ReportButton reportButton;
+    private ReportsStatisticsButton reportButton;
     private WorkoutLibraryButton workoutLibraryButton;
     private ShoesButton shoesButton;
 
@@ -160,15 +160,15 @@ public class MainSteps extends AbstractSteps {
     }
 
     @Step("Open 'Report' page")
-    public ReportSteps openReportPage() {
-        reportButton = new ReportButton(driver);
+    public ReportsStatisticsSteps openReportPage() {
+        reportButton = new ReportsStatisticsButton(driver);
         Assert.assertTrue(
                 reportButton.isComponentDisplayed(),
                 reportButton.getClass().getSimpleName().concat(" not displayed")
         );
         reportButton.click();
-        validatePageIsLoaded(new ReportPage(driver));
-        return new ReportSteps(driver);
+        validatePageIsLoaded(new ReportsStatisticsPage(driver));
+        return new ReportsStatisticsSteps(driver);
     }
 
     @Step("Open 'Daily Vitals page")

@@ -1,4 +1,4 @@
-package component.forms.fieldReport;
+package component.forms.fieldReportsStatistics;
 
 import component.AbstractComponent;
 import org.openqa.selenium.By;

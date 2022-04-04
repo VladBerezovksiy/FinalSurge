@@ -8,7 +8,7 @@ import component.forms.fieldDailyVitals.Calendar;
 import component.forms.field.Select;
 import component.forms.fieldDailyVitals.Link;
 import component.forms.field.MainButton;
-import component.forms.fieldReport.CalendarComponent;
+import component.forms.fieldReportsStatistics.CalendarComponent;
 import finalsurge.steps.AbstractSteps;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;

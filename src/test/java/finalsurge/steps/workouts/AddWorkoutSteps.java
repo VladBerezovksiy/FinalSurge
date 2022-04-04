@@ -27,7 +27,7 @@ public class AddWorkoutSteps extends AbstractSteps {
     public AddWorkoutSteps createNewWorkout(String label, String option) {
         addWorkoutPage = new AddWorkoutPage(driver);
         addWorkoutPage.selectAnyActivityType(label, option);
-        CreateActivityFormComponent form = new CreateActivityFormComponent(driver, SaveButtonConstants.saveButton);
+        CreateActivityFormComponent form = new CreateActivityFormComponent(driver, SaveButtonConstants.saveButton, "Add New Workout");
         Assert.assertTrue(
                 form.isComponentDisplayed(),
                 form.getClass().getSimpleName().concat(" not displayed!")

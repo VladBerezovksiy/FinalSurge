@@ -4,14 +4,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.BasePage;
 
-public class ReportPage extends BasePage {
+public class ReportsStatisticsPage extends BasePage {
 
     private static final By BREADCRUMBS =
             By.xpath("//ul[@id='breadcrumbs']//a[contains(.,'Athlete Workout Report')]");
     private static final By REPORT_FILTERS_TITLE = By.xpath("//h4[contains(.,'Report Filters')]");
     private static final String BASE_URL = "https://log.finalsurge.com/WorkoutReport.cshtml";
 
-    public ReportPage(WebDriver driver) {
+    public ReportsStatisticsPage(WebDriver driver) {
         super(driver);
     }
 

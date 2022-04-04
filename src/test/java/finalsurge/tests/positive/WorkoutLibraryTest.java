@@ -3,7 +3,7 @@ package finalsurge.tests.positive;
 import finalsurge.tests.BaseTest;
 import org.testng.annotations.Test;
 
-public class AddWorkoutLibraryTest extends BaseTest {
+public class WorkoutLibraryTest extends BaseTest {
 
     @Test(groups = "smoke")
     public void addWorkoutLibraryTest() {
