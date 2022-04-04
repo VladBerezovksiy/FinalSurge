@@ -15,7 +15,7 @@ import lombok.extern.log4j.Log4j2;
 import models.VitalsModel;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import pages.DailyVitals.ViewPage;
+import pages.dailyVitals.ViewPage;
 
 @Log4j2
 public class AddVitalsSteps extends AbstractSteps {

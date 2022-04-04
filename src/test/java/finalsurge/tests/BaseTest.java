@@ -1,6 +1,6 @@
 package finalsurge.tests;
 
-import finalsurge.constants.WindowSizeConstants;
+import finalsurge.constants.size.WindowSizeConstants;
 import finalsurge.steps.home.MainSteps;
 import finalsurge.utils.CapabilitiesGenerator;
 import finalsurge.utils.TestListener;
@@ -36,8 +36,8 @@ public class BaseTest {
         iTestContext.setAttribute(attributeKey, attributeValue);
     }
 
-  //  @AfterMethod(alwaysRun = true)
-  //  public void teardown() {
-  //      driver.quit();
-  //  }
+    @AfterMethod(alwaysRun = true)
+    public void teardown() {
+        driver.quit();
+    }
 }

@@ -2,7 +2,8 @@ package finalsurge.steps.gearRoutes;
 
 import component.forms.CreateActivityFormComponent;
 import component.forms.fieldGearRoutes.DropDown;
-import component.forms.fieldGearRoutes.Input;
+import component.forms.field.Input;
+import finalsurge.constants.button.SaveButtonConstants;
 import finalsurge.steps.AbstractSteps;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -18,7 +19,7 @@ public class ShoesSteps extends AbstractSteps {
 
     public ShoesSteps createNewShoe(String shoeName, String shoeModel, String shoeCost, String distance, String brand, String size) {
         shoesPage = new ShoesPage(driver);
-        CreateActivityFormComponent form = new CreateActivityFormComponent(driver);
+        CreateActivityFormComponent form = new CreateActivityFormComponent(driver, SaveButtonConstants.saveButton);
         Assert.assertTrue(
                 form.isComponentDisplayed(),
                 form.getClass().getSimpleName().concat(" not display")

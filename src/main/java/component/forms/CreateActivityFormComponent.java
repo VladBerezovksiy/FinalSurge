@@ -12,10 +12,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class CreateActivityFormComponent extends AbstractComponent {
 
     private static final By HEADER = By.xpath("//h4[contains(.,'Add New Workout')]");
-    private static final By SAVE_BUTTON = By.xpath("//input[@id='saveButton']");
+    private static final String BUTTON_LOCATOR_PATTERN = "//input[@id='%s']";
 
-    public CreateActivityFormComponent(WebDriver driver) {
+    private final By buttonLocator;
+
+    public CreateActivityFormComponent(WebDriver driver, String label) {
         super(driver);
+        this.buttonLocator=By.xpath(String.format(BUTTON_LOCATOR_PATTERN, label));
     }
 
     @Override
@@ -29,7 +32,7 @@ public class CreateActivityFormComponent extends AbstractComponent {
     }
 
     public void save() {
-        WebElement button = driver.findElement(SAVE_BUTTON);
+        WebElement button = driver.findElement(buttonLocator);
         log.info("Click [{}] for save workout data", "button");
         button.click();
     }

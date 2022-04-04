@@ -15,4 +15,5 @@ public class AddWorkoutTest extends BaseTest {
                 .createNewWorkout("Swim", "Drills")
                 .validateWorkoutCreated(new WorkoutModel());
     }
+
 }

@@ -2,7 +2,8 @@ package finalsurge.steps.workouts;
 
 import component.forms.CreateActivityFormComponent;
 import component.forms.fieldWorkoutLibrary.DropDown;
-import component.forms.fieldWorkoutLibrary.Input;
+import component.forms.field.Input;
+import finalsurge.constants.button.SaveButtonConstants;
 import finalsurge.steps.AbstractSteps;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
@@ -23,7 +24,7 @@ public class WorkoutLibraryStep extends AbstractSteps {
     public WorkoutLibraryStep createNewWorkout(String library, String activityType, String name) {
         workoutLibraryPage = new WorkoutLibraryPage(driver);
         validatePageIsLoaded(workoutLibraryPage);
-        CreateActivityFormComponent form = new CreateActivityFormComponent(driver);
+        CreateActivityFormComponent form = new CreateActivityFormComponent(driver, SaveButtonConstants.saveButton);
         Assert.assertTrue(
                 form.isComponentDisplayed(),
                 form.getClass().getSimpleName().concat(" not displayed")

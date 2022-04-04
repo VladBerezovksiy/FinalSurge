@@ -4,8 +4,10 @@ import component.AbstractComponent;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
 @Log4j2
 public class MainButton extends AbstractComponent {
+
     private static final String BUTTON_PATTERN = "//input[@type='submit' and @value='%s']";
     private  final String label;
     private final By buttonLocator;

@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class AddWorkoutLibraryTest extends BaseTest {
 
-    @Test
+    @Test(groups = "smoke")
     public void addWorkoutLibraryTest() {
         mainSteps
                 .openLoginPage()
@@ -14,4 +14,5 @@ public class AddWorkoutLibraryTest extends BaseTest {
                 .createNewWorkout("Default Library", "Hills", "Anything")
                 .validateWorkoutDataCreated("Run", "Anything");
     }
+
 }

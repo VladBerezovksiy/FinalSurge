@@ -18,7 +18,7 @@ import io.qameta.allure.Link;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import pages.DailyVitals.ViewPage;
+import pages.dailyVitals.ViewPage;
 import pages.authorization.LoginPage;
 import pages.authorization.SignUpPage;
 import pages.gearRoutes.ShoesPage;

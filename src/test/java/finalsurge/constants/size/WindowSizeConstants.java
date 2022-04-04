@@ -1,4 +1,4 @@
-package finalsurge.constants;
+package finalsurge.constants.size;
 
 public class WindowSizeConstants {
 
