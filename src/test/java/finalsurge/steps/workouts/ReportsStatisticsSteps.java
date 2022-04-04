@@ -1,9 +1,8 @@
 package finalsurge.steps.workouts;
 
-//import component.forms.field.SaveButton;
-import component.forms.field.MainButton;
+import component.forms.CreateActivityFormComponent;
+import component.forms.field.DropDown;
 import component.forms.fieldReportsStatistics.CalendarComponent;
-import component.forms.field.Select;
 import component.forms.field.Table;
 import finalsurge.steps.AbstractSteps;
 import io.qameta.allure.Step;
@@ -46,7 +45,7 @@ public class ReportsStatisticsSteps extends AbstractSteps {
     public ReportsStatisticsSteps selectActivityType() {
         reportPage = new ReportsStatisticsPage(driver);
         reportPage.waitPageLoaded();
-        new Select(driver, "Activity Type").selectOption(option);
+        new DropDown(driver, "Activity Type").selectOption(option);
         return this;
     }
 
@@ -54,7 +53,7 @@ public class ReportsStatisticsSteps extends AbstractSteps {
     public ReportsStatisticsSteps clickButtonViewReport() {
         reportPage = new ReportsStatisticsPage(driver);
         reportPage.waitPageLoaded();
-        new MainButton(driver,button).clickButton();
+        new CreateActivityFormComponent(driver, button, "Report Filters").save();
         return this;
     }
 

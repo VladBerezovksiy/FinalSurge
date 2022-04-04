@@ -14,5 +14,4 @@ public class ShoesTest extends BaseTest {
                 .createNewShoe("Test", "Lui", "10", "63", "2")
                 .validateShoeCreated("Test", "Lui", "10", "2", "63");
     }
-
 }

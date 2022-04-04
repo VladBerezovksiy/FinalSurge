@@ -1,13 +1,13 @@
 package finalsurge.steps.vitals;
 
+import component.forms.CreateActivityFormComponent;
+import component.forms.field.DropDown;
 import component.forms.field.Table;
 import component.forms.fieldDailyVitals.Button;
 
 import component.forms.field.Input;
 import component.forms.fieldDailyVitals.Calendar;
-import component.forms.field.Select;
 import component.forms.fieldDailyVitals.Link;
-import component.forms.field.MainButton;
 import component.forms.fieldReportsStatistics.CalendarComponent;
 import finalsurge.steps.AbstractSteps;
 import io.qameta.allure.Step;
@@ -59,11 +59,11 @@ public class AddVitalsSteps extends AbstractSteps {
         new Button(driver, addButtonName).clickButton();
         new Calendar(driver, dateField).insertValue(new VitalsModel().getDate());
         new Input(driver, steps).insert(new VitalsModel().getSteps());
-        new Select(driver, sleep_amount).selectOption("Not Enough");
+        new DropDown(driver, sleep_amount).selectOption("Not Enough");
         new Input(driver, weight).insert(new VitalsModel().getWeight());
-        new Select(driver, weight).selectOption(new VitalsModel().getWeight_dimension());
-        new MainButton(driver,addButtonName).isComponentDisplayed();
-        new MainButton(driver,addButtonName).clickButton();
+        new DropDown(driver, weight).selectOption(new VitalsModel().getWeight_dimension());
+        new CreateActivityFormComponent(driver, addButtonName, "Daily Vitals").isComponentDisplayed();
+        new CreateActivityFormComponent(driver, addButtonName, "Daily Vitals").save();
         return this;
     }
 
@@ -75,7 +75,7 @@ public class AddVitalsSteps extends AbstractSteps {
         new CalendarComponent(driver, startDateField).insertValue(new VitalsModel().getDate());
         new CalendarComponent(driver, endDateField).deleteValueByDefault();
         new CalendarComponent(driver, endDateField).insertValue(new VitalsModel().getEndDate());
-        new MainButton(driver, view_button).clickButton();
+        new CreateActivityFormComponent(driver, view_button, "Daily Vitals").save();
         Table table = new Table(driver);
         boolean result = false;
         log.info("Table with data is displayed [{}] ", "option");
@@ -98,5 +98,14 @@ public class AddVitalsSteps extends AbstractSteps {
         return this;
     }
 
+    @Step("Check that the message is displayed")
+    public String checkMessage(String date, String step) {
+        viewPage = new ViewPage(driver);
+        new Button(driver, addButtonName).clickButton();
+        new Calendar(driver, dateField).insertValue(date);
+        new Input(driver, steps).insert(step);
+        new CreateActivityFormComponent(driver, view_button, "Daily Vitals").save();
+        return viewPage.getAllertText();
 
+    }
 }
