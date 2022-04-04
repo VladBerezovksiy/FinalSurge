@@ -13,4 +13,5 @@ public class SignUpTest extends BaseTest {
                 .openSignUpPage()
                 .signUpWithValidCredits( firstname,  lastname,  email,  password,  retypePassword);
     }
+
 }

@@ -1,7 +1,7 @@
 package finalsurge.steps.gearRoutes;
 
 import component.forms.CreateActivityFormComponent;
-import component.forms.fieldGearRoutes.DropDown;
+import component.forms.field.DropDown;
 import component.forms.field.Input;
 import finalsurge.constants.button.SaveButtonConstants;
 import finalsurge.steps.AbstractSteps;

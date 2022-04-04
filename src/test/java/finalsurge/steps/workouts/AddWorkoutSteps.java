@@ -1,7 +1,7 @@
 package finalsurge.steps.workouts;
 
 import component.forms.CreateActivityFormComponent;
-import component.forms.fieldAddWorkout.DropDown;
+import component.forms.field.DropDown;
 import component.forms.field.Input;
 import component.forms.fieldAddWorkout.RadioButton;
 import finalsurge.constants.button.SaveButtonConstants;
@@ -42,7 +42,7 @@ public class AddWorkoutSteps extends AbstractSteps {
         new Input(driver, "WorkoutDate").insert(workoutModel.getDate());
         new Input(driver, "Name").insert(workoutModel.getName());
         new Input(driver, "Distance").insert(workoutModel.getDistance());
-        new DropDown(driver, "PerEffort", workoutModel.getPerceivedEffort()).selectOption();
+        new DropDown(driver, "PerEffort").selectOption(workoutModel.getPerceivedEffort());
         new RadioButton(driver, workoutModel.getHowIFeel()).click();
     }
 
