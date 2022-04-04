@@ -87,8 +87,11 @@ mvn allure:report
 | *   | Daily Vital     | 'View' button is displayed                                         | Nadya   | Done   |
 | *   | Daily Vital     | Table with data is displayed                                       | Nadya   | Done   |
 | *   | Daily Vital     | Check that entered data matches the data in the table              | Nadya   | Done   |
-
-
+| *   | Daily Vital     | Check the alert when the date is empty                             | Nadya   | Done   |
+| *   | Daily Vital     | Check the alert when the date is wrong                             | Nadya   | Done   |
+| *   | Daily Vital     | Table with data is displayed                                       | Nadya   | Done   |
+| *   | Daily Vital     | Check that entered data matches the data in the table              | Nadya   | Done   |
+| *   | Home            | Log out                                                            | Nadya   |        |
 
 
 

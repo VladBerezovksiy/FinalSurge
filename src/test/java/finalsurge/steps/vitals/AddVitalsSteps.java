@@ -1,20 +1,20 @@
 package finalsurge.steps.vitals;
 
-import component.forms.field.Table;
+import component.forms.CreateActivityFormComponent;
+import component.forms.field.*;
 import component.forms.fieldDailyVitals.Button;
 
-import component.forms.field.Input;
 import component.forms.fieldDailyVitals.Calendar;
-import component.forms.field.Select;
 import component.forms.fieldDailyVitals.Link;
-import component.forms.field.MainButton;
 import component.forms.fieldReport.CalendarComponent;
 import finalsurge.steps.AbstractSteps;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import models.VitalsModel;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import pages.authorization.SignUpPage;
 import pages.dailyVitals.ViewPage;
 
 @Log4j2
@@ -23,12 +23,14 @@ public class AddVitalsSteps extends AbstractSteps {
     private ViewPage viewPage;
 
     private String addButtonName = "Add Vitals";
+    private String saveButtonName = "saveButton";
     private String cancelButtonName = "Cancel Add";
     private String dateField = "Date";
     private String steps = "Steps";
     private String weight = "Weight";
-    private String sleep_amount = "Sleep Amount";
-    private String view_button = "View";
+    private String weight_units = "WeightType";
+    private String sleep_amount = "SleepAmount";
+    private String view_button = "viewButton";
     private String customViewLink = "Custom View";
     private String startDateField = "Start Date";
     private String endDateField = "End Date";
@@ -59,11 +61,13 @@ public class AddVitalsSteps extends AbstractSteps {
         new Button(driver, addButtonName).clickButton();
         new Calendar(driver, dateField).insertValue(new VitalsModel().getDate());
         new Input(driver, steps).insert(new VitalsModel().getSteps());
-        new Select(driver, sleep_amount).selectOption("Not Enough");
+        new DropDown(driver,sleep_amount).selectOption("Not Enough");
+     //   new Select(driver, sleep_amount).selectOption("Not Enough");
         new Input(driver, weight).insert(new VitalsModel().getWeight());
-        new Select(driver, weight).selectOption(new VitalsModel().getWeight_dimension());
-        new MainButton(driver,addButtonName).isComponentDisplayed();
-        new MainButton(driver,addButtonName).clickButton();
+        new DropDown(driver,weight_units).selectOption(new VitalsModel().getWeight_dimension());
+     //   new Select(driver, weight).selectOption(new VitalsModel().getWeight_dimension());
+        new CreateActivityFormComponent(driver,saveButtonName).isComponentDisplayed();
+        new CreateActivityFormComponent(driver,saveButtonName).save();
         return this;
     }
 
@@ -75,7 +79,7 @@ public class AddVitalsSteps extends AbstractSteps {
         new CalendarComponent(driver, startDateField).insertValue(new VitalsModel().getDate());
         new CalendarComponent(driver, endDateField).deleteValueByDefault();
         new CalendarComponent(driver, endDateField).insertValue(new VitalsModel().getEndDate());
-        new MainButton(driver, view_button).clickButton();
+        new CreateActivityFormComponent(driver, view_button).save();
         Table table = new Table(driver);
         boolean result = false;
         log.info("Table with data is displayed [{}] ", "option");
@@ -98,5 +102,14 @@ public class AddVitalsSteps extends AbstractSteps {
         return this;
     }
 
+    @Step("Check that the message is displayed")
+    public String  checkMessage(String date, String step) {
+        viewPage = new ViewPage(driver);
+        new Button(driver, addButtonName).clickButton();
+        new Calendar(driver, dateField).insertValue(date);
+        new Input(driver, steps).insert(step);
+        new CreateActivityFormComponent(driver,saveButtonName).save();
+        return viewPage.getAllertText();
 
+    }
 }

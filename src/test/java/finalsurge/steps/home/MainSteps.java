@@ -206,6 +206,7 @@ public class MainSteps extends AbstractSteps {
         );
         shoesButton.click();
         validatePageIsLoaded(new ShoesPage(driver));
+
         return  new ShoesSteps(driver);
     }
 }
