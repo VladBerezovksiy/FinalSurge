@@ -6,6 +6,7 @@ import component.button.menu.workouts.AddWorkoutButton;
 import component.button.menu.workouts.ReportButton;
 import component.button.menu.workouts.WorkoutLibraryButton;
 import finalsurge.steps.AbstractSteps;
+import finalsurge.steps.authorization.LogoutSteps;
 import finalsurge.steps.authorization.SignUpSteps;
 import finalsurge.steps.gearRoutes.ShoesSteps;
 import finalsurge.steps.vitals.AddVitalsSteps;
@@ -36,6 +37,7 @@ public class MainSteps extends AbstractSteps {
     private ReportButton reportButton;
     private WorkoutLibraryButton workoutLibraryButton;
     private ShoesButton shoesButton;
+    private DashboardPage dashboardPage;
 
     private static final String VALID_LOGIN = PropertiesUtils.getEnv("valid_login");
     private static final String VALID_PASSWORD = PropertiesUtils.getEnv("valid_password");
@@ -208,5 +210,12 @@ public class MainSteps extends AbstractSteps {
         validatePageIsLoaded(new ShoesPage(driver));
 
         return  new ShoesSteps(driver);
+    }
+
+    @Step("Open 'Logout' page")
+    public LogoutSteps openLogoutPage() {
+        dashboardPage = new DashboardPage(driver);
+        dashboardPage.openLogoutPage();
+        return  new LogoutSteps(driver);
     }
 }

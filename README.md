@@ -91,7 +91,7 @@ mvn allure:report
 | *   | Daily Vital     | Check the alert when the date is wrong                             | Nadya   | Done   |
 | *   | Daily Vital     | Table with data is displayed                                       | Nadya   | Done   |
 | *   | Daily Vital     | Check that entered data matches the data in the table              | Nadya   | Done   |
-| *   | Home            | Log out                                                            | Nadya   |        |
-
+| *   | Home            | Log out                                                            | Nadya   | Done   |
+| *   | Logout          | Check the message on the Logout page                               | Nadya   | Done   |
 
 
