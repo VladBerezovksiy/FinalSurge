@@ -1,5 +1,6 @@
 package finalsurge.utils;
 
+import models.VitalsModel;
 import org.testng.annotations.DataProvider;
 
 public class DataProviders {
@@ -15,6 +16,10 @@ public class DataProviders {
     private static final String REQUIRED_FIELD_MESSAGE = "This field is required.";
     private static final String WRONG_PASSWORD_MESSAGE = "Error: *Please enter a Password value with at least one number, lower-case letter, and upper-case letter between 7 and 15 characters in length.";
     private static final String WRONG_RETYPE_PASSWORD_MESSAGE = "Error: The passwords you entered did not match.";
+    private static final String DATE_REQUIRED_MESSAGE = "×\n" + "Please fix the following errors:\n" + "*Please enter a value for Vitals Date.";
+    private static final String WRONG_DATE_MESSAGE = "×\n" + "Please fix the following errors:\n" + "*Please enter a valid Vitals Date.";
+    private static final String NEGATIVE_STEPS_MESSAGE= "×\n" + "Please fix the following errors:\n" + "*Steps cannot be less than 0.";
+    private static final String LETTER_IN_STEPS_MESSAGE= "×\n" + "Please fix the following errors:\n" + "*Please enter a valid Integer for Steps (no decimals).";
 
     @DataProvider(name = "Input data for auth")
     public Object[][] inputForSignUpTask() {
@@ -43,5 +48,16 @@ public class DataProviders {
 
                 {FIRSTNAME_PARAM, LASTNAME_PARAM, EMAIL_PARAM, PASSWORD_PARAM, RETYPE_PASSWORD_PARAM},
          };
+    }
+
+    @DataProvider(name = "Input data for vitals")
+    public Object[][] inputForVitalsTask() {
+        return new Object[][]{
+
+                {new VitalsModel().getEmptydate(), new VitalsModel().getSteps(), DATE_REQUIRED_MESSAGE, "The text is different"},
+                {new VitalsModel().getWrongdate(), new VitalsModel().getSteps(), WRONG_DATE_MESSAGE, "The text is different"},
+                {new VitalsModel().getDate(), new VitalsModel().getNegativesteps(), NEGATIVE_STEPS_MESSAGE, "The text is different"},
+                {new VitalsModel().getDate(), new VitalsModel().getNotnumbersteps(), LETTER_IN_STEPS_MESSAGE, "The text is different"}
+        };
     }
 }

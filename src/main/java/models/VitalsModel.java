@@ -25,4 +25,12 @@ public class VitalsModel {
     String sleep_amount = "Enough";
     @Builder.Default
     String endDate = "4/12/2022";
+    @Builder.Default
+    String wrongdate = "13/13/2022";
+    @Builder.Default
+    String emptydate = "";
+    @Builder.Default
+    String negativesteps = "-10500";
+    @Builder.Default
+    String notnumbersteps = "two";
 }
