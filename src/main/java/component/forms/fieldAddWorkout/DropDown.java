@@ -10,8 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class DropDown extends AbstractComponent {
 
     private static final String DROPDOWN_LOCATOR_PATTERN = "//select[@id='%s']";
-    private static final String OPTION_LIST_PATTERN =
-            "//select[@id='%s']//option[contains(.,'%s')]";
+    private static final String OPTION_LIST_PATTERN = "//select[@id='%s']//option[contains(.,'%s')]";
 
     private final By optionLocator;
     private final By dropDownLocator;
