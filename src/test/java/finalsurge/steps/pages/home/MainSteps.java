@@ -8,7 +8,8 @@ import component.button.menu.workouts.AddWorkoutButton;
 import component.button.menu.workouts.ReportsStatisticsButton;
 import component.button.menu.workouts.WorkoutLibraryButton;
 import finalsurge.steps.AbstractSteps;
-import finalsurge.steps.frame.otherCalculator.OtherCalculatorStep;
+import finalsurge.steps.frames.OtherCalculatorStep;
+import finalsurge.steps.frames.WorkoutCalcSteps;
 import finalsurge.steps.pages.authorization.SignUpSteps;
 import finalsurge.steps.pages.gearRoutes.RoutesSteps;
 import finalsurge.steps.pages.gearRoutes.ShoesSteps;
@@ -44,7 +45,6 @@ public class MainSteps extends AbstractSteps {
     private ShoesButton shoesButton;
     private RoutesButton routesButton;
     private DashboardPage dashboardPage;
-    private WorkoutCalcFrame workoutCalcFrame;
     private IconMenuButton iconMenuButton;
 
     private static final String VALID_LOGIN = PropertiesUtils.getEnv("valid_login");

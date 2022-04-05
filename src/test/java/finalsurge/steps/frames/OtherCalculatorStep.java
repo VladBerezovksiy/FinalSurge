@@ -1,9 +1,10 @@
-package finalsurge.steps.frame.otherCalculator;
+package finalsurge.steps.frames;
 
 import component.forms.CreateActivityFormComponent;
 import component.forms.field.DropDown;
 import component.forms.field.Input;
 import finalsurge.steps.AbstractSteps;
+import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -21,11 +22,11 @@ public class OtherCalculatorStep extends AbstractSteps {
         super(driver);
     }
 
-    public void createNewPaceInCalculator(String distance, String measurer, String hours, String minutes, String seconds) {
+    private void createNewPaceInCalculator(String distance, String measurer, String hours, String minutes, String seconds) {
         driver.switchTo().frame(frame);
         otherCalculatorFrame = new OtherCalculatorFrame(driver);
-        otherCalculatorFrame.clickOnButtonSectionOnCalc("Pace Calculator");
         otherCalculatorFrame.isPageLoaded();
+        otherCalculatorFrame.clickOnButtonSectionOnCalc("Pace Calculator");
         new Input(driver, "RunDist").insert(distance);
         new DropDown(driver, "DistType").selectOption(measurer);
         new Input(driver, "TimeHH").insert(hours);
@@ -36,7 +37,8 @@ public class OtherCalculatorStep extends AbstractSteps {
         ).save();
     }
 
-    @Step("Check that calculator works")
+    @Step("Create new Pace with {distance} distance, {measurer} measurer, {hours} hours, {minutes} minutes and {seconds} seconds")
+    @Description("Check that it is possible to add valid data in Other Calculator on Pace Calculator section")
     public OtherCalculatorStep calc(String distance, String measurer, String hours, String minutes, String seconds) {
         createNewPaceInCalculator(distance, measurer, hours, minutes, seconds);
         Assert.assertFalse(

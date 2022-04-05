@@ -2,9 +2,6 @@ package finalsurge.steps.frames;
 
 import component.forms.CreateActivityFormComponent;
 import component.forms.field.Input;
-import component.forms.fieldDailyVitals.Button;
-import component.forms.fieldDailyVitals.Calendar;
-import component.forms.fieldReportsStatistics.CalendarComponent;
 import component.forms.fieldWorkoutCalc.RadioButton;
 import finalsurge.steps.AbstractSteps;
 import frame.WorkoutCalcFrame;
@@ -13,9 +10,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import pages.dailyVitals.ViewPage;
 
 public class WorkoutCalcSteps  extends AbstractSteps {
+
     private WorkoutCalcFrame calcFrame;
     private String headerName = "Running Workout Intensity Calculator";
     private String buttonName = "saveButtonSettings";
