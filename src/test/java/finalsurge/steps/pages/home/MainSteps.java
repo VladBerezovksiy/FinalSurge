@@ -17,6 +17,7 @@ import finalsurge.steps.pages.workouts.AddWorkoutSteps;
 import finalsurge.steps.pages.workouts.ReportsStatisticsSteps;
 import finalsurge.steps.pages.workouts.WorkoutLibraryStep;
 import finalsurge.utils.PropertiesUtils;
+import frame.WorkoutCalcFrame;
 import io.qameta.allure.Description;
 import io.qameta.allure.Link;
 import io.qameta.allure.Step;
@@ -42,8 +43,9 @@ public class MainSteps extends AbstractSteps {
     private WorkoutLibraryButton workoutLibraryButton;
     private ShoesButton shoesButton;
     private RoutesButton routesButton;
-    private IconMenuButton iconMenuButton;
     private DashboardPage dashboardPage;
+    private WorkoutCalcFrame workoutCalcFrame;
+    private IconMenuButton iconMenuButton;
 
     private static final String VALID_LOGIN = PropertiesUtils.getEnv("valid_login");
     private static final String VALID_PASSWORD = PropertiesUtils.getEnv("valid_password");
@@ -60,6 +62,15 @@ public class MainSteps extends AbstractSteps {
     @Step("Open 'Login' page")
     @Link(url = "https://log.finalsurge.com/login.cshtml", name = "Final Surge")
     public MainSteps openLoginPage() {
+        loginPage = new LoginPage(driver);
+        loginPage.openPage();
+        validatePageIsLoaded(loginPage);
+        return this;
+    }
+
+    @Step("Open 'FinalSurge' page")
+    @Description("Open Home page of Final Surge after signing in")
+    public MainSteps openFinalSurge() {
         loginPage = new LoginPage(driver);
         loginPage.openPage();
         validatePageIsLoaded(loginPage);
@@ -226,6 +237,18 @@ public class MainSteps extends AbstractSteps {
         routesButton.click();
         validatePageIsLoaded(new RoutesPage(driver));
         return new RoutesSteps(driver);
+    }
+
+    @Step("Open 'Workout calculator")
+    @Description("Open")
+    public WorkoutCalcSteps openWorkoutCalc() {
+        iconMenuButton = new IconMenuButton(driver,"IntensityCalc");
+        Assert.assertTrue(
+                iconMenuButton.isComponentDisplayed(),
+                iconMenuButton.getClass().getSimpleName().concat(" is not displayed")
+        );
+        iconMenuButton.click();
+        return new WorkoutCalcSteps(driver);
     }
 
     @Step("Open 'Other Calculator' popup")

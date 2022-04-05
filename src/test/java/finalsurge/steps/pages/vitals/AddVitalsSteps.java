@@ -108,6 +108,5 @@ public class AddVitalsSteps extends AbstractSteps {
         new Input(driver, steps).insert(step);
         new CreateActivityFormComponent(driver, addButtonId, "Daily Vitals").save();
         return viewPage.getAllertText();
-
     }
 }

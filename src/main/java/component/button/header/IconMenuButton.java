@@ -26,4 +26,9 @@ public class IconMenuButton extends AbstractIconButton {
         log.info("Click [{}] ", "the icon");
         driver.findElement(iconLocator).click();
     }
+
+    public void click() {
+        log.info("Click [{}] ", "the link");
+        driver.findElement(iconLocator).click();
+    }
 }

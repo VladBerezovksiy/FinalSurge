@@ -20,6 +20,14 @@ public class DataProviders {
     private static final String WRONG_DATE_MESSAGE = "×\n" + "Please fix the following errors:\n" + "*Please enter a valid Vitals Date.";
     private static final String NEGATIVE_STEPS_MESSAGE= "×\n" + "Please fix the following errors:\n" + "*Steps cannot be less than 0.";
     private static final String LETTER_IN_STEPS_MESSAGE= "×\n" + "Please fix the following errors:\n" + "*Please enter a valid Integer for Steps (no decimals).";
+    private static final String VALUE_EVENT_CALC="Mile";
+    private static final String WRONG_VALUE_EVENT_CALC="5Km";
+    private static final String VALUE_HH_CALC= "0";
+    private static final String VALUE_MM_CALC="12";
+    private static final String VALUE_SS_CALC="35";
+    private static final String EMPTY_EVENT_MESSAGE="×\n" + "Please fix the following errors:\n" + "*Your 5k time cannot be less than 12:37 in order to use this calculator.";
+    private static final String EMPTY_MM_MESSAGE="×\n" + "Please fix the following errors:\n" + "*Please enter an Integer value for Minutes.";
+    private static final String EMPTY_SS_MESSAGE="×\n" + "Please fix the following errors:\n" + "*Please enter an Integer value for Seconds.";
 
     @DataProvider(name = "Input data for auth")
     public Object[][] inputForSignUpTask() {
@@ -58,6 +66,24 @@ public class DataProviders {
                 {new VitalsModel().getWrongdate(), new VitalsModel().getSteps(), WRONG_DATE_MESSAGE, "The text is different"},
                 {new VitalsModel().getDate(), new VitalsModel().getNegativesteps(), NEGATIVE_STEPS_MESSAGE, "The text is different"},
                 {new VitalsModel().getDate(), new VitalsModel().getNotnumbersteps(), LETTER_IN_STEPS_MESSAGE, "The text is different"}
+        };
+    }
+
+    @DataProvider(name = "Input data for workout calculator")
+    public Object[][] inputForWortoutCalc() {
+        return new Object[][]{
+
+                {WRONG_VALUE_EVENT_CALC,VALUE_HH_CALC, VALUE_MM_CALC, VALUE_SS_CALC,  EMPTY_EVENT_MESSAGE, "The text is different"},
+                {VALUE_EVENT_CALC,VALUE_HH_CALC, "", VALUE_SS_CALC,  EMPTY_MM_MESSAGE, "The text is different"},
+                {VALUE_EVENT_CALC,VALUE_HH_CALC, VALUE_MM_CALC, "",  EMPTY_SS_MESSAGE, "The text is different"}
+        };
+    }
+
+    @DataProvider(name = "Input right data for workout calculator")
+    public Object[][] inputRightDataForWortoutCalc() {
+        return new Object[][]{
+
+                {VALUE_EVENT_CALC,VALUE_HH_CALC, VALUE_MM_CALC, VALUE_SS_CALC}
         };
     }
 }
