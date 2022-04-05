@@ -97,6 +97,10 @@ mvn allure:report
 | *   | Workout calc     | Check the message if the value of minutes isn't entered             | Nadya   | Done   |
 | *   | Workout calc     | Check the message if the value of seconds isn't entered             | Nadya   | Done   |
 | *   | Workout calc     | Check the message if the event doesn't match the time               | Nadya   | Done   |
+| *   | Other Calculator | Open the frame 'Workout calculator'                                 | Vlad    | Done   |
+| *   | Other Calculator | Check that calculator works                                         | Vlad    | Done   |
+| *   | Other Calculator | Fields display                                                      | Vlad    | Done   |
+| *   | Other Calculator | 'Calculate Paces' button display                                    | Vlad    | Done   |
 
 
 
