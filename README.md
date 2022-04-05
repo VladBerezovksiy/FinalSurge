@@ -92,6 +92,11 @@ mvn allure:report
 | *   | Routes           | 'Add Route' button display                                          | Vlad    | Done   |
 | *   | Routes           | Table display wit data                                              | Vlad    | Done   |
 | *   | Routes           | Check that added workout value matched                              | Vlad    | Done   |
+| *   | Workout calc     | Open the frame 'Workout calculator'                                 | Nadya   | Done   |
+| *   | Workout calc     | Check that calculator works                                         | Nadya   | Done   |
+| *   | Workout calc     | Check the message if the value of minutes isn't entered             | Nadya   | Done   |
+| *   | Workout calc     | Check the message if the value of seconds isn't entered             | Nadya   | Done   |
+| *   | Workout calc     | Check the message if the event doesn't match the time               | Nadya   | Done   |
 
 
 
