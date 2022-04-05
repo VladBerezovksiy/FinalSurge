@@ -1,4 +1,4 @@
-package finalsurge.steps.vitals;
+package finalsurge.steps.pages.vitals;
 
 import component.forms.CreateActivityFormComponent;
 import component.forms.field.DropDown;

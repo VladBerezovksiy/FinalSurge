@@ -1,7 +1,7 @@
 package finalsurge.tests;
 
 import finalsurge.constants.size.WindowSizeConstants;
-import finalsurge.steps.home.MainSteps;
+import finalsurge.steps.pages.home.MainSteps;
 import finalsurge.utils.CapabilitiesGenerator;
 import finalsurge.utils.TestListener;
 import lombok.extern.log4j.Log4j2;

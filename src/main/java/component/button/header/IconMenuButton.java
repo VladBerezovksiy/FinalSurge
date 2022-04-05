@@ -1,15 +1,15 @@
-package component.forms.field;
+package component.button.header;
 
-import component.AbstractComponent;
+import component.button.menu.AbstractMenuButton;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 @Log4j2
-public class IconMenuButton extends AbstractComponent {
+public class IconMenuButton extends AbstractIconButton {
 
     private static final String ICON_PATTERN = "//nav[@class='nav-icons']//a[@data-reveal-id='%s']";
-    private  final String label;
+    private final String label;
     private final By iconLocator;
 
     public IconMenuButton(WebDriver driver, String label) {
@@ -27,3 +27,4 @@ public class IconMenuButton extends AbstractComponent {
         log.info("Click [{}] ", "the icon");
         driver.findElement(iconLocator).click();
     }
+}

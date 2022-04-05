@@ -1,4 +1,4 @@
-package finalsurge.steps.workouts;
+package finalsurge.steps.pages.workouts;
 
 import component.forms.CreateActivityFormComponent;
 import component.forms.field.DropDown;
