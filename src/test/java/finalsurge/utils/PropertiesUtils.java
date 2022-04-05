@@ -1,7 +1,5 @@
 package finalsurge.utils;
 
-import org.openqa.selenium.Dimension;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;

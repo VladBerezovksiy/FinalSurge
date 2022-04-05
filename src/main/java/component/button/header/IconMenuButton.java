@@ -1,6 +1,5 @@
 package component.button.header;
 
-import component.button.menu.AbstractMenuButton;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +22,7 @@ public class IconMenuButton extends AbstractIconButton {
         return driver.findElement(iconLocator).isDisplayed();
     }
 
-    public void clickLink() {
+    public void click() {
         log.info("Click [{}] ", "the icon");
         driver.findElement(iconLocator).click();
     }

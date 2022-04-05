@@ -1,5 +1,6 @@
 package finalsurge.steps.pages.home;
 
+import component.button.header.IconMenuButton;
 import component.button.menu.dailyVitals.ViewAddVitalsButton;
 import component.button.menu.gearRoutes.RoutesButton;
 import component.button.menu.gearRoutes.ShoesButton;
@@ -7,6 +8,7 @@ import component.button.menu.workouts.AddWorkoutButton;
 import component.button.menu.workouts.ReportsStatisticsButton;
 import component.button.menu.workouts.WorkoutLibraryButton;
 import finalsurge.steps.AbstractSteps;
+import finalsurge.steps.frame.otherCalculator.OtherCalculatorStep;
 import finalsurge.steps.pages.authorization.SignUpSteps;
 import finalsurge.steps.pages.gearRoutes.RoutesSteps;
 import finalsurge.steps.pages.gearRoutes.ShoesSteps;
@@ -40,6 +42,7 @@ public class MainSteps extends AbstractSteps {
     private WorkoutLibraryButton workoutLibraryButton;
     private ShoesButton shoesButton;
     private RoutesButton routesButton;
+    private IconMenuButton iconMenuButton;
     private DashboardPage dashboardPage;
 
     private static final String VALID_LOGIN = PropertiesUtils.getEnv("valid_login");
@@ -57,15 +60,6 @@ public class MainSteps extends AbstractSteps {
     @Step("Open 'Login' page")
     @Link(url = "https://log.finalsurge.com/login.cshtml", name = "Final Surge")
     public MainSteps openLoginPage() {
-        loginPage = new LoginPage(driver);
-        loginPage.openPage();
-        validatePageIsLoaded(loginPage);
-        return this;
-    }
-
-    @Step("Open 'FinalSurge' page")
-    @Description("Open Home page of Final Surge after signing in")
-    public MainSteps openFinalSurge() {
         loginPage = new LoginPage(driver);
         loginPage.openPage();
         validatePageIsLoaded(loginPage);
@@ -232,5 +226,17 @@ public class MainSteps extends AbstractSteps {
         routesButton.click();
         validatePageIsLoaded(new RoutesPage(driver));
         return new RoutesSteps(driver);
+    }
+
+    @Step("Open 'Other Calculator' popup")
+    @Description("Check that it is possible to open 'Other Calculator' popup from Header")
+    public OtherCalculatorStep openOtherCalculator() {
+        iconMenuButton = new IconMenuButton(driver,"OtherCalc");
+        Assert.assertTrue(
+                iconMenuButton.isComponentDisplayed(),
+                iconMenuButton.getClass().getSimpleName().concat(" is not displayed")
+        );
+        iconMenuButton.click();
+        return new OtherCalculatorStep(driver);
     }
 }

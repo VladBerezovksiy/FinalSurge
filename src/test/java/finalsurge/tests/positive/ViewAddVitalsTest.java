@@ -8,7 +8,7 @@ public class ViewAddVitalsTest extends BaseTest {
     @Test(groups = "smoke")
     public void checkAddElementsNotDisplayed() {
         mainSteps
-                .openFinalSurge()
+                .openLoginPage()
                 .loginWithValidCredits()
                 .openDailyVitalsPage()
                 .checkingMissingDailyVitalsAdd();
@@ -17,7 +17,7 @@ public class ViewAddVitalsTest extends BaseTest {
     @Test(groups = "smoke")
     public void addNewVital() {
         mainSteps
-                .openFinalSurge()
+                .openLoginPage()
                 .loginWithValidCredits()
                 .openDailyVitalsPage()
                 .addNewVitals()

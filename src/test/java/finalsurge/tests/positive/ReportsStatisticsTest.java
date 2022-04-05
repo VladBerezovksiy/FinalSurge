@@ -8,7 +8,7 @@ public class ReportsStatisticsTest extends BaseTest {
     @Test(groups = "negative")
     public void checkReportByDate() {
         mainSteps
-                .openFinalSurge()
+                .openLoginPage()
                 .loginWithValidCredits()
                 .openReportPage()
                 .removeValueByDefaultFromCalendars()
@@ -20,7 +20,7 @@ public class ReportsStatisticsTest extends BaseTest {
     @Test(groups = "smoke")
     public void checkReportByDateAndActivityType() {
         mainSteps
-                .openFinalSurge()
+                .openLoginPage()
                 .loginWithValidCredits()
                 .openReportPage()
                 .removeValueByDefaultFromCalendars()

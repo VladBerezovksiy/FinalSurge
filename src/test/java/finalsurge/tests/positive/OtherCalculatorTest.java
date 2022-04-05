@@ -3,16 +3,14 @@ package finalsurge.tests.positive;
 import finalsurge.tests.BaseTest;
 import org.testng.annotations.Test;
 
-public class RoutesTest extends BaseTest {
+public class OtherCalculatorTest extends BaseTest {
 
     @Test(groups = "smoke")
-    public void addRoutesTest() {
+    public void otherCalculatorTest() {
         mainSteps
                 .openLoginPage()
                 .loginWithValidCredits()
-                .openRoutes()
-                .createNewRoutes("Test", "Walk", "101")
-                .validateRoutesCreated("Test", "Walk", "101");
+                .openOtherCalculator()
+                .calc("12", "Kilometers", "3", "59", "40");
     }
-
 }
