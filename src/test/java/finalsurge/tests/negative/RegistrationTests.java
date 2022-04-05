@@ -67,7 +67,4 @@ public class RegistrationTests extends BaseTest {
                 , act_message);
     }
 
-
-
-
 }

@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class ReportsStatisticsTest extends BaseTest {
 
-    @Test (groups="negative")
+    @Test(groups = "negative")
     public void checkReportByDate() {
         mainSteps
                 .openFinalSurge()
@@ -17,7 +17,7 @@ public class ReportsStatisticsTest extends BaseTest {
                 .checkDateInReport();
     }
 
-    @Test(groups="smoke")
+    @Test(groups = "smoke")
     public void checkReportByDateAndActivityType() {
         mainSteps
                 .openFinalSurge()

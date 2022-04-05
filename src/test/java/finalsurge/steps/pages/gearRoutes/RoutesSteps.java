@@ -1,4 +1,4 @@
-package finalsurge.steps.page.gearRoutes;
+package finalsurge.steps.pages.gearRoutes;
 
 import component.forms.CreateActivityFormComponent;
 import component.forms.field.DropDown;

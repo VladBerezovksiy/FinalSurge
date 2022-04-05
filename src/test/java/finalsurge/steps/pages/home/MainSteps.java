@@ -1,6 +1,7 @@
 package finalsurge.steps.pages.home;
 
 import component.button.menu.dailyVitals.ViewAddVitalsButton;
+import component.button.menu.gearRoutes.RoutesButton;
 import component.button.menu.gearRoutes.ShoesButton;
 import component.button.menu.workouts.AddWorkoutButton;
 import component.button.menu.workouts.ReportsStatisticsButton;
@@ -22,6 +23,7 @@ import org.testng.Assert;
 import pages.dailyVitals.ViewPage;
 import pages.authorization.LoginPage;
 import pages.authorization.SignUpPage;
+import pages.gearRoutes.RoutesPage;
 import pages.gearRoutes.ShoesPage;
 import pages.home.DashboardPage;
 import pages.workouts.AddWorkoutPage;
@@ -37,6 +39,7 @@ public class MainSteps extends AbstractSteps {
     private ReportsStatisticsButton reportButton;
     private WorkoutLibraryButton workoutLibraryButton;
     private ShoesButton shoesButton;
+    private RoutesButton routesButton;
     private DashboardPage dashboardPage;
 
     private static final String VALID_LOGIN = PropertiesUtils.getEnv("valid_login");
@@ -181,7 +184,7 @@ public class MainSteps extends AbstractSteps {
                 viewAddVitalsButton.getClass().getSimpleName().concat(" not displayed")
         );
         viewAddVitalsButton.click();
-        validatePageIsLoaded(new ViewPage (driver));
+        validatePageIsLoaded(new ViewPage(driver));
         return new AddVitalsSteps(driver);
     }
 
@@ -215,7 +218,7 @@ public class MainSteps extends AbstractSteps {
     public LogoutSteps openLogoutPage() {
         dashboardPage = new DashboardPage(driver);
         dashboardPage.openLogoutPage();
-        return  new LogoutSteps(driver);
+        return new LogoutSteps(driver);
     }
 
     @Step("Open 'Routes' page")
@@ -230,3 +233,4 @@ public class MainSteps extends AbstractSteps {
         validatePageIsLoaded(new RoutesPage(driver));
         return new RoutesSteps(driver);
     }
+}
