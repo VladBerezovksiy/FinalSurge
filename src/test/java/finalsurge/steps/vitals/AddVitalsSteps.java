@@ -7,7 +7,7 @@ import component.forms.fieldDailyVitals.Button;
 
 import component.forms.field.Input;
 import component.forms.fieldDailyVitals.Calendar;
-import component.forms.fieldDailyVitals.Link;
+import component.forms.field.Link;
 import component.forms.fieldReportsStatistics.CalendarComponent;
 import finalsurge.steps.AbstractSteps;
 import io.qameta.allure.Step;

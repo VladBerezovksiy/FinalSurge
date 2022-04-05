@@ -1,4 +1,4 @@
-package component.forms.fieldDailyVitals;
+package component.forms.field;
 
 import component.AbstractComponent;
 import lombok.extern.log4j.Log4j2;
