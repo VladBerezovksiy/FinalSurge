@@ -1,20 +1,18 @@
-package finalsurge.steps.home;
+package finalsurge.steps.pages.home;
 
 import component.button.menu.dailyVitals.ViewAddVitalsButton;
-import component.button.menu.gearRoutes.RoutesButton;
 import component.button.menu.gearRoutes.ShoesButton;
 import component.button.menu.workouts.AddWorkoutButton;
 import component.button.menu.workouts.ReportsStatisticsButton;
 import component.button.menu.workouts.WorkoutLibraryButton;
 import finalsurge.steps.AbstractSteps;
-import finalsurge.steps.authorization.LogoutSteps;
-import finalsurge.steps.authorization.SignUpSteps;
-import finalsurge.steps.gearRoutes.RoutesSteps;
-import finalsurge.steps.gearRoutes.ShoesSteps;
-import finalsurge.steps.vitals.AddVitalsSteps;
-import finalsurge.steps.workouts.AddWorkoutSteps;
-import finalsurge.steps.workouts.ReportsStatisticsSteps;
-import finalsurge.steps.workouts.WorkoutLibraryStep;
+import finalsurge.steps.pages.authorization.SignUpSteps;
+import finalsurge.steps.pages.gearRoutes.RoutesSteps;
+import finalsurge.steps.pages.gearRoutes.ShoesSteps;
+import finalsurge.steps.pages.vitals.AddVitalsSteps;
+import finalsurge.steps.pages.workouts.AddWorkoutSteps;
+import finalsurge.steps.pages.workouts.ReportsStatisticsSteps;
+import finalsurge.steps.pages.workouts.WorkoutLibraryStep;
 import finalsurge.utils.PropertiesUtils;
 import io.qameta.allure.Description;
 import io.qameta.allure.Link;
@@ -24,7 +22,6 @@ import org.testng.Assert;
 import pages.dailyVitals.ViewPage;
 import pages.authorization.LoginPage;
 import pages.authorization.SignUpPage;
-import pages.gearRoutes.RoutesPage;
 import pages.gearRoutes.ShoesPage;
 import pages.home.DashboardPage;
 import pages.workouts.AddWorkoutPage;
@@ -40,7 +37,6 @@ public class MainSteps extends AbstractSteps {
     private ReportsStatisticsButton reportButton;
     private WorkoutLibraryButton workoutLibraryButton;
     private ShoesButton shoesButton;
-    private RoutesButton routesButton;
     private DashboardPage dashboardPage;
 
     private static final String VALID_LOGIN = PropertiesUtils.getEnv("valid_login");
@@ -234,5 +230,3 @@ public class MainSteps extends AbstractSteps {
         validatePageIsLoaded(new RoutesPage(driver));
         return new RoutesSteps(driver);
     }
-
-}

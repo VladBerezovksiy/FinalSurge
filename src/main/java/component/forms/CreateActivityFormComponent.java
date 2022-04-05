@@ -35,7 +35,7 @@ public class CreateActivityFormComponent extends AbstractComponent {
 
     public void save() {
         WebElement button = driver.findElement(buttonLocator);
-        log.info("Click [{}] for save workout data", "button");
+        log.info("Click [{}] for save data", "button");
         button.click();
     }
 }

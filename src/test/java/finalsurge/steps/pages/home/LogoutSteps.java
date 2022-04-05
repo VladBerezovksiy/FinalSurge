@@ -1,4 +1,4 @@
-package finalsurge.steps.authorization;
+package finalsurge.steps.pages.home;
 
 import finalsurge.steps.AbstractSteps;
 import io.qameta.allure.Step;

@@ -1,6 +1,6 @@
 package pages.home;
 
-import component.forms.fieldDailyVitals.Link;
+import component.forms.field.Link;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
