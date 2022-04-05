@@ -23,12 +23,14 @@ public class AddVitalsSteps extends AbstractSteps {
     private ViewPage viewPage;
 
     private String addButtonName = "Add Vitals";
+    private String addButtonId = "saveButton";
     private String cancelButtonName = "Cancel Add";
     private String dateField = "Date";
     private String steps = "Steps";
     private String weight = "Weight";
-    private String sleep_amount = "Sleep Amount";
-    private String view_button = "View";
+    private String weight_select = "WeightType";
+    private String sleep_amount = "SleepAmount";
+    private String viewButtonID = "viewButton";
     private String customViewLink = "Custom View";
     private String startDateField = "Start Date";
     private String endDateField = "End Date";
@@ -61,9 +63,9 @@ public class AddVitalsSteps extends AbstractSteps {
         new Input(driver, steps).insert(new VitalsModel().getSteps());
         new DropDown(driver, sleep_amount).selectOption("Not Enough");
         new Input(driver, weight).insert(new VitalsModel().getWeight());
-        new DropDown(driver, weight).selectOption(new VitalsModel().getWeight_dimension());
-        new CreateActivityFormComponent(driver, addButtonName, "Daily Vitals").isComponentDisplayed();
-        new CreateActivityFormComponent(driver, addButtonName, "Daily Vitals").save();
+        new DropDown(driver, weight_select).selectOption(new VitalsModel().getWeight_dimension());
+        new CreateActivityFormComponent(driver, addButtonId, "Daily Vitals").isComponentDisplayed();
+        new CreateActivityFormComponent(driver, addButtonId, "Daily Vitals").save();
         return this;
     }
 
@@ -75,7 +77,7 @@ public class AddVitalsSteps extends AbstractSteps {
         new CalendarComponent(driver, startDateField).insertValue(new VitalsModel().getDate());
         new CalendarComponent(driver, endDateField).deleteValueByDefault();
         new CalendarComponent(driver, endDateField).insertValue(new VitalsModel().getEndDate());
-        new CreateActivityFormComponent(driver, view_button, "Daily Vitals").save();
+        new CreateActivityFormComponent(driver, viewButtonID, "Daily Vitals").save();
         Table table = new Table(driver);
         boolean result = false;
         log.info("Table with data is displayed [{}] ", "option");
@@ -104,7 +106,7 @@ public class AddVitalsSteps extends AbstractSteps {
         new Button(driver, addButtonName).clickButton();
         new Calendar(driver, dateField).insertValue(date);
         new Input(driver, steps).insert(step);
-        new CreateActivityFormComponent(driver, view_button, "Daily Vitals").save();
+        new CreateActivityFormComponent(driver, addButtonId, "Daily Vitals").save();
         return viewPage.getAllertText();
 
     }

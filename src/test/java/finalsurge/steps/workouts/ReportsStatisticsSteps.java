@@ -18,7 +18,7 @@ public class ReportsStatisticsSteps extends AbstractSteps {
     private String startDateField = "Start Date";
     private String endDateField = "End Date";
     private String option = "Hills";
-    private String button = "View Report";
+    private String button = "saveButton";
 
     public ReportsStatisticsSteps(WebDriver driver) {
         super(driver);
@@ -45,11 +45,11 @@ public class ReportsStatisticsSteps extends AbstractSteps {
     public ReportsStatisticsSteps selectActivityType() {
         reportPage = new ReportsStatisticsPage(driver);
         reportPage.waitPageLoaded();
-        new DropDown(driver, "Activity Type").selectOption(option);
+        new DropDown(driver, "ActivityType").selectOption(option);
         return this;
     }
 
-    @Step("Select option in the select")
+    @Step("Click the button View Report")
     public ReportsStatisticsSteps clickButtonViewReport() {
         reportPage = new ReportsStatisticsPage(driver);
         reportPage.waitPageLoaded();
