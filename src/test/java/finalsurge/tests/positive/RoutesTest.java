@@ -8,7 +8,7 @@ public class RoutesTest extends BaseTest {
     @Test(groups = "smoke")
     public void addRoutesTest() {
         mainSteps
-                .openFinalSurge()
+                .openLoginPage()
                 .loginWithValidCredits()
                 .openRoutes()
                 .createNewRoutes("Test", "Walk", "101")

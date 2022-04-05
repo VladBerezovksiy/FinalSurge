@@ -8,7 +8,7 @@ public class LogoutTest extends BaseTest {
     @Test(groups="smoke")
     public void Logout() {
         mainSteps
-                .openFinalSurge()
+                .openLoginPage()
                 .loginWithValidCredits()
                 .openLogoutPage()
                 .checkMessageInLogoutPage();

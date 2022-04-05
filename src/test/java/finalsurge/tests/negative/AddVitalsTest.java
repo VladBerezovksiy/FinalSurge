@@ -13,7 +13,7 @@ public class AddVitalsTest extends BaseTest {
     public void checkMessageForWrongData(String date, String steps, String exp_message, String act_message) {
         Assert.assertEquals(
                 mainSteps
-                        .openFinalSurge()
+                        .openLoginPage()
                         .loginWithValidCredits()
                         .openDailyVitalsPage()
                         .checkMessage(date, steps)

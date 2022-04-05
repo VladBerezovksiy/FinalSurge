@@ -1,5 +1,6 @@
 package finalsurge.steps.pages.home;
 
+import component.button.header.IconMenuButton;
 import component.button.menu.dailyVitals.ViewAddVitalsButton;
 import component.button.menu.gearRoutes.RoutesButton;
 import component.button.menu.gearRoutes.ShoesButton;
@@ -7,6 +8,7 @@ import component.button.menu.workouts.AddWorkoutButton;
 import component.button.menu.workouts.ReportsStatisticsButton;
 import component.button.menu.workouts.WorkoutLibraryButton;
 import finalsurge.steps.AbstractSteps;
+import finalsurge.steps.frames.WorkoutCalcSteps;
 import finalsurge.steps.pages.authorization.SignUpSteps;
 import finalsurge.steps.pages.gearRoutes.RoutesSteps;
 import finalsurge.steps.pages.gearRoutes.ShoesSteps;
@@ -15,6 +17,7 @@ import finalsurge.steps.pages.workouts.AddWorkoutSteps;
 import finalsurge.steps.pages.workouts.ReportsStatisticsSteps;
 import finalsurge.steps.pages.workouts.WorkoutLibraryStep;
 import finalsurge.utils.PropertiesUtils;
+import frame.WorkoutCalcFrame;
 import io.qameta.allure.Description;
 import io.qameta.allure.Link;
 import io.qameta.allure.Step;
@@ -41,6 +44,8 @@ public class MainSteps extends AbstractSteps {
     private ShoesButton shoesButton;
     private RoutesButton routesButton;
     private DashboardPage dashboardPage;
+    private WorkoutCalcFrame workoutCalcFrame;
+    private IconMenuButton iconMenuButton;
 
     private static final String VALID_LOGIN = PropertiesUtils.getEnv("valid_login");
     private static final String VALID_PASSWORD = PropertiesUtils.getEnv("valid_password");
@@ -232,5 +237,17 @@ public class MainSteps extends AbstractSteps {
         routesButton.click();
         validatePageIsLoaded(new RoutesPage(driver));
         return new RoutesSteps(driver);
+    }
+
+    @Step("Open 'Workout calculator")
+    @Description("Open")
+    public WorkoutCalcSteps openWorkoutCalc() {
+        iconMenuButton = new IconMenuButton(driver,"IntensityCalc");
+        Assert.assertTrue(
+                iconMenuButton.isComponentDisplayed(),
+                iconMenuButton.getClass().getSimpleName().concat(" is not displayed")
+        );
+        iconMenuButton.click();
+        return new WorkoutCalcSteps(driver);
     }
 }

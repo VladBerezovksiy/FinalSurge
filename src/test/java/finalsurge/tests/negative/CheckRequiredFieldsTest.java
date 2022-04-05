@@ -13,7 +13,7 @@ public class CheckRequiredFieldsTest extends BaseTest {
     public void checkRequiredFieldsTest(String firstname, String lastname, String email, String password, String retypePassword, String exp_message, String act_message) {
         Assert.assertEquals(
                 mainSteps
-                        .openFinalSurge()
+                        .openLoginPage()
                         .openSignUpPage()
                         .returnSignUpRequiredMessage(firstname, lastname, email, password, retypePassword)
                 , exp_message
