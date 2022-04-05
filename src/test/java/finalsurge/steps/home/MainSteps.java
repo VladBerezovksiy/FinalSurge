@@ -1,6 +1,7 @@
 package finalsurge.steps.home;
 
 import component.button.menu.dailyVitals.ViewAddVitalsButton;
+import component.button.menu.gearRoutes.RoutesButton;
 import component.button.menu.gearRoutes.ShoesButton;
 import component.button.menu.workouts.AddWorkoutButton;
 import component.button.menu.workouts.ReportsStatisticsButton;
@@ -8,6 +9,7 @@ import component.button.menu.workouts.WorkoutLibraryButton;
 import finalsurge.steps.AbstractSteps;
 import finalsurge.steps.authorization.LogoutSteps;
 import finalsurge.steps.authorization.SignUpSteps;
+import finalsurge.steps.gearRoutes.RoutesSteps;
 import finalsurge.steps.gearRoutes.ShoesSteps;
 import finalsurge.steps.vitals.AddVitalsSteps;
 import finalsurge.steps.workouts.AddWorkoutSteps;
@@ -22,6 +24,7 @@ import org.testng.Assert;
 import pages.dailyVitals.ViewPage;
 import pages.authorization.LoginPage;
 import pages.authorization.SignUpPage;
+import pages.gearRoutes.RoutesPage;
 import pages.gearRoutes.ShoesPage;
 import pages.home.DashboardPage;
 import pages.workouts.AddWorkoutPage;
@@ -37,6 +40,7 @@ public class MainSteps extends AbstractSteps {
     private ReportsStatisticsButton reportButton;
     private WorkoutLibraryButton workoutLibraryButton;
     private ShoesButton shoesButton;
+    private RoutesButton routesButton;
     private DashboardPage dashboardPage;
 
     private static final String VALID_LOGIN = PropertiesUtils.getEnv("valid_login");
@@ -208,8 +212,7 @@ public class MainSteps extends AbstractSteps {
         );
         shoesButton.click();
         validatePageIsLoaded(new ShoesPage(driver));
-
-        return  new ShoesSteps(driver);
+        return new ShoesSteps(driver);
     }
 
     @Step("Open 'Logout' page")
@@ -218,4 +221,18 @@ public class MainSteps extends AbstractSteps {
         dashboardPage.openLogoutPage();
         return  new LogoutSteps(driver);
     }
+
+    @Step("Open 'Routes' page")
+    @Description("Check that it is possible to open 'Routes' page from Menu")
+    public RoutesSteps openRoutes() {
+        routesButton = new RoutesButton(driver);
+        Assert.assertTrue(
+                routesButton.isComponentDisplayed(),
+                routesButton.getClass().getSimpleName().concat(" is not displayed")
+        );
+        routesButton.click();
+        validatePageIsLoaded(new RoutesPage(driver));
+        return new RoutesSteps(driver);
+    }
+
 }

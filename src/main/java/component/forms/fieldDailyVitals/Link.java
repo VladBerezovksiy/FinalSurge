@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 public class Link extends AbstractComponent {
 
     private static final String BUTTON_PATTERN = "//a[contains(.,'%s')]";
+
     private  final String label;
     private final By buttonLocator;
 
