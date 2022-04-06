@@ -10,8 +10,7 @@ import pages.authorization.LogoutPage;
 @Log4j2
 public class LogoutSteps extends AbstractSteps {
 
-    private LogoutPage logoutPage;
-    private String logoutText = "You have been successfully logged out of the system.";
+    private final String logoutText = "You have been successfully logged out of the system.";
 
     public LogoutSteps(WebDriver driver) {
         super(driver);
@@ -19,10 +18,14 @@ public class LogoutSteps extends AbstractSteps {
 
     @Step("Logout")
     public LogoutSteps checkMessageInLogoutPage() {
-        logoutPage = new LogoutPage(driver);
+        LogoutPage logoutPage = new LogoutPage(driver);
         logoutPage.waitPageLoaded();
         log.info("Logout message is displayed: [{}]", logoutText);
-        Assert.assertEquals(logoutPage.getAllertText(), logoutText, "The text is different in the logout page");
+        Assert.assertEquals(
+                logoutPage.getAllertText(),
+                logoutText,
+                "The text is different in the logout page"
+        );
         return this;
     }
 }

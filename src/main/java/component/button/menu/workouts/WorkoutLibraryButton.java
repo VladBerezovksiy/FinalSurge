@@ -11,5 +11,4 @@ public class WorkoutLibraryButton extends AbstractMenuButton {
     public WorkoutLibraryButton(WebDriver driver) {
         super(driver, WORKOUTS_BUTTON_LABEL, WORKOUT_LIBRARY_BUTTON_LABEL);
     }
-
 }

@@ -1,16 +1,19 @@
 package frame;
 
+import constant.FrameConstants;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.BasePage;
 
-public class WorkoutCalcFrame extends BasePage {
+@Log4j2
+public class WorkoutCalculatorFrame extends BasePage {
 
-    private static final String TABLE_LOCATOR_PATTERN = "//h4[contains(.,'%s')]";
     private static final By FORM_TITLE = By.xpath("//form[@id='intensity-calc']//h4");
-    private static By ALLERT_MESSAGE = By.xpath("//div[@class='alert alert-error']");
-    public WorkoutCalcFrame(WebDriver driver) {
+    private static final By ALLERT_MESSAGE = By.xpath("//div[@class='alert alert-error']");
+
+    public WorkoutCalculatorFrame(WebDriver driver) {
         super(driver);
     }
 
@@ -25,7 +28,7 @@ public class WorkoutCalcFrame extends BasePage {
     }
 
     public boolean checkTablePacesDisplay(String label) {
-        return driver.findElements(By.xpath(String.format(TABLE_LOCATOR_PATTERN,label))).isEmpty();
+        return driver.findElements(By.xpath(String.format(FrameConstants.TABLE_LOCATOR_PATTERN, label))).isEmpty();
     }
 
     public String getAllertText() {

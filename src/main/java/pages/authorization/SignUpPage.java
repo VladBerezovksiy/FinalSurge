@@ -10,6 +10,7 @@ import pages.BasePage;
 public class SignUpPage extends BasePage {
 
     private static final String BASE_URL = "https://log.finalsurge.com/register.cshtml";
+
     private static final String FIRSTNAME_FIELD = "create_first";
     private static final String LASTNAME_FIELD = "create_last";
     private static final String EMAIL_FIELD = "create_email";
@@ -38,7 +39,6 @@ public class SignUpPage extends BasePage {
         driver.findElement(By.id(PASSWORD_FIELD)).sendKeys(password);
         log.info("Insert [{}] into [{}] field", retypePassword, "retypePassword");
         driver.findElement(By.id(RETYPE_PASSWORD_FIELD)).sendKeys(retypePassword);
-
         log.info("Click [{}] button", "Create New Account");
         driver.findElement(CREATE_ACCOUNT_BUTTON).click();
     }
@@ -50,6 +50,7 @@ public class SignUpPage extends BasePage {
 
     @Override
     public BasePage openPage() {
+        log.info("Insert [{}] into [{}] field", BASE_URL, "url");
         driver.get(BASE_URL);
         return this;
     }
@@ -65,7 +66,6 @@ public class SignUpPage extends BasePage {
         driver.findElement(By.id(PASSWORD_FIELD)).sendKeys(password);
         log.info("Insert [{}] into [{}] field", retypePassword, "retypePassword");
         driver.findElement(By.id(RETYPE_PASSWORD_FIELD)).sendKeys(retypePassword);
-
         log.info("Click [{}] button", "Create New Account");
         driver.findElement(CREATE_ACCOUNT_BUTTON).click();
         return new SignUpPage(driver);
@@ -88,6 +88,7 @@ public class SignUpPage extends BasePage {
         }
         return str;
     }
+
     public String getErrorText(String fieldName) {
         String required_message = "//input[@id='" + fieldName + "']/ancestor::td//label[@class='error']";
         return driver.findElement(By.xpath(required_message)).getText();
@@ -96,6 +97,5 @@ public class SignUpPage extends BasePage {
     public String getAllertTextForPassword() {
         return driver.findElement(ALLERT_MESSAGE).getText();
     }
-
 }
 

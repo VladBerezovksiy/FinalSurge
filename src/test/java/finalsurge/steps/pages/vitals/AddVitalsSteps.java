@@ -4,11 +4,11 @@ import component.forms.CreateActivityFormComponent;
 import component.forms.field.DropDown;
 import component.forms.field.Table;
 import component.forms.fieldDailyVitals.Button;
-
 import component.forms.field.Input;
 import component.forms.fieldDailyVitals.Calendar;
 import component.forms.field.Link;
 import component.forms.fieldReportsStatistics.CalendarComponent;
+import finalsurge.constants.forms.FormNameConstants;
 import finalsurge.steps.AbstractSteps;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
@@ -22,19 +22,6 @@ public class AddVitalsSteps extends AbstractSteps {
 
     private ViewPage viewPage;
 
-    private String addButtonName = "Add Vitals";
-    private String addButtonId = "saveButton";
-    private String cancelButtonName = "Cancel Add";
-    private String dateField = "Date";
-    private String steps = "Steps";
-    private String weight = "Weight";
-    private String weight_select = "WeightType";
-    private String sleep_amount = "SleepAmount";
-    private String viewButtonID = "viewButton";
-    private String customViewLink = "Custom View";
-    private String startDateField = "Start Date";
-    private String endDateField = "End Date";
-
     public AddVitalsSteps(WebDriver driver) {
         super(driver);
     }
@@ -42,15 +29,24 @@ public class AddVitalsSteps extends AbstractSteps {
     @Step("Checking for missing elements to add")
     public AddVitalsSteps checkingMissingDailyVitalsAdd() {
         viewPage = new ViewPage(driver);
-        String buttonName = new Button(driver, addButtonName).getButtonName();
+        String buttonName = new Button(driver, FormNameConstants.ADD_BUTTON_NAME).getButtonName();
         System.out.println("buttonName: " + buttonName);
-        if (buttonName.equals(addButtonName)) {
+        if (buttonName.equals(FormNameConstants.ADD_BUTTON_NAME)) {
             viewPage.checkAddElementsDisplay();
-            Assert.assertTrue(viewPage.checkAddElementsDisplay(), "the table with elements for adding is displayed");
-        } else if (buttonName.equals(cancelButtonName)) {
-            Assert.assertFalse(viewPage.checkAddElementsDisplay(), "the table with elements for adding isn't displayed");
+            Assert.assertTrue(
+                    viewPage.checkAddElementsDisplay(),
+                    "the table with elements for adding is displayed"
+            );
+        } else if (buttonName.equals(FormNameConstants.CANCEL_BUTTON_NAME)) {
+            Assert.assertFalse(
+                    viewPage.checkAddElementsDisplay(),
+                    "the table with elements for adding isn't displayed"
+            );
         } else {
-            Assert.assertTrue(viewPage.checkAddElementsDisplay(), "the table with elements for adding isn't displayed");
+            Assert.assertTrue(
+                    viewPage.checkAddElementsDisplay(),
+                    "the table with elements for adding isn't displayed"
+            );
         }
         return this;
     }
@@ -58,38 +54,52 @@ public class AddVitalsSteps extends AbstractSteps {
     @Step("Adding the new Vitals")
     public AddVitalsSteps addNewVitals() {
         viewPage = new ViewPage(driver);
-        new Button(driver, addButtonName).clickButton();
-        new Calendar(driver, dateField).insertValue(new VitalsModel().getDate());
-        new Input(driver, steps).insert(new VitalsModel().getSteps());
-        new DropDown(driver, sleep_amount).selectOption("Not Enough");
-        new Input(driver, weight).insert(new VitalsModel().getWeight());
-        new DropDown(driver, weight_select).selectOption(new VitalsModel().getWeight_dimension());
-        new CreateActivityFormComponent(driver, addButtonId, "Daily Vitals").isComponentDisplayed();
-        new CreateActivityFormComponent(driver, addButtonId, "Daily Vitals").save();
+        new Button(driver, FormNameConstants.ADD_BUTTON_NAME).click();
+        new Calendar(driver, FormNameConstants.DATE_FIELD).insertValue(new VitalsModel().getDate());
+        new Input(driver, FormNameConstants.STEPS).insert(new VitalsModel().getSteps());
+        new DropDown(driver, FormNameConstants.SLEEP_AMOUNT).selectOption("Not Enough");
+        new Input(driver, FormNameConstants.WEIGHT).insert(new VitalsModel().getWeight());
+        new DropDown(driver, FormNameConstants.WEIGHT_SELECT).selectOption(new VitalsModel().getWeight_dimension());
+        new CreateActivityFormComponent(
+                driver,
+                FormNameConstants.ADD_BUTTON_ID,
+                FormNameConstants.DAILY_VITALS_FORM
+        ).isComponentDisplayed();
+        new CreateActivityFormComponent(
+                driver,
+                FormNameConstants.ADD_BUTTON_ID,
+                FormNameConstants.DAILY_VITALS_FORM
+        ).save();
         return this;
     }
 
-
     @Step("Check entered data in the table")
     public AddVitalsSteps checkDateInTable() {
-        new Link(driver, customViewLink).clickLink();
-        new CalendarComponent(driver, startDateField).deleteValueByDefault();
-        new CalendarComponent(driver, startDateField).insertValue(new VitalsModel().getDate());
-        new CalendarComponent(driver, endDateField).deleteValueByDefault();
-        new CalendarComponent(driver, endDateField).insertValue(new VitalsModel().getEndDate());
-        new CreateActivityFormComponent(driver, viewButtonID, "Daily Vitals").save();
+        new Link(driver, FormNameConstants.CUSTOM_VIEW_LINK).click();
+        new CalendarComponent(driver, FormNameConstants.START_DATE_FIELD).deleteValueByDefault();
+        new CalendarComponent(driver, FormNameConstants.START_DATE_FIELD).insertValue(new VitalsModel().getDate());
+        new CalendarComponent(driver, FormNameConstants.END_DATE_FIELD).deleteValueByDefault();
+        new CalendarComponent(driver, FormNameConstants.END_DATE_FIELD).insertValue(new VitalsModel().getEndDate());
+        new CreateActivityFormComponent(
+                driver,
+                FormNameConstants.VIEW_BUTTON_ID,
+                FormNameConstants.DAILY_VITALS_FORM
+        ).save();
         Table table = new Table(driver);
         boolean result = false;
         log.info("Table with data is displayed [{}] ", "option");
         table.isComponentDisplayed();
-        if (table.ListOfVitalDate() != null) {
-            for (int i = 0; i < table.ListOfVitalDate().size(); i++) {
+        if (table.listOfVitalDate() != null) {
+            for (int i = 0; i < table.listOfVitalDate().size(); i++) {
                 if (table.listOfDateVatals(new VitalsModel().getDate()).get(i).contains(new VitalsModel().getDate())
-                        && (table.listOfDateVatals(new VitalsModel().getSteps()).get(i).contains(new VitalsModel().getSteps()))
-                        && (table.listOfDateVatals(new VitalsModel().getWeight()).get(i).contains(new VitalsModel().getWeight()))
-                        && (table.listOfDateVatals(new VitalsModel().getWeight_dimension()).get(i).contains(new VitalsModel().getWeight_dimension()))
+                        && (table.listOfDateVatals(
+                        new VitalsModel().getSteps()).get(i).contains(new VitalsModel().getSteps()))
+                        && (table.listOfDateVatals(
+                        new VitalsModel().getWeight()).get(i).contains(new VitalsModel().getWeight()))
+                        && (table.listOfDateVatals(
+                        new VitalsModel().getWeight_dimension()).get(i).contains(
+                        new VitalsModel().getWeight_dimension()))
                 ) {
-
                     result = true;
                 } else {
                     result = false;
@@ -103,10 +113,14 @@ public class AddVitalsSteps extends AbstractSteps {
     @Step("Check that the message is displayed")
     public String checkMessage(String date, String step) {
         viewPage = new ViewPage(driver);
-        new Button(driver, addButtonName).clickButton();
-        new Calendar(driver, dateField).insertValue(date);
-        new Input(driver, steps).insert(step);
-        new CreateActivityFormComponent(driver, addButtonId, "Daily Vitals").save();
+        new Button(driver, FormNameConstants.ADD_BUTTON_NAME).click();
+        new Calendar(driver, FormNameConstants.DATE_FIELD).insertValue(date);
+        new Input(driver, FormNameConstants.STEPS).insert(step);
+        new CreateActivityFormComponent(
+                driver,
+                FormNameConstants.ADD_BUTTON_ID,
+                FormNameConstants.DAILY_VITALS_FORM
+        ).save();
         return viewPage.getAllertText();
     }
 }

@@ -10,12 +10,10 @@ public class Link extends AbstractComponent {
 
     private static final String BUTTON_PATTERN = "//a[contains(.,'%s')]";
 
-    private  final String label;
     private final By buttonLocator;
 
     public Link(WebDriver driver, String label) {
         super(driver);
-        this.label = label;
         this.buttonLocator = By.xpath(String.format(BUTTON_PATTERN, label));
     }
 
@@ -24,10 +22,8 @@ public class Link extends AbstractComponent {
         return driver.findElement(buttonLocator).isDisplayed();
     }
 
-    public void clickLink() {
+    public void click() {
         log.info("Click [{}] ", "the link");
         driver.findElement(buttonLocator).click();
     }
-
-
 }

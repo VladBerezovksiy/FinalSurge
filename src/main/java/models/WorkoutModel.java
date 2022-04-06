@@ -21,5 +21,4 @@ public class WorkoutModel {
     String perceivedEffort = "Hard";
     @Builder.Default
     String howIFeel = "Great";
-
 }

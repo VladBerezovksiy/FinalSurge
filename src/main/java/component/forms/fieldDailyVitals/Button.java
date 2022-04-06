@@ -9,12 +9,11 @@ import org.openqa.selenium.WebDriver;
 public class Button extends AbstractComponent {
 
     private static final String BUTTON_PATTERN = "//button[@title='%s']";
-    private  final String label;
+
     private final By buttonLocator;
 
     public Button(WebDriver driver, String label) {
         super(driver);
-        this.label = label;
         this.buttonLocator = By.xpath(String.format(BUTTON_PATTERN, label));
     }
 
@@ -23,12 +22,12 @@ public class Button extends AbstractComponent {
         return driver.findElement(buttonLocator).isDisplayed();
     }
 
-    public void clickButton() {
+    public void click() {
         log.info("Click [{}] for adding vitals  data", "button");
         driver.findElement(buttonLocator).click();
     }
 
     public String getButtonName() {
-      return  driver.findElement(buttonLocator).getText();
+        return driver.findElement(buttonLocator).getText();
     }
 }

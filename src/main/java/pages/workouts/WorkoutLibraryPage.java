@@ -40,6 +40,7 @@ public class WorkoutLibraryPage extends BasePage {
 
     @Override
     public BasePage openPage() {
+        log.info("Open [{}] url", BASE_URL);
         driver.get(BASE_URL);
         return this;
     }

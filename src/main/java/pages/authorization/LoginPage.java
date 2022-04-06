@@ -15,7 +15,6 @@ public class LoginPage extends BasePage {
     private static final By PASSWORD_FIELD = By.id("login_password");
     private static final By LOGIN_BUTTON = By.xpath("//button[@type='submit' and text()='Login']");
 
-
     public LoginPage(WebDriver driver) {
         super(driver);
     }

@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class Input extends AbstractComponent {
 
     private static final String INPUT_LOCATOR_PATTERN = "//input[@id='%s']";
+
     private final By inputLocator;
 
     public Input(WebDriver driver, String label) {

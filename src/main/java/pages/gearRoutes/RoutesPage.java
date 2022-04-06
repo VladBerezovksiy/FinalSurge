@@ -1,5 +1,6 @@
 package pages.gearRoutes;
 
+import constant.GearRoutesConstants;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,9 +14,6 @@ public class RoutesPage extends BasePage {
     private static final String BASE_URL = "https://log.finalsurge.com/Routes.cshtml";
 
     private static final By BREADCRUMB = By.xpath("//ul[@id='breadcrumbs']//a[contains(.,'Routes')]");
-    private static final By TABLE_PATTERN =
-            By.xpath("//div[contains(@class,'w-box-content')]/table");
-    private static final String NAME_LOCATOR_PATTERN = "//td/strong/a[contains(.,'%s')]";
     private static final String DATA_LOCATOR_PATTERN =
             "//td//a[contains(.,'%s')]/ancestor::tr//span[contains(.,'%s')]";
 
@@ -29,7 +27,7 @@ public class RoutesPage extends BasePage {
     }
 
     private boolean checkTableIsEmpty() {
-        return driver.findElements(TABLE_PATTERN).isEmpty();
+        return driver.findElements(GearRoutesConstants.TABLE_PATTERN).isEmpty();
     }
 
     public boolean validateValueFromTable(String name, String activity, String distances) {
@@ -37,7 +35,7 @@ public class RoutesPage extends BasePage {
         boolean result = false;
         if (!checkTableIsEmpty()) {
 
-            By nameValue = By.xpath(String.format(NAME_LOCATOR_PATTERN, name));
+            By nameValue = By.xpath(String.format(GearRoutesConstants.NAME_LOCATOR_PATTERN, name));
             explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(nameValue));
 
             for (int i = 1; i < arr.length; i++) {
@@ -52,8 +50,8 @@ public class RoutesPage extends BasePage {
 
     @Override
     public BasePage openPage() {
+        log.info("Open [{}] url", BASE_URL);
         driver.get(BASE_URL);
         return this;
     }
-
 }

@@ -17,7 +17,6 @@ public class AddWorkoutPage extends BasePage {
     private static final String OPTION_ACTIVITY_PATTERN =
             "//div[@id='blog_accordion_left']//a[contains(.,'%s')]/ancestor::div[@class='accordion-group']//a[text()='%s']";
 
-
     public AddWorkoutPage(WebDriver driver) {
         super(driver);
     }
@@ -39,8 +38,8 @@ public class AddWorkoutPage extends BasePage {
 
     @Override
     public BasePage openPage() {
+        log.info("Open [{}] url", BASE_URL);
         driver.get(BASE_URL);
         return this;
     }
-
 }

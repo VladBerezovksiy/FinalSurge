@@ -4,6 +4,7 @@ import component.forms.CreateActivityFormComponent;
 import component.forms.field.DropDown;
 import component.forms.field.Input;
 import finalsurge.constants.button.SaveButtonConstants;
+import finalsurge.constants.forms.FormNameConstants;
 import finalsurge.steps.AbstractSteps;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
@@ -24,7 +25,7 @@ public class RoutesSteps extends AbstractSteps {
     public RoutesSteps createNewRoutes(String routeName, String routeActivity, String routeDist) {
         routesPage = new RoutesPage(driver);
         CreateActivityFormComponent form = new CreateActivityFormComponent(
-                driver, SaveButtonConstants.saveButton, "Add New Route"
+                driver, SaveButtonConstants.saveButton, FormNameConstants.ROUTE_FORM
         );
         Assert.assertTrue(
                 form.isComponentDisplayed(),

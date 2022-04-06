@@ -17,21 +17,20 @@ public class Table extends AbstractComponent {
     private static final String ROW_VITAL = "//td/a";
     private static final String ROW_VITAL_NAME = " //td[contains(.,'%s')]";
 
-
     public Table(WebDriver driver) {
         super(driver);
     }
 
     @Override
     public boolean isComponentDisplayed() {
-        return false;
+        return driver.findElement(TABLE_PATTERN).isDisplayed();
     }
 
     public boolean checkListInReport() {
         return driver.findElements(TABLE_PATTERN).isEmpty();
     }
 
-    public List<String> ListOfDate() {
+    public List<String> listOfDate() {
         List<WebElement> elems;
         List<String> expectedReportList = new ArrayList<>();
         if (!checkListInReport()) {
@@ -63,7 +62,7 @@ public class Table extends AbstractComponent {
     }
 
     //-------------FOR VITALS----------------------
-    public List<String> ListOfVitalDate() {
+    public List<String> listOfVitalDate() {
         List<WebElement> elems;
         List<String> expectedReportList = new ArrayList<>();
         if (!checkListInReport()) {
@@ -92,5 +91,4 @@ public class Table extends AbstractComponent {
             return null;
         }
     }
-
 }

@@ -7,6 +7,7 @@ import component.button.menu.gearRoutes.ShoesButton;
 import component.button.menu.workouts.AddWorkoutButton;
 import component.button.menu.workouts.ReportsStatisticsButton;
 import component.button.menu.workouts.WorkoutLibraryButton;
+import finalsurge.constants.button.MenuIconButtonConstants;
 import finalsurge.steps.AbstractSteps;
 import finalsurge.steps.frames.OtherCalculatorStep;
 import finalsurge.steps.frames.WorkoutCalcSteps;
@@ -18,7 +19,6 @@ import finalsurge.steps.pages.workouts.AddWorkoutSteps;
 import finalsurge.steps.pages.workouts.ReportsStatisticsSteps;
 import finalsurge.steps.pages.workouts.WorkoutLibraryStep;
 import finalsurge.utils.PropertiesUtils;
-import frame.WorkoutCalcFrame;
 import io.qameta.allure.Description;
 import io.qameta.allure.Link;
 import io.qameta.allure.Step;
@@ -53,24 +53,14 @@ public class MainSteps extends AbstractSteps {
     private static final String INVALID_LOGIN = PropertiesUtils.getEnv("invalid_login");
     private static final String INVALID_PASSWORD = PropertiesUtils.getEnv("invalid_password");
 
-
     public MainSteps(WebDriver driver) {
         super(driver);
     }
 
-    // Надо добавить URL
+    // TODO: Надо добавить URL
     @Step("Open 'Login' page")
     @Link(url = "https://log.finalsurge.com/login.cshtml", name = "Final Surge")
     public MainSteps openLoginPage() {
-        loginPage = new LoginPage(driver);
-        loginPage.openPage();
-        validatePageIsLoaded(loginPage);
-        return this;
-    }
-
-    @Step("Open 'FinalSurge' page")
-    @Description("Open Home page of Final Surge after signing in")
-    public MainSteps openFinalSurge() {
         loginPage = new LoginPage(driver);
         loginPage.openPage();
         validatePageIsLoaded(loginPage);
@@ -84,7 +74,7 @@ public class MainSteps extends AbstractSteps {
         return new SignUpSteps(driver);
     }
 
-    // Надо добавить кредентиалс
+    // TODO: Надо добавить кредентиалс
     @Step("Sign in with valid credential")
     @Description("Check that it is possible to enter the site with a valid login and password")
     public MainSteps loginWithValidCredits() {
@@ -96,7 +86,7 @@ public class MainSteps extends AbstractSteps {
         return this;
     }
 
-    // Надо добавить кредентиалс
+    // TODO: Надо добавить кредентиалс
     @Step("Sign in with invalid credentials")
     @Description("Check that it is impossible to enter the site with a invalid login and password")
     public MainSteps loginWithInvalidCredits() {
@@ -108,7 +98,7 @@ public class MainSteps extends AbstractSteps {
         return this;
     }
 
-    // Надо добавить кредентиалс
+    // TODO: Надо добавить кредентиалс
     @Step("Sign in with invalid Email")
     @Description("Check that it is impossible to enter the site with a invalid login")
     public MainSteps loginWithInvalidEmail() {
@@ -120,7 +110,7 @@ public class MainSteps extends AbstractSteps {
         return this;
     }
 
-    // Надо добавить кредентиалс
+    // TODO: Надо добавить кредентиалс
     @Step("Sign in with invalid Password")
     @Description("Check that it is impossible to enter the site with a invalid password")
     public MainSteps loginWithInvalidPassword() {
@@ -132,7 +122,7 @@ public class MainSteps extends AbstractSteps {
         return this;
     }
 
-    // Надо добавить кредентиалс
+    // TODO: Надо добавить кредентиалс
     @Step("Sign in with empty Email field")
     @Description("Check that it is impossible to enter the site without a login")
     public MainSteps loginWithEmptyEmailField() {
@@ -144,7 +134,7 @@ public class MainSteps extends AbstractSteps {
         return this;
     }
 
-    // Надо добавить кредентиалс
+    // TODO: Надо добавить кредентиалс
     @Step("Sign in with empty Password field")
     @Description("Check that it is impossible to enter the site without a password")
     public MainSteps loginWithEmptyPasswordField() {
@@ -242,7 +232,7 @@ public class MainSteps extends AbstractSteps {
     @Step("Open 'Workout calculator")
     @Description("Open")
     public WorkoutCalcSteps openWorkoutCalc() {
-        iconMenuButton = new IconMenuButton(driver,"IntensityCalc");
+        iconMenuButton = new IconMenuButton(driver, MenuIconButtonConstants.INTENSITY_ICON_MENU);
         Assert.assertTrue(
                 iconMenuButton.isComponentDisplayed(),
                 iconMenuButton.getClass().getSimpleName().concat(" is not displayed")
@@ -254,7 +244,7 @@ public class MainSteps extends AbstractSteps {
     @Step("Open 'Other Calculator' popup")
     @Description("Check that it is possible to open 'Other Calculator' popup from Header")
     public OtherCalculatorStep openOtherCalculator() {
-        iconMenuButton = new IconMenuButton(driver,"OtherCalc");
+        iconMenuButton = new IconMenuButton(driver,MenuIconButtonConstants.OTHER_ICON_MENU);
         Assert.assertTrue(
                 iconMenuButton.isComponentDisplayed(),
                 iconMenuButton.getClass().getSimpleName().concat(" is not displayed")

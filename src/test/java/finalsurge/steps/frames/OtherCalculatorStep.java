@@ -3,6 +3,7 @@ package finalsurge.steps.frames;
 import component.forms.CreateActivityFormComponent;
 import component.forms.field.DropDown;
 import component.forms.field.Input;
+import finalsurge.constants.frames.OtherCalculatorConstants;
 import finalsurge.steps.AbstractSteps;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
@@ -26,14 +27,14 @@ public class OtherCalculatorStep extends AbstractSteps {
         driver.switchTo().frame(frame);
         otherCalculatorFrame = new OtherCalculatorFrame(driver);
         otherCalculatorFrame.isPageLoaded();
-        otherCalculatorFrame.clickOnButtonSectionOnCalc("Pace Calculator");
+        otherCalculatorFrame.clickOnButtonSectionOnCalc(OtherCalculatorConstants.PACE_CALC_SECTION);
         new Input(driver, "RunDist").insert(distance);
         new DropDown(driver, "DistType").selectOption(measurer);
         new Input(driver, "TimeHH").insert(hours);
         new Input(driver, "TimeMM").insert(minutes);
         new Input(driver, "TimeSS").insert(seconds);
         new CreateActivityFormComponent(
-                driver, "saveButtonSettings", "Pace Calculator"
+                driver, OtherCalculatorConstants.SAVE_BUTTON, OtherCalculatorConstants.PACE_CALC_SECTION
         ).save();
     }
 

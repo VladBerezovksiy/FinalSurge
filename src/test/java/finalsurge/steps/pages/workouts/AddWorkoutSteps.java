@@ -3,8 +3,9 @@ package finalsurge.steps.pages.workouts;
 import component.forms.CreateActivityFormComponent;
 import component.forms.field.DropDown;
 import component.forms.field.Input;
-import component.forms.fieldAddWorkout.RadioButton;
+import component.forms.field.RadioButton;
 import finalsurge.constants.button.SaveButtonConstants;
+import finalsurge.constants.forms.FormNameConstants;
 import finalsurge.steps.AbstractSteps;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
@@ -27,7 +28,11 @@ public class AddWorkoutSteps extends AbstractSteps {
     public AddWorkoutSteps createNewWorkout(String label, String option) {
         addWorkoutPage = new AddWorkoutPage(driver);
         addWorkoutPage.selectAnyActivityType(label, option);
-        CreateActivityFormComponent form = new CreateActivityFormComponent(driver, SaveButtonConstants.saveButton, "Add New Workout");
+        CreateActivityFormComponent form = new CreateActivityFormComponent(
+                driver,
+                SaveButtonConstants.saveButton,
+                FormNameConstants.ADD_NEW_WORKOUT_FORM
+        );
         Assert.assertTrue(
                 form.isComponentDisplayed(),
                 form.getClass().getSimpleName().concat(" not displayed!")
