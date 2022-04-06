@@ -1,6 +1,7 @@
 package finalsurge.steps.pages.home;
 
 import finalsurge.steps.AbstractSteps;
+import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +18,7 @@ public class LogoutSteps extends AbstractSteps {
     }
 
     @Step("Logout")
+    @Description("Check logging out")
     public LogoutSteps checkMessageInLogoutPage() {
         LogoutPage logoutPage = new LogoutPage(driver);
         logoutPage.waitPageLoaded();

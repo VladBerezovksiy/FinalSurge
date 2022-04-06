@@ -9,7 +9,7 @@ mvn clean test -Dgroups=negative,smoke
 ### Allure command for run
 **Запуск allure:**
 ```
-allure serve target/allure-results_
+allure serve target/allure-results
 ```
 ```
 mvn allure:serve

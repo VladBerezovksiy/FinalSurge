@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class CheckPasswordTest extends BaseTest {
 
-    @Test(dataProvider = "Input data for checking password and retypePassword", dataProviderClass = DataProviders.class)
+    @Test(dataProvider = "Input data for checking password and retypePassword", dataProviderClass = DataProviders.class, groups = "negative")
     @Description("Check that the password matches the rules and retype password field")
     public void checkPasswordTest(String firstname, String lastname, String email, String password, String retypePassword, String exp_message, String act_message) {
         Assert.assertEquals(

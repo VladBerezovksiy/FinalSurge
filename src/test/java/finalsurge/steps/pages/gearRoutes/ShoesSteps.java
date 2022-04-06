@@ -25,7 +25,7 @@ public class ShoesSteps extends AbstractSteps {
     public ShoesSteps createNewShoe(String shoeName, String shoeModel, String shoeCost, String distance, String size) {
         shoesPage = new ShoesPage(driver);
         CreateActivityFormComponent form = new CreateActivityFormComponent(
-                driver, SaveButtonConstants.saveButton, FormNameConstants.SHOE_FORM
+                driver, SaveButtonConstants.SAVE_BUTTON, FormNameConstants.SHOE_FORM
         );
         Assert.assertTrue(
                 form.isComponentDisplayed(),

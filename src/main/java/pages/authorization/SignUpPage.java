@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.BasePage;
+import pages.home.DashboardPage;
 
 @Log4j2
 public class SignUpPage extends BasePage {
@@ -18,7 +19,7 @@ public class SignUpPage extends BasePage {
     private static final String RETYPE_PASSWORD_FIELD = "create_passwordmatch";
     private static final By CREATE_ACCOUNT_BUTTON = By.xpath("//button[@type='submit' and text()='Create New Account']");
     private static final By SIGNIN_LINK = By.xpath("//div[@class='signup']/a");
-    private static final By ALLERT_MESSAGE = By.className("alert");
+    private static final By ALERT_MESSAGE = By.className("alert");
 
     public SignUpPage(WebDriver driver) {
         super(driver);
@@ -28,7 +29,7 @@ public class SignUpPage extends BasePage {
         driver.findElement(SIGNIN_LINK).click();
     }
 
-    public void signUp(String firstname, String lastname, String email, String password, String retypePassword) {
+    private void enterValue (String firstname, String lastname, String email, String password, String retypePassword) {
         log.info("Insert [{}] into [{}] field", firstname, "firstname");
         driver.findElement(By.id(FIRSTNAME_FIELD)).sendKeys(firstname);
         log.info("Insert [{}] into [{}] field", lastname, "lastname");
@@ -41,6 +42,11 @@ public class SignUpPage extends BasePage {
         driver.findElement(By.id(RETYPE_PASSWORD_FIELD)).sendKeys(retypePassword);
         log.info("Click [{}] button", "Create New Account");
         driver.findElement(CREATE_ACCOUNT_BUTTON).click();
+    }
+    public DashboardPage signUp(String firstname, String lastname, String email, String password, String retypePassword) {
+        enterValue(firstname, lastname, email,  password,  retypePassword);
+        return new DashboardPage(driver);
+
     }
 
     @Override
@@ -56,18 +62,7 @@ public class SignUpPage extends BasePage {
     }
 
     public SignUpPage requiredFieldsInSignUp(String firstname, String lastname, String email, String password, String retypePassword) {
-        log.info("Insert [{}] into [{}] field", firstname, "firstname");
-        driver.findElement(By.id(FIRSTNAME_FIELD)).sendKeys(firstname);
-        log.info("Insert [{}] into [{}] field", lastname, "lastname");
-        driver.findElement(By.id(LASTNAME_FIELD)).sendKeys(lastname);
-        log.info("Insert [{}] into [{}] field", email, "email");
-        driver.findElement(By.id(EMAIL_FIELD)).sendKeys(email);
-        log.info("Insert [{}] into [{}] field", password, "password");
-        driver.findElement(By.id(PASSWORD_FIELD)).sendKeys(password);
-        log.info("Insert [{}] into [{}] field", retypePassword, "retypePassword");
-        driver.findElement(By.id(RETYPE_PASSWORD_FIELD)).sendKeys(retypePassword);
-        log.info("Click [{}] button", "Create New Account");
-        driver.findElement(CREATE_ACCOUNT_BUTTON).click();
+        enterValue(firstname, lastname, email,  password,  retypePassword);
         return new SignUpPage(driver);
     }
 
@@ -95,7 +90,7 @@ public class SignUpPage extends BasePage {
     }
 
     public String getAllertTextForPassword() {
-        return driver.findElement(ALLERT_MESSAGE).getText();
+        return driver.findElement(ALERT_MESSAGE).getText();
     }
 }
 

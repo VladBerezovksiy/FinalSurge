@@ -22,7 +22,7 @@ public class VitalsModel {
     @Builder.Default
     String weight_dimension = "kg";
     @Builder.Default
-    String sleep_amount = "Enough";
+    String sleep_amount = "Not Enough";
     @Builder.Default
     String endDate = "4/12/2022";
     @Builder.Default

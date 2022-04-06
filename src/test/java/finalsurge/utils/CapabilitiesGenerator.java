@@ -27,7 +27,7 @@ public class CapabilitiesGenerator {
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--disable-notifications");
-        // options.addArguments("--headless");
+         options.addArguments("--headless");
 
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download.default_directory", ABSOLUTE_RESOURCE_PATH);

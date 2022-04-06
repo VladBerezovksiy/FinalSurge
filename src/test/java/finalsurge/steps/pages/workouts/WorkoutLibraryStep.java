@@ -27,7 +27,7 @@ public class WorkoutLibraryStep extends AbstractSteps {
         validatePageIsLoaded(workoutLibraryPage);
         CreateActivityFormComponent form = new CreateActivityFormComponent(
                 driver,
-                SaveButtonConstants.saveButton,
+                SaveButtonConstants.SAVE_BUTTON,
                 FormNameConstants.ADD_NEW_WORKOUT_FORM);
         Assert.assertTrue(
                 form.isComponentDisplayed(),
