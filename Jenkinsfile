@@ -13,7 +13,6 @@ pipeline {
     stages {
         stage('tests') {
             steps {
-                // В дальнейшем изменить url
                 git branch: '$BRANCH', url: 'https://github.com/VladBerezovksiy/Saleforce.git'
 
                 sh 'ls -l'
