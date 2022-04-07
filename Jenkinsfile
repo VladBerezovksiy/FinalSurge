@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    environment {
-            driver_path = "src/test/resources/linux/chromedriver"
-    }
+//     environment {
+//             driver_path = "src/test/resources/linux/chromedriver"
+//     }
 
     tools {
         maven "Maven"
@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('tests') {
             steps {
-                git branch: '$BRANCH', url: 'https://github.com/VladBerezovksiy/Saleforce.git'
+                git branch: '$BRANCH', url: 'https://github.com/VladBerezovksiy/FinalSurge.git'
 
                 sh 'ls -l'
                 sh 'chmod -R 777 $driver_path'
