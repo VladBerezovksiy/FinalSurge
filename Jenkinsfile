@@ -14,9 +14,9 @@ pipeline {
             steps {
                 git branch: '$BRANCH', url: 'https://github.com/VladBerezovksiy/FinalSurge.git'
 
-                sh 'ls -l'
-                sh 'chmod -R 777 $driver_path'
-                sh 'ls -l $driver_path'
+//                 sh 'ls -l'
+//                 sh 'chmod -R 777 $driver_path'
+//                 sh 'ls -l $driver_path'
 
                 sh "mvn clean test -Dmaven.test.failure.ignore=true -Dmaven.compiler.source=11 -Dmaven.compiler.target=11"
             }
