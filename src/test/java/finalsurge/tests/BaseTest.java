@@ -25,19 +25,13 @@ public class BaseTest {
     @BeforeMethod(alwaysRun = true)
     public void setup(ITestContext iTestContext) {
         // TODO: Specify the driver you need
-        String browser = System.getProperty("browser", "chrome");
+        String browser = System.getProperty("browser", "firefox");
         String os = System.getProperty("os.name").toLowerCase();
 
-        if (os.contains("win") && browser.contains("chrome")) {
+        if ((os.contains("win") && browser.contains("chrome")) || (os.contains("linux") && browser.contains("chrome"))) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(CapabilitiesGenerator.getChromeOptions());
-        } else if (os.contains("linux") && browser.contains("chrome")) {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver(CapabilitiesGenerator.getChromeOptions());
-        } else if (os.contains("win") && browser.contains("firefox")) {
-            WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver(CapabilitiesGenerator.getFirefoxOptions());
-        } else if (os.contains("linux") && browser.contains("firefox")) {
+        } else if ((os.contains("win") && browser.contains("firefox")) || (os.contains("linux") && browser.contains("firefox"))) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver(CapabilitiesGenerator.getFirefoxOptions());
         }
