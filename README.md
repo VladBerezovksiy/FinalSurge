@@ -1,24 +1,35 @@
-# [FinalSurge](https://log.finalsurge.com/)
+# Website: [FinalSurge](https://log.finalsurge.com/)
+
+### Foreword:
+Our framework is **crossbrowser** and **crossplatform**. Therefore, if you want to use a specific browser,
+then you need to change the name of the browser in the code: (Image 1)
+![alt text](ChangeBrowserNameImage.jpg "Image 1")
 
 ### TestNg command for run
-**Запуск групп тестов:**
+**Command to run all tests:**
 ```
-mvn clean test -Dgroups=negative,smoke
+mvn clean test
 ```
-
+**Command to run Smoke tests:**
+```
+mvn clean test -Dgroups="smoke"
+```
+**Command to run Negative tests:**
+```
+mvn clean test -Dgroups="negative"
+```
+  
 ### Allure command for run
-**Запуск allure:**
-```
-allure serve target/allure-results
-```
+**Command to run Allure on browser:**
 ```
 mvn allure:serve
 ```
+**Command to run Allure on project:**
 ```
 mvn allure:report
 ```
-
-### Tests
+  
+### Tests documentation
 
 | ID  | Pages            | Cases                                                               | Who did | Status | 
 |-----|------------------|---------------------------------------------------------------------|---------|--------|
@@ -31,7 +42,6 @@ mvn allure:report
 | *   | Login            | Sign in with empty 'Email' field                                    | Vlad    | Done   |
 | *   | Login            | Sign in with empty 'Password' field                                 | Vlad    | Done   |
 | *   | Login            | Login button display                                                | Vlad    | Done   |
-| *   | Login            | Check that 'Forgot password?' link is working                       | Vlad    | *      |
 | *   | Login            | Check that 'Not registered? Sign up here for free' link is working  | Nadya   | Done   |
 | *   | Register         | Sign up with valid credential                                       | Nadya   | Done   |
 | *   | Register         | Sign up with empty 'Email'                                          | Nadya   | Done   |
@@ -101,8 +111,3 @@ mvn allure:report
 | *   | Other Calculator | Check that calculator works                                         | Vlad    | Done   |
 | *   | Other Calculator | Fields display                                                      | Vlad    | Done   |
 | *   | Other Calculator | 'Calculate Paces' button display                                    | Vlad    | Done   |
-
-
-
-
-

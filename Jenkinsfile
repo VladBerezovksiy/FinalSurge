@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-            // В дальнейшем изменить driver_path
             driver_path = "src/test/resources/linux/chromedriver"
     }
 
