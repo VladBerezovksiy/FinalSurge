@@ -1,7 +1,7 @@
 package finalsurge.tests.positive;
 
 import finalsurge.tests.BaseTest;
-import finalsurge.utils.DataProviders;
+import finalsurge.tests.DataProviders;
 import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;

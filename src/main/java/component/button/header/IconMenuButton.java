@@ -8,13 +8,11 @@ import org.openqa.selenium.WebDriver;
 public class IconMenuButton extends AbstractIconButton {
 
     private static final String ICON_PATTERN = "//nav[@class='nav-icons']//a[@data-reveal-id='%s']";
-    private final String label;
     private final By iconLocator;
 
-    public IconMenuButton(WebDriver driver, String label) {
+    public IconMenuButton(WebDriver driver, String id) {
         super(driver);
-        this.label = label;
-        this.iconLocator = By.xpath(String.format(ICON_PATTERN, label));
+        this.iconLocator = By.xpath(String.format(ICON_PATTERN, id));
     }
 
     @Override

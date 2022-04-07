@@ -1,13 +1,15 @@
-package finalsurge.utils;
+package finalsurge.tests;
 
+import finalsurge.utils.PropertiesUtils;
 import models.VitalsModel;
 import org.testng.annotations.DataProvider;
 
-public  class DataProviders {
+public class DataProviders {
 
+    // TODO: Вынести рандомайзер в Utils
+    private static final int random = (int) (Math.random() * 1000);
     private static final String FIRSTNAME_PARAM = PropertiesUtils.getEnv("firstname_param");
     private static final String LASTNAME_PARAM = PropertiesUtils.getEnv("lastname_param");
-    private static final int random = (int) (Math.random() * 1000);
     private static final String EMAIL_PARAM = PropertiesUtils.getEnv("email_login_param") + random + PropertiesUtils.getEnv("email_domain_param");
     private static final String PASSWORD_PARAM = PropertiesUtils.getEnv("password_param");
     private static final String RETYPE_PASSWORD_PARAM = PropertiesUtils.getEnv("retype_password_param");
@@ -18,16 +20,16 @@ public  class DataProviders {
     private static final String WRONG_RETYPE_PASSWORD_MESSAGE = "Error: The passwords you entered did not match.";
     private static final String DATE_REQUIRED_MESSAGE = "×\n" + "Please fix the following errors:\n" + "*Please enter a value for Vitals Date.";
     private static final String WRONG_DATE_MESSAGE = "×\n" + "Please fix the following errors:\n" + "*Please enter a valid Vitals Date.";
-    private static final String NEGATIVE_STEPS_MESSAGE= "×\n" + "Please fix the following errors:\n" + "*Steps cannot be less than 0.";
-    private static final String LETTER_IN_STEPS_MESSAGE= "×\n" + "Please fix the following errors:\n" + "*Please enter a valid Integer for Steps (no decimals).";
-    private static final String VALUE_EVENT_CALC="Mile";
-    private static final String WRONG_VALUE_EVENT_CALC="5Km";
-    private static final String VALUE_HH_CALC= "0";
-    private static final String VALUE_MM_CALC="12";
-    private static final String VALUE_SS_CALC="35";
-    private static final String EMPTY_EVENT_MESSAGE="×\n" + "Please fix the following errors:\n" + "*Your 5k time cannot be less than 12:37 in order to use this calculator.";
-    private static final String EMPTY_MM_MESSAGE="×\n" + "Please fix the following errors:\n" + "*Please enter an Integer value for Minutes.";
-    private static final String EMPTY_SS_MESSAGE="×\n" + "Please fix the following errors:\n" + "*Please enter an Integer value for Seconds.";
+    private static final String NEGATIVE_STEPS_MESSAGE = "×\n" + "Please fix the following errors:\n" + "*Steps cannot be less than 0.";
+    private static final String LETTER_IN_STEPS_MESSAGE = "×\n" + "Please fix the following errors:\n" + "*Please enter a valid Integer for Steps (no decimals).";
+    private static final String VALUE_EVENT_CALC = "Mile";
+    private static final String WRONG_VALUE_EVENT_CALC = "5Km";
+    private static final String VALUE_HH_CALC = "0";
+    private static final String VALUE_MM_CALC = "12";
+    private static final String VALUE_SS_CALC = "35";
+    private static final String EMPTY_EVENT_MESSAGE = "×\n" + "Please fix the following errors:\n" + "*Your 5k time cannot be less than 12:37 in order to use this calculator.";
+    private static final String EMPTY_MM_MESSAGE = "×\n" + "Please fix the following errors:\n" + "*Please enter an Integer value for Minutes.";
+    private static final String EMPTY_SS_MESSAGE = "×\n" + "Please fix the following errors:\n" + "*Please enter an Integer value for Seconds.";
 
     @DataProvider(name = "Input data for auth")
     public Object[][] inputForSignUpTask() {
@@ -55,7 +57,7 @@ public  class DataProviders {
         return new Object[][]{
 
                 {FIRSTNAME_PARAM, LASTNAME_PARAM, EMAIL_PARAM, PASSWORD_PARAM, RETYPE_PASSWORD_PARAM},
-         };
+        };
     }
 
     @DataProvider(name = "Input data for vitals")
@@ -73,9 +75,9 @@ public  class DataProviders {
     public Object[][] inputForWortoutCalc() {
         return new Object[][]{
 
-                {WRONG_VALUE_EVENT_CALC,VALUE_HH_CALC, VALUE_MM_CALC, VALUE_SS_CALC,  EMPTY_EVENT_MESSAGE, "The text is different"},
-                {VALUE_EVENT_CALC,VALUE_HH_CALC, "", VALUE_SS_CALC,  EMPTY_MM_MESSAGE, "The text is different"},
-                {VALUE_EVENT_CALC,VALUE_HH_CALC, VALUE_MM_CALC, "",  EMPTY_SS_MESSAGE, "The text is different"}
+                {WRONG_VALUE_EVENT_CALC, VALUE_HH_CALC, VALUE_MM_CALC, VALUE_SS_CALC, EMPTY_EVENT_MESSAGE, "The text is different"},
+                {VALUE_EVENT_CALC, VALUE_HH_CALC, "", VALUE_SS_CALC, EMPTY_MM_MESSAGE, "The text is different"},
+                {VALUE_EVENT_CALC, VALUE_HH_CALC, VALUE_MM_CALC, "", EMPTY_SS_MESSAGE, "The text is different"}
         };
     }
 
@@ -83,7 +85,7 @@ public  class DataProviders {
     public Object[][] inputRightDataForWortoutCalc() {
         return new Object[][]{
 
-                {VALUE_EVENT_CALC,VALUE_HH_CALC, VALUE_MM_CALC, VALUE_SS_CALC}
+                {VALUE_EVENT_CALC, VALUE_HH_CALC, VALUE_MM_CALC, VALUE_SS_CALC}
         };
     }
 }

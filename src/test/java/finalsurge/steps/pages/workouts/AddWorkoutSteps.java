@@ -51,6 +51,8 @@ public class AddWorkoutSteps extends AbstractSteps {
         new RadioButton(driver, workoutModel.getHowIFeel()).click();
     }
 
+    // TODO: Переделать сравнение элементов "validateWorkoutCreated"
+
     @Step("Check data from 'Workout Details' page is matched")
     @Description("Check that added data from 'Workout Details' page is matched")
     public void validateWorkoutCreated(WorkoutModel expectedModel) {

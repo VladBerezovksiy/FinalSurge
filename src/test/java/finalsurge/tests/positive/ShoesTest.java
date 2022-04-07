@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 
 public class ShoesTest extends BaseTest {
 
+    // TODO: Вынести в поля тестовые данные
+
     @Test(groups = "smoke")
     public void addShoesTest() {
         mainSteps
