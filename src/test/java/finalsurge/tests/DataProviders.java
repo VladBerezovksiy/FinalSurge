@@ -1,10 +1,9 @@
 package finalsurge.tests;
 
 import finalsurge.utils.PropertiesUtils;
-import lombok.NonNull;
+import finalsurge.utils.Randomizer;
 import models.VitalsModel;
 import org.testng.annotations.DataProvider;
-import finalsurge.utils.Randomizer;
 
 public class DataProviders {
 
@@ -73,7 +72,7 @@ public class DataProviders {
     }
 
     @DataProvider()
-    public static Object[][] inputForWortoutCalc() {
+    public static Object[][] inputForWorkoutCalc() {
         return new Object[][]{
 
                 {WRONG_VALUE_EVENT_CALC, VALUE_HH_CALC, VALUE_MM_CALC, VALUE_SS_CALC, EMPTY_EVENT_MESSAGE, "The text is different"},
@@ -83,7 +82,7 @@ public class DataProviders {
     }
 
     @DataProvider
-    public static  Object[][] inputRightDataForWortoutCalc() {
+    public static  Object[][] inputRightDataForWorkoutCalc() {
         return new Object[][]{
 
                 {VALUE_EVENT_CALC, VALUE_HH_CALC, VALUE_MM_CALC, VALUE_SS_CALC}

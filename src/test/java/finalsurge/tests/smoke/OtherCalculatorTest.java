@@ -8,6 +8,8 @@ public class OtherCalculatorTest extends BaseTest {
 
     private final OtherCalcModel otherCalcModel = new OtherCalcModel();
 
+    // TODO: Add validate method
+
     @Test(groups = "smoke")
     public void otherCalculatorTest() {
         mainSteps
