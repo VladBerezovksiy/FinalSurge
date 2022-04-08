@@ -118,7 +118,13 @@ public class AddVitalsSteps extends AbstractSteps {
 
     @Step("Check that the message is displayed")
     @Description("Check the alert message if the entered data is wrong")
-    public String checkMessage(String date, String step) {
+    public String checkMessage() {
+        viewPage = new ViewPage(driver);
+        return viewPage.getAllertText();
+    }
+    @Step("Enter data in the fields date and steps")
+    @Description("Enter data in the fields date and steps")
+    public AddVitalsSteps fillForm(String date, String step){
         viewPage = new ViewPage(driver);
         new Button(driver, FormAddVitalsConstants.ADD_BUTTON_NAME).click();
         new Calendar(driver, FormAddVitalsConstants.DATE_FIELD).insertValue(date);
@@ -128,6 +134,6 @@ public class AddVitalsSteps extends AbstractSteps {
                 SaveButtonConstants.SAVE_BUTTON_ID,
                 FormNameConstants.DAILY_VITALS_FORM
         ).save();
-        return viewPage.getAllertText();
+        return this;
     }
 }

@@ -31,9 +31,7 @@ public class SignInAndSignUpTests extends BaseTest {
                 .loginWithEmptyPasswordField();
     }
 
-    // TODO: Соединить по возможности тесты
-
-    @Test(dataProvider = "Input data for auth", dataProviderClass = DataProviders.class, groups = "negative")
+    @Test(dataProvider = "inputForSignUpTask", dataProviderClass = DataProviders.class, groups = "negative")
     @Description("Check a=that all fields are required")
     public void checkRequiredFieldsTest(String firstname, String lastname, String email, String password, String retypePassword, String exp_message, String act_message) {
         Assert.assertEquals(
@@ -45,7 +43,7 @@ public class SignInAndSignUpTests extends BaseTest {
                 , act_message);
     }
 
-    @Test(dataProvider = "Input data for checking password and retypePassword", dataProviderClass = DataProviders.class, groups = "negative")
+    @Test(dataProvider = "inputForCheckPasswordTask", dataProviderClass = DataProviders.class, groups = "negative")
     @Description("Check that the password matches the rules and retype password field")
     public void checkPasswordTest(String firstname, String lastname, String email, String password, String retypePassword, String exp_message, String act_message) {
         Assert.assertEquals(
@@ -56,5 +54,4 @@ public class SignInAndSignUpTests extends BaseTest {
                 , exp_message
                 , act_message);
     }
-
 }

@@ -1,16 +1,16 @@
 package finalsurge.tests;
 
 import finalsurge.utils.PropertiesUtils;
+import lombok.NonNull;
 import models.VitalsModel;
 import org.testng.annotations.DataProvider;
+import finalsurge.utils.Randomizer;
 
 public class DataProviders {
 
-    // TODO: Вынести рандомайзер в Utils
-    private static final int random = (int) (Math.random() * 1000);
     private static final String FIRSTNAME_PARAM = PropertiesUtils.getEnv("firstname_param");
     private static final String LASTNAME_PARAM = PropertiesUtils.getEnv("lastname_param");
-    private static final String EMAIL_PARAM = PropertiesUtils.getEnv("email_login_param") + random + PropertiesUtils.getEnv("email_domain_param");
+    private static final String EMAIL_PARAM = PropertiesUtils.getEnv("email_login_param") + Randomizer.timeData + PropertiesUtils.getEnv("email_domain_param");
     private static final String PASSWORD_PARAM = PropertiesUtils.getEnv("password_param");
     private static final String RETYPE_PASSWORD_PARAM = PropertiesUtils.getEnv("retype_password_param");
     private static final String WRONG_PASSWORD_PARAM = PropertiesUtils.getEnv("wrong_password_param");
@@ -31,7 +31,7 @@ public class DataProviders {
     private static final String EMPTY_MM_MESSAGE = "×\n" + "Please fix the following errors:\n" + "*Please enter an Integer value for Minutes.";
     private static final String EMPTY_SS_MESSAGE = "×\n" + "Please fix the following errors:\n" + "*Please enter an Integer value for Seconds.";
 
-    @DataProvider(name = "Input data for auth")
+    @DataProvider()
     public Object[][] inputForSignUpTask() {
         return new Object[][]{
 
@@ -40,10 +40,11 @@ public class DataProviders {
                 {FIRSTNAME_PARAM, LASTNAME_PARAM, "", PASSWORD_PARAM, RETYPE_PASSWORD_PARAM, REQUIRED_FIELD_MESSAGE, "The text message when credentials are wrong is not correct"},
                 {FIRSTNAME_PARAM, LASTNAME_PARAM, EMAIL_PARAM, "", RETYPE_PASSWORD_PARAM, REQUIRED_FIELD_MESSAGE, "The text message when password is absent  is not correct"},
                 {FIRSTNAME_PARAM, LASTNAME_PARAM, EMAIL_PARAM, PASSWORD_PARAM, "", REQUIRED_FIELD_MESSAGE, "The text message when credentials are wrong is not correct"},
+
         };
     }
 
-    @DataProvider(name = "Input data for checking password and retypePassword")
+    @DataProvider()
     public Object[][] inputForCheckPasswordTask() {
         return new Object[][]{
 
@@ -52,7 +53,7 @@ public class DataProviders {
         };
     }
 
-    @DataProvider(name = "Input data for valid reg")
+    @DataProvider()
     public Object[][] inputForValidRegTask() {
         return new Object[][]{
 
@@ -60,7 +61,7 @@ public class DataProviders {
         };
     }
 
-    @DataProvider(name = "Input data for vitals")
+    @DataProvider()
     public Object[][] inputForVitalsTask() {
         return new Object[][]{
 
@@ -71,8 +72,8 @@ public class DataProviders {
         };
     }
 
-    @DataProvider(name = "Input data for workout calculator")
-    public Object[][] inputForWortoutCalc() {
+    @DataProvider()
+    public static Object[][] inputForWortoutCalc() {
         return new Object[][]{
 
                 {WRONG_VALUE_EVENT_CALC, VALUE_HH_CALC, VALUE_MM_CALC, VALUE_SS_CALC, EMPTY_EVENT_MESSAGE, "The text is different"},
@@ -81,8 +82,8 @@ public class DataProviders {
         };
     }
 
-    @DataProvider(name = "Input right data for workout calculator")
-    public Object[][] inputRightDataForWortoutCalc() {
+    @DataProvider
+    public static  Object[][] inputRightDataForWortoutCalc() {
         return new Object[][]{
 
                 {VALUE_EVENT_CALC, VALUE_HH_CALC, VALUE_MM_CALC, VALUE_SS_CALC}

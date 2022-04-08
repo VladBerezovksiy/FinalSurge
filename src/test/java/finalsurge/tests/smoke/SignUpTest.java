@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class SignUpTest extends BaseTest {
 
-    @Test (dataProvider = "Input data for valid reg", dataProviderClass = DataProviders.class, groups="smoke")
+    @Test (dataProvider = "inputForValidRegTask", dataProviderClass = DataProviders.class, groups="smoke")
     public void createNewUser(String firstname, String lastname, String email, String password, String retypePassword) {
         mainSteps
                 .openLoginPage()

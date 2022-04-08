@@ -29,8 +29,8 @@ public class SignUpSteps extends AbstractSteps {
     public String returnSignUpRequiredMessage(String firstname, String lastname, String email, String password, String retypePassword) {
         signUpPage = new SignUpPage(driver);
         signUpPage
-                .requiredFieldsInSignUp(firstname, lastname, email, password, retypePassword)
-                .checkEmptyField(firstname, lastname, email, password, retypePassword);
+                .fillFieldsInSignUp(firstname, lastname, email, password, retypePassword);
+             //   .checkEmptyField(firstname, lastname, email, password, retypePassword);
         return signUpPage.getErrorText(signUpPage.checkEmptyField(firstname, lastname, email, password, retypePassword));
     }
 
@@ -39,7 +39,7 @@ public class SignUpSteps extends AbstractSteps {
     public String returnSignUpErrorPasswordMessage(String firstname, String lastname, String email, String password, String retypePassword) {
         signUpPage = new SignUpPage(driver);
         signUpPage
-                .requiredFieldsInSignUp(firstname, lastname, email, password, retypePassword);
+                .fillFieldsInSignUp(firstname, lastname, email, password, retypePassword);
         return signUpPage.getAllertTextForPassword();
     }
 }

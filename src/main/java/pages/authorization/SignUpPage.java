@@ -61,7 +61,7 @@ public class SignUpPage extends BasePage {
         return this;
     }
 
-    public SignUpPage requiredFieldsInSignUp(String firstname, String lastname, String email, String password, String retypePassword) {
+    public SignUpPage fillFieldsInSignUp(String firstname, String lastname, String email, String password, String retypePassword) {
         enterValue(firstname, lastname, email,  password,  retypePassword);
         return new SignUpPage(driver);
     }
