@@ -8,6 +8,7 @@ import component.button.menu.workouts.AddWorkoutButton;
 import component.button.menu.workouts.ReportsStatisticsButton;
 import component.button.menu.workouts.WorkoutLibraryButton;
 import finalsurge.constants.button.MenuIconButtonConstants;
+import finalsurge.constants.credantials.LoginDataConstant;
 import finalsurge.steps.AbstractSteps;
 import finalsurge.steps.frames.OtherCalculatorStep;
 import finalsurge.steps.frames.WorkoutCalcSteps;
@@ -18,7 +19,6 @@ import finalsurge.steps.pages.vitals.AddVitalsSteps;
 import finalsurge.steps.pages.workouts.AddWorkoutSteps;
 import finalsurge.steps.pages.workouts.ReportsStatisticsSteps;
 import finalsurge.steps.pages.workouts.WorkoutLibraryStep;
-import finalsurge.utils.PropertiesUtils;
 import io.qameta.allure.Description;
 import io.qameta.allure.Link;
 import io.qameta.allure.Step;
@@ -47,12 +47,6 @@ public class MainSteps extends AbstractSteps {
     private DashboardPage dashboardPage;
     private IconMenuButton iconMenuButton;
 
-    private static final String VALID_LOGIN = PropertiesUtils.getEnv("valid_login");
-    private static final String VALID_PASSWORD = PropertiesUtils.getEnv("valid_password");
-
-    private static final String INVALID_LOGIN = PropertiesUtils.getEnv("invalid_login");
-    private static final String INVALID_PASSWORD = PropertiesUtils.getEnv("invalid_password");
-
     public MainSteps(WebDriver driver) {
         super(driver);
     }
@@ -67,83 +61,22 @@ public class MainSteps extends AbstractSteps {
         return this;
     }
 
-    @Step("Open SignUp page")
-    public SignUpSteps openSignUpPage() {
-        signUpPage = new SignUpPage(driver);
-        signUpPage.openSignInPage();
-        return new SignUpSteps(driver);
-    }
-
-    // TODO: Надо добавить кредентиалс
     @Step("Sign in with valid credential")
     @Description("Check that it is possible to enter the site with a valid login and password")
     public MainSteps loginWithValidCredits() {
         loginPage.authentication(
-                VALID_LOGIN,
-                VALID_PASSWORD
+                LoginDataConstant.VALID_LOGIN,
+                LoginDataConstant.VALID_PASSWORD
         );
         validatePageIsLoaded(new DashboardPage(driver));
         return this;
     }
 
-    // TODO: Надо добавить кредентиалс
-    @Step("Sign in with invalid credentials")
-    @Description("Check that it is impossible to enter the site with a invalid login and password")
-    public MainSteps loginWithInvalidCredits() {
-        loginPage.authentication(
-                INVALID_LOGIN,
-                INVALID_PASSWORD
-        );
-        validatePageIsLoaded(loginPage);
-        return this;
-    }
-
-    // TODO: Надо добавить кредентиалс
-    @Step("Sign in with invalid Email")
-    @Description("Check that it is impossible to enter the site with a invalid login")
-    public MainSteps loginWithInvalidEmail() {
-        loginPage.authentication(
-                INVALID_LOGIN,
-                VALID_PASSWORD
-        );
-        validatePageIsLoaded(loginPage);
-        return this;
-    }
-
-    // TODO: Надо добавить кредентиалс
-    @Step("Sign in with invalid Password")
-    @Description("Check that it is impossible to enter the site with a invalid password")
-    public MainSteps loginWithInvalidPassword() {
-        loginPage.authentication(
-                VALID_LOGIN,
-                INVALID_PASSWORD
-        );
-        validatePageIsLoaded(loginPage);
-        return this;
-    }
-
-    // TODO: Надо добавить кредентиалс
-    @Step("Sign in with empty Email field")
-    @Description("Check that it is impossible to enter the site without a login")
-    public MainSteps loginWithEmptyEmailField() {
-        loginPage.authentication(
-                "",
-                VALID_PASSWORD
-        );
-        validatePageIsLoaded(loginPage);
-        return this;
-    }
-
-    // TODO: Надо добавить кредентиалс
-    @Step("Sign in with empty Password field")
-    @Description("Check that it is impossible to enter the site without a password")
-    public MainSteps loginWithEmptyPasswordField() {
-        loginPage.authentication(
-                VALID_LOGIN,
-                ""
-        );
-        validatePageIsLoaded(loginPage);
-        return this;
+    @Step("Open SignUp page")
+    public SignUpSteps openSignUpPage() {
+        signUpPage = new SignUpPage(driver);
+        signUpPage.openSignInPage();
+        return new SignUpSteps(driver);
     }
 
     @Step("Open 'Add Workout' page")
@@ -232,7 +165,7 @@ public class MainSteps extends AbstractSteps {
     @Step("Open 'Workout calculator")
     @Description("Open")
     public WorkoutCalcSteps openWorkoutCalc() {
-        iconMenuButton = new IconMenuButton(driver, MenuIconButtonConstants.INTENSITY_ICON_MENU);
+        iconMenuButton = new IconMenuButton(driver, MenuIconButtonConstants.INTENSITY_ICON_MENU_ID);
         Assert.assertTrue(
                 iconMenuButton.isComponentDisplayed(),
                 iconMenuButton.getClass().getSimpleName().concat(" is not displayed")
@@ -244,7 +177,7 @@ public class MainSteps extends AbstractSteps {
     @Step("Open 'Other Calculator' popup")
     @Description("Check that it is possible to open 'Other Calculator' popup from Header")
     public OtherCalculatorStep openOtherCalculator() {
-        iconMenuButton = new IconMenuButton(driver,MenuIconButtonConstants.OTHER_ICON_MENU);
+        iconMenuButton = new IconMenuButton(driver,MenuIconButtonConstants.OTHER_ICON_MENU_ID);
         Assert.assertTrue(
                 iconMenuButton.isComponentDisplayed(),
                 iconMenuButton.getClass().getSimpleName().concat(" is not displayed")

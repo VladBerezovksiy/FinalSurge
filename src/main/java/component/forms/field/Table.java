@@ -10,12 +10,12 @@ import java.util.List;
 
 public class Table extends AbstractComponent {
 
-    private static final By TABLE_PATTERN =
+    private static final By TABLE_LOCATOR =
             By.xpath("//div[contains(@class,'w-box-content')]/table");
-    private static final String ROW_NAME = "//td[@nowrap]";
-    private static final String ROW_ACTIVITY_NAME = "//td/a[contains(.,'%s')]";
-    private static final String ROW_VITAL = "//td/a";
-    private static final String ROW_VITAL_NAME = " //td[contains(.,'%s')]";
+    private static final String ROW_NAME_LOCATOR = "//td[@nowrap]";
+    private static final String ROW_ACTIVITY_NAME_LOCATOR_PATTERN = "//td/a[contains(.,'%s')]";
+    private static final String ROW_VITAL_LOCATOR = "//td/a";
+    private static final String ROW_VITAL_NAME_PATTERN = " //td[contains(.,'%s')]";
 
     public Table(WebDriver driver) {
         super(driver);
@@ -23,20 +23,20 @@ public class Table extends AbstractComponent {
 
     @Override
     public boolean isComponentDisplayed() {
-        return driver.findElement(TABLE_PATTERN).isDisplayed();
+        return driver.findElement(TABLE_LOCATOR).isDisplayed();
     }
 
     public boolean checkListInReport() {
-        return driver.findElements(TABLE_PATTERN).isEmpty();
+        return driver.findElements(TABLE_LOCATOR).isEmpty();
     }
 
     public List<String> listOfDate() {
         List<WebElement> elems;
         List<String> expectedReportList = new ArrayList<>();
         if (!checkListInReport()) {
-            elems = driver.findElements(TABLE_PATTERN);
+            elems = driver.findElements(TABLE_LOCATOR);
             for (int i = 0; i < elems.size(); i++) {
-                expectedReportList.add(driver.findElements(By.xpath(ROW_NAME)).get(i).getText());
+                expectedReportList.add(driver.findElements(By.xpath(ROW_NAME_LOCATOR)).get(i).getText());
             }
             return expectedReportList;
         } else {
@@ -49,10 +49,10 @@ public class Table extends AbstractComponent {
         List<WebElement> elems;
         List<String> expectedReportList = new ArrayList<>();
         if (!checkListInReport()) {
-            elems = driver.findElements(TABLE_PATTERN);
+            elems = driver.findElements(TABLE_LOCATOR);
             for (int i = 0; i < elems.size(); i++) {
                 expectedReportList.add(
-                        driver.findElements(By.xpath(String.format(ROW_ACTIVITY_NAME, activity))).get(i).getText()
+                        driver.findElements(By.xpath(String.format(ROW_ACTIVITY_NAME_LOCATOR_PATTERN, activity))).get(i).getText()
                 );
             }
             return expectedReportList;
@@ -66,9 +66,9 @@ public class Table extends AbstractComponent {
         List<WebElement> elems;
         List<String> expectedReportList = new ArrayList<>();
         if (!checkListInReport()) {
-            elems = driver.findElements(TABLE_PATTERN);
+            elems = driver.findElements(TABLE_LOCATOR);
             for (int i = 0; i < elems.size(); i++) {
-                expectedReportList.add(driver.findElements(By.xpath(ROW_VITAL)).get(i).getText());
+                expectedReportList.add(driver.findElements(By.xpath(ROW_VITAL_LOCATOR)).get(i).getText());
             }
             return expectedReportList;
         } else {
@@ -80,10 +80,10 @@ public class Table extends AbstractComponent {
         List<WebElement> elems;
         List<String> expectedReportList = new ArrayList<>();
         if (!checkListInReport()) {
-            elems = driver.findElements(TABLE_PATTERN);
+            elems = driver.findElements(TABLE_LOCATOR);
             for (int i = 0; i < elems.size(); i++) {
                 expectedReportList.add(
-                        driver.findElements(By.xpath(String.format(ROW_VITAL_NAME, vitals))).get(i).getText()
+                        driver.findElements(By.xpath(String.format(ROW_VITAL_NAME_PATTERN, vitals))).get(i).getText()
                 );
             }
             return expectedReportList;

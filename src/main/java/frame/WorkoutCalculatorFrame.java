@@ -10,8 +10,8 @@ import pages.BasePage;
 @Log4j2
 public class WorkoutCalculatorFrame extends BasePage {
 
-    private static final By FORM_TITLE = By.xpath("//form[@id='intensity-calc']//h4");
-    private static final By ALLERT_MESSAGE = By.xpath("//div[@class='alert alert-error']");
+    private static final By FORM_TITLE_LOCATOR = By.xpath("//form[@id='intensity-calc']//h4");
+    private static final By ALLERT_MESSAGE_LOCATOR = By.xpath("//div[@class='alert alert-error']");
 
     public WorkoutCalculatorFrame(WebDriver driver) {
         super(driver);
@@ -19,7 +19,7 @@ public class WorkoutCalculatorFrame extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(FORM_TITLE));
+        explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(FORM_TITLE_LOCATOR));
     }
 
     @Override
@@ -27,11 +27,11 @@ public class WorkoutCalculatorFrame extends BasePage {
         return null;
     }
 
-    public boolean checkTablePacesDisplay(String label) {
-        return driver.findElements(By.xpath(String.format(FrameConstants.TABLE_LOCATOR_PATTERN, label))).isEmpty();
+    public boolean checkTablePacesDisplay(String text) {
+        return driver.findElements(By.xpath(String.format(FrameConstants.TABLE_LOCATOR_PATTERN, text))).isEmpty();
     }
 
     public String getAllertText() {
-        return driver.findElement(ALLERT_MESSAGE).getText();
+        return driver.findElement(ALLERT_MESSAGE_LOCATOR).getText();
     }
 }

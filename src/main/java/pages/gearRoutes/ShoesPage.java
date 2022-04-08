@@ -28,7 +28,7 @@ public class ShoesPage extends BasePage {
     }
 
     private boolean checkTableIsEmpty() {
-        return driver.findElements(GearRoutesConstants.TABLE_PATTERN).isEmpty();
+        return driver.findElements(GearRoutesConstants.TABLE_LOCATOR).isEmpty();
     }
 
     public boolean validateValueFromTable(String name, String model, String cost, String size, String distances) {

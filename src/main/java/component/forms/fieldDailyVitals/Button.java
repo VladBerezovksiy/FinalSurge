@@ -8,13 +8,13 @@ import org.openqa.selenium.WebDriver;
 @Log4j2
 public class Button extends AbstractComponent {
 
-    private static final String BUTTON_PATTERN = "//button[@title='%s']";
+    private static final String BUTTON_LOCATOR_PATTERN = "//button[@title='%s']";
 
     private final By buttonLocator;
 
-    public Button(WebDriver driver, String label) {
+    public Button(WebDriver driver, String title) {
         super(driver);
-        this.buttonLocator = By.xpath(String.format(BUTTON_PATTERN, label));
+        this.buttonLocator = By.xpath(String.format(BUTTON_LOCATOR_PATTERN, title));
     }
 
     @Override

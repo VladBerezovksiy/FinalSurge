@@ -15,12 +15,12 @@ public class DropDown extends AbstractComponent {
             "//label[contains(.,'%s')]/ancestor::div[@class='formSep']/select/option[contains(.,'%s')]";
 
     private final By dropdownLocator;
-    private final String label;
+    private final String text;
 
-    public DropDown(WebDriver driver, String label) {
+    public DropDown(WebDriver driver, String text) {
         super(driver);
-        this.label = label;
-        this.dropdownLocator = By.xpath(String.format(DROPDOWN_LOCATOR_PATTERN, label));
+        this.text = text;
+        this.dropdownLocator = By.xpath(String.format(DROPDOWN_LOCATOR_PATTERN, text));
     }
 
     @Override
@@ -33,12 +33,12 @@ public class DropDown extends AbstractComponent {
         driver.findElement(dropdownLocator).click();
     }
 
-    public void selectOption(String optionName) {
+    public void selectOption(String optionText) {
         openOptionPopup();
-        By optionLocator = By.xpath(String.format(OPTION_DROPDOWN_LOCATOR_PATTERN, label, optionName));
+        By optionLocator = By.xpath(String.format(OPTION_DROPDOWN_LOCATOR_PATTERN, text, optionText));
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(optionLocator));
-        log.info("Click on [{}] option from Dropdown", optionName);
+        log.info("Click on [{}] option from Dropdown", optionText);
         driver.findElement(optionLocator).click();
-        explicitlyWait.until(ExpectedConditions.textToBePresentInElementLocated(dropdownLocator, optionName));
+        explicitlyWait.until(ExpectedConditions.textToBePresentInElementLocated(dropdownLocator, optionText));
     }
 }

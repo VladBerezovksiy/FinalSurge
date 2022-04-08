@@ -26,12 +26,12 @@ public abstract class AbstractMenuButton {
     private final By buttonLocator;
     private final By optionLocator;
 
-    public AbstractMenuButton(WebDriver driver, String label, String option) {
+    public AbstractMenuButton(WebDriver driver, String textButton, String textOption) {
         this.driver = driver;
         this.actions = new Actions(driver);
         this.explicitlyWait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        this.buttonLocator = By.xpath(String.format(BUTTON_LOCATOR_PATTERN, label));
-        this.optionLocator = By.xpath(String.format(OPTION_LOCATOR_PATTERN, option));
+        this.buttonLocator = By.xpath(String.format(BUTTON_LOCATOR_PATTERN, textButton));
+        this.optionLocator = By.xpath(String.format(OPTION_LOCATOR_PATTERN, textOption));
     }
 
     public boolean isComponentDisplayed() {

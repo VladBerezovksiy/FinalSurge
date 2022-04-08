@@ -25,7 +25,7 @@ public class RoutesSteps extends AbstractSteps {
     public RoutesSteps createNewRoutes(String routeName, String routeActivity, String routeDist) {
         routesPage = new RoutesPage(driver);
         CreateActivityFormComponent form = new CreateActivityFormComponent(
-                driver, SaveButtonConstants.SAVE_BUTTON, FormNameConstants.ROUTE_FORM
+                driver, SaveButtonConstants.SAVE_BUTTON_ID, FormNameConstants.ROUTE_FORM
         );
         Assert.assertTrue(
                 form.isComponentDisplayed(),

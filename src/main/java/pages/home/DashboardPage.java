@@ -13,7 +13,7 @@ public class DashboardPage extends BasePage {
     private static final String BASE_URL = "https://log.finalsurge.com/Default.cshtml";
 
     public static final By HEADER = By.id("fade-menu");
-    private final String logoutLink = "Logout";
+    private static final String logoutLink = "Logout";
 
     public DashboardPage(WebDriver driver) {
         super(driver);

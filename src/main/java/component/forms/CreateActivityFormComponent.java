@@ -17,10 +17,10 @@ public class CreateActivityFormComponent extends AbstractComponent {
     private final By headerLocator;
     private final By buttonLocator;
 
-    public CreateActivityFormComponent(WebDriver driver, String buttonName, String headerName) {
+    public CreateActivityFormComponent(WebDriver driver, String buttonId, String headerText) {
         super(driver);
-        this.headerLocator = By.xpath(String.format(HEADER_LOCATOR_PATTERN, headerName));
-        this.buttonLocator = By.xpath(String.format(BUTTON_LOCATOR_PATTERN, buttonName));
+        this.headerLocator = By.xpath(String.format(HEADER_LOCATOR_PATTERN, headerText));
+        this.buttonLocator = By.xpath(String.format(BUTTON_LOCATOR_PATTERN, buttonId));
     }
 
     @Override

@@ -9,7 +9,7 @@ import pages.BasePage;
 @Log4j2
 public class LogoutPage extends BasePage {
 
-    private static final String BASE_URL = "https://log.finalsurge.com/logout.cshtml";
+    private static final String BASE_URL = "https://log.finalsurge.com/default.cshtml";
 
     private static final By LOGOUT_MESSAGE = By.xpath("//div[@class='alert alert-success']");
 

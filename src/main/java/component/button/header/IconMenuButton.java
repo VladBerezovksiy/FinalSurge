@@ -1,11 +1,12 @@
 package component.button.header;
 
+import component.AbstractComponent;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 @Log4j2
-public class IconMenuButton extends AbstractIconButton {
+public class IconMenuButton extends AbstractComponent {
 
     private static final String ICON_PATTERN = "//nav[@class='nav-icons']//a[@data-reveal-id='%s']";
     private final By iconLocator;

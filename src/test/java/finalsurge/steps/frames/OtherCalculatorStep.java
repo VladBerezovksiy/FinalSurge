@@ -15,7 +15,7 @@ import org.testng.Assert;
 
 public class OtherCalculatorStep extends AbstractSteps {
 
-    private final WebElement frame = driver.findElement(By.xpath("//iframe[@id='OtherCalciFrame']"));
+    private final WebElement FRAME = driver.findElement(By.xpath("//iframe[@id='OtherCalciFrame']"));
 
     private OtherCalculatorFrame otherCalculatorFrame;
 
@@ -24,7 +24,7 @@ public class OtherCalculatorStep extends AbstractSteps {
     }
 
     private void createNewPaceInCalculator(String distance, String measurer, String hours, String minutes, String seconds) {
-        driver.switchTo().frame(frame);
+        driver.switchTo().frame(FRAME);
         otherCalculatorFrame = new OtherCalculatorFrame(driver);
         otherCalculatorFrame.isPageLoaded();
         otherCalculatorFrame.clickOnButtonSectionOnCalc(OtherCalculatorConstants.PACE_CALC_SECTION);

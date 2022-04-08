@@ -8,15 +8,13 @@ import org.openqa.selenium.WebDriver;
 @Log4j2
 public class RadioButton extends AbstractComponent {
 
-    private static final String RADIO_BUTTON_PATTERN = "//label[contains(.,'%s')]//input";
+    private static final String RADIO_BUTTON_LOCATOR_PATTERN = "//label[contains(.,'%s')]//input";
 
-    private  final String label;
     private final By buttonLocator;
 
-    public RadioButton(WebDriver driver, String label) {
+    public RadioButton(WebDriver driver, String text) {
         super(driver);
-        this.label = label;
-        this.buttonLocator = By.xpath(String.format(RADIO_BUTTON_PATTERN, label));
+        this.buttonLocator = By.xpath(String.format(RADIO_BUTTON_LOCATOR_PATTERN, text));
     }
 
     @Override

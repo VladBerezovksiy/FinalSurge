@@ -8,14 +8,14 @@ import org.openqa.selenium.WebDriver;
 @Log4j2
 public class CalendarComponent extends AbstractComponent {
 
-    private static final String CALENDAR_PATTERN =
+    private static final String CALENDAR_LOCATOR_PATTERN =
             "//label[contains(.,'%s')]/ancestor::div[@class='span2']//input";
 
     private final By inputLocator;
 
-    public CalendarComponent(WebDriver driver, String label) {
+    public CalendarComponent(WebDriver driver, String text) {
         super(driver);
-        this.inputLocator = By.xpath(String.format(CALENDAR_PATTERN, label));
+        this.inputLocator = By.xpath(String.format(CALENDAR_LOCATOR_PATTERN, text));
     }
 
     @Override

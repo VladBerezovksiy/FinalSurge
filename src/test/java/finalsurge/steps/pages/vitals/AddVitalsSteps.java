@@ -62,17 +62,17 @@ public class AddVitalsSteps extends AbstractSteps {
         new Button(driver, FormAddVitalsConstants.ADD_BUTTON_NAME).click();
         new Calendar(driver, FormAddVitalsConstants.DATE_FIELD).insertValue(new VitalsModel().getDate());
         new Input(driver, FormAddVitalsConstants.STEPS).insert(new VitalsModel().getSteps());
-        new DropDown(driver, FormAddVitalsConstants.SLEEP_AMOUNT).selectOption(new VitalsModel().getSleep_amount());
+        new DropDown(driver, FormAddVitalsConstants.SLEEP_AMOUNT).selectOption(new VitalsModel().getSleepAmount());
         new Input(driver, FormAddVitalsConstants.WEIGHT).insert(new VitalsModel().getWeight());
-        new DropDown(driver, FormAddVitalsConstants.WEIGHT_SELECT).selectOption(new VitalsModel().getWeight_dimension());
+        new DropDown(driver, FormAddVitalsConstants.WEIGHT_SELECT).selectOption(new VitalsModel().getWeightDimension());
         new CreateActivityFormComponent(
                 driver,
-                SaveButtonConstants.SAVE_BUTTON,
+                SaveButtonConstants.SAVE_BUTTON_ID,
                 FormNameConstants.DAILY_VITALS_FORM
         ).isComponentDisplayed();
         new CreateActivityFormComponent(
                 driver,
-                SaveButtonConstants.SAVE_BUTTON,
+                SaveButtonConstants.SAVE_BUTTON_ID,
                 FormNameConstants.DAILY_VITALS_FORM
         ).save();
         return this;
@@ -88,7 +88,7 @@ public class AddVitalsSteps extends AbstractSteps {
         new CalendarComponent(driver, FormAddVitalsConstants.END_DATE_FIELD).insertValue(new VitalsModel().getEndDate());
         new CreateActivityFormComponent(
                 driver,
-                SaveButtonConstants.VIEW_BUTTON,
+                SaveButtonConstants.VIEW_BUTTON_ID,
                 FormNameConstants.DAILY_VITALS_FORM
         ).save();
         Table table = new Table(driver);
@@ -103,8 +103,8 @@ public class AddVitalsSteps extends AbstractSteps {
                         && (table.listOfDateVatals(
                         new VitalsModel().getWeight()).get(i).contains(new VitalsModel().getWeight()))
                         && (table.listOfDateVatals(
-                        new VitalsModel().getWeight_dimension()).get(i).contains(
-                        new VitalsModel().getWeight_dimension()))
+                        new VitalsModel().getWeightDimension()).get(i).contains(
+                        new VitalsModel().getWeightDimension()))
                 ) {
                     result = true;
                 } else {
@@ -125,7 +125,7 @@ public class AddVitalsSteps extends AbstractSteps {
         new Input(driver, FormAddVitalsConstants.STEPS).insert(step);
         new CreateActivityFormComponent(
                 driver,
-                SaveButtonConstants.SAVE_BUTTON,
+                SaveButtonConstants.SAVE_BUTTON_ID,
                 FormNameConstants.DAILY_VITALS_FORM
         ).save();
         return viewPage.getAllertText();

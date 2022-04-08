@@ -6,42 +6,32 @@ import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class RegistrationTests extends BaseTest {
+public class SignInAndSignUpTests extends BaseTest {
 
     @Test(groups = "negative")
     public void signInWithInvalidCreditsTest() {
-        mainSteps
+        singInSteps
                 .openLoginPage()
                 .loginWithInvalidCredits();
-    }
 
-    @Test(groups = "negative")
-    public void signInWithInvalidEmailTest() {
-        mainSteps
+        singInSteps
                 .openLoginPage()
                 .loginWithInvalidEmail();
-    }
 
-    @Test(groups = "negative")
-    public void signInWithInvalidPasswordTest() {
-        mainSteps
+        singInSteps
                 .openLoginPage()
                 .loginWithInvalidPassword();
-    }
 
-    @Test(groups = "negative")
-    public void signInWithEmptyEmailFieldTest() {
-        mainSteps
+        singInSteps
                 .openLoginPage()
                 .loginWithEmptyEmailField();
-    }
 
-    @Test(groups = "negative")
-    public void signInWithEmptyPasswordFieldTest() {
-        mainSteps
+        singInSteps
                 .openLoginPage()
                 .loginWithEmptyPasswordField();
     }
+
+    // TODO: Соединить по возможности тесты
 
     @Test(dataProvider = "Input data for auth", dataProviderClass = DataProviders.class, groups = "negative")
     @Description("Check a=that all fields are required")

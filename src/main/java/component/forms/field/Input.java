@@ -14,9 +14,9 @@ public class Input extends AbstractComponent {
 
     private final By inputLocator;
 
-    public Input(WebDriver driver, String label) {
+    public Input(WebDriver driver, String id) {
         super(driver);
-        this.inputLocator = By.xpath(String.format(INPUT_LOCATOR_PATTERN, label));
+        this.inputLocator = By.xpath(String.format(INPUT_LOCATOR_PATTERN, id));
     }
 
     @Override

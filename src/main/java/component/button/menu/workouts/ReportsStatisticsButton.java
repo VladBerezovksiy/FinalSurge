@@ -6,10 +6,10 @@ import org.openqa.selenium.WebDriver;
 
 public class ReportsStatisticsButton extends AbstractMenuButton {
 
-    private static final String WORKOUTS_BUTTON_LABEL = "Workouts";
-    private static final String REPORT_BUTTON_LABEL = "Reports & Statistics";
+    private static final String WORKOUTS_BUTTON_TEXT = "Workouts";
+    private static final String REPORT_BUTTON_TEXT = "Reports & Statistics";
 
     public ReportsStatisticsButton(WebDriver driver) {
-        super(driver, WORKOUTS_BUTTON_LABEL, REPORT_BUTTON_LABEL);
+        super(driver, WORKOUTS_BUTTON_TEXT, REPORT_BUTTON_TEXT);
     }
 }

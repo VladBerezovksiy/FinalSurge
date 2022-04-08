@@ -1,6 +1,7 @@
 package finalsurge.tests;
 
 import finalsurge.constants.size.WindowSizeConstants;
+import finalsurge.steps.pages.authorization.SingInSteps;
 import finalsurge.steps.pages.home.MainSteps;
 import finalsurge.utils.CapabilitiesGenerator;
 import finalsurge.utils.TestListener;
@@ -21,12 +22,14 @@ public class BaseTest {
 
     protected WebDriver driver;
     protected MainSteps mainSteps;
+    protected SingInSteps singInSteps;
 
     @BeforeMethod(alwaysRun = true)
     public void setup(ITestContext iTestContext) {
-        // TODO: Specify the driver you need "Chrome" or "Firefox" on line 28 (default "Chrome")
+        // Specify the driver you need "Chrome" or "Firefox" on line 28 (default "Chrome")
         String browser = System.getProperty("browser", "chrome");
         String os = System.getProperty("os.name").toLowerCase();
+
         if (browser.contains("chrome")) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(CapabilitiesGenerator.getChromeOptions());
@@ -45,7 +48,10 @@ public class BaseTest {
                 WindowSizeConstants.WIGHT_WINDOW
         );
         driver.manage().window().setSize(dimension);
+        driver.manage().deleteAllCookies();
+
         mainSteps = new MainSteps(driver);
+        singInSteps = new SingInSteps(driver);
     }
 
     private void setContextAttribute(ITestContext iTestContext, String attributeKey, Object attributeValue) {

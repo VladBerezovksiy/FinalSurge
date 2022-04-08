@@ -9,10 +9,10 @@ import pages.BasePage;
 @Log4j2
 public class ViewPage extends BasePage {
 
+    private static final String BASE_URL = "https://log.finalsurge.com/DailyVitals.cshtml";
+
     private static final By BREADCRUMBS =
             By.xpath("//ul[@id='breadcrumbs']//a[contains(.,'Daily Vitals')]");
-
-    private static final String BASE_URL = "https://log.finalsurge.com/DailyVitals.cshtml";
     private static final By DAILY_VITALS_TABLE_LABEL = By.xpath("//div[@class='w-box w-box-blue']");
     private static final By DAILY_VITALS_ADD_TABLE_LABEL = By.xpath("//div[@class='w-box w-box-green']");
     private static final By ALLERT_MESSAGE = By.xpath("//div[@class='alert alert-error']");

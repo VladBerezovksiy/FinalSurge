@@ -1,4 +1,4 @@
-package finalsurge.tests.positive;
+package finalsurge.tests.smoke;
 
 import finalsurge.tests.BaseTest;
 import org.testng.annotations.Test;

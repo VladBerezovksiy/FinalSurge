@@ -27,7 +27,7 @@ public class RoutesPage extends BasePage {
     }
 
     private boolean checkTableIsEmpty() {
-        return driver.findElements(GearRoutesConstants.TABLE_PATTERN).isEmpty();
+        return driver.findElements(GearRoutesConstants.TABLE_LOCATOR).isEmpty();
     }
 
     public boolean validateValueFromTable(String name, String activity, String distances) {

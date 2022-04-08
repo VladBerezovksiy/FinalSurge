@@ -12,9 +12,9 @@ public class AddWorkoutPage extends BasePage {
     private static final String BASE_URL = "https://log.finalsurge.com/WorkoutAdd.cshtml";
 
     private static final By BREADCRUMBS = By.xpath("//ul[@id='breadcrumbs']//a[contains(.,'Add Workout')]");
-    private static final String SELECT_ACTIVITY_PATTERN =
+    private static final String SELECT_ACTIVITY_LOCATOR_PATTERN =
             "//div[@id='blog_accordion_left']//a[contains(.,'%s')]/ancestor::div[@class='accordion-group']";
-    private static final String OPTION_ACTIVITY_PATTERN =
+    private static final String OPTION_ACTIVITY_LOCATOR_PATTERN =
             "//div[@id='blog_accordion_left']//a[contains(.,'%s')]/ancestor::div[@class='accordion-group']//a[text()='%s']";
 
     public AddWorkoutPage(WebDriver driver) {
@@ -23,12 +23,12 @@ public class AddWorkoutPage extends BasePage {
 
     public void selectAnyActivityType(String label, String option) {
         log.info("Click [{}] activity in sidebar", label);
-        driver.findElement(By.xpath(String.format(SELECT_ACTIVITY_PATTERN, label))).click();
+        driver.findElement(By.xpath(String.format(SELECT_ACTIVITY_LOCATOR_PATTERN, label))).click();
         explicitlyWait.until(ExpectedConditions
-                .visibilityOfElementLocated(By.xpath(String.format(OPTION_ACTIVITY_PATTERN, label, option))));
+                .visibilityOfElementLocated(By.xpath(String.format(OPTION_ACTIVITY_LOCATOR_PATTERN, label, option))));
         log.info("Click [{}] activity in [{}] option", label, option);
         driver.findElement(By.xpath(String.format(
-                OPTION_ACTIVITY_PATTERN, label, option))).click();
+                OPTION_ACTIVITY_LOCATOR_PATTERN, label, option))).click();
     }
 
     @Override

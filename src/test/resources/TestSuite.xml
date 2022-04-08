@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="ForceSurge" parallel="classes" thread-count="4">
+<suite name="ForceSurge" parallel="classes" thread-count="30">
 
     <test name="SmokeTest">
         <groups>
@@ -10,16 +10,16 @@
             </run>
         </groups>
         <classes>
-            <class name="finalsurge.tests.positive.AddWorkoutTest"/>
-            <class name="finalsurge.tests.positive.LogoutTest"/>
-            <class name="finalsurge.tests.positive.OtherCalculatorTest"/>
-            <class name="finalsurge.tests.positive.ReportsStatisticsTest"/>
-            <class name="finalsurge.tests.positive.RoutesTest"/>
-            <class name="finalsurge.tests.positive.ShoesTest"/>
-            <class name="finalsurge.tests.positive.SignUpTest"/>
-            <class name="finalsurge.tests.positive.ViewAddVitalsTest"/>
-            <class name="finalsurge.tests.positive.WorkoutCalcTest"/>
-            <class name="finalsurge.tests.positive.WorkoutLibraryTest"/>
+            <class name="finalsurge.tests.smoke.AddWorkoutTest"/>
+            <class name="finalsurge.tests.smoke.LogoutTest"/>
+            <class name="finalsurge.tests.smoke.OtherCalculatorTest"/>
+            <class name="finalsurge.tests.smoke.ReportsStatisticsTest"/>
+            <class name="finalsurge.tests.smoke.RoutesTest"/>
+            <class name="finalsurge.tests.smoke.ShoesTest"/>
+            <class name="finalsurge.tests.smoke.SignUpTest"/>
+            <class name="finalsurge.tests.smoke.ViewAddVitalsTest"/>
+            <class name="finalsurge.tests.smoke.WorkoutCalcTest"/>
+            <class name="finalsurge.tests.smoke.WorkoutLibraryTest"/>
         </classes>
     </test>
     <test name="NegativeTest">
@@ -31,21 +31,10 @@
         </groups>
         <classes>
             <class name="finalsurge.tests.negative.AddVitalsTest"/>
-            <class name="finalsurge.tests.negative.RegistrationTests"/>
-            <class name="finalsurge.tests.positive.ReportsStatisticsTest"/>
-            <class name="finalsurge.tests.positive.WorkoutCalcTest"/>
+            <class name="finalsurge.tests.negative.SignInAndSignUpTests"/>
+            <class name="finalsurge.tests.smoke.ReportsStatisticsTest"/>
+            <class name="finalsurge.tests.smoke.WorkoutCalcTest"/>
         </classes>
     </test>
-    <!--  <test name="SignUpTest">
-                 <groups>
-                      <run>
-                          <include name="smoke"/>
-                      </run>
-                  </groups>
-          <classes>
-              <class name="finalsurge.tests.positive.SignUpTest"/>
-          </classes>
-      </test>
-      -->
 
 </suite>

@@ -7,7 +7,7 @@ import component.forms.field.Table;
 import finalsurge.constants.button.SaveButtonConstants;
 import finalsurge.constants.forms.FormAddVitalsConstants;
 import finalsurge.constants.forms.FormNameConstants;
-import finalsurge.constants.forms.FormReportConsrants;
+import finalsurge.constants.forms.FormReportConstants;
 import finalsurge.steps.AbstractSteps;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
@@ -40,11 +40,11 @@ public class ReportsStatisticsSteps extends AbstractSteps {
         new CalendarComponent(
                 driver,
                 FormAddVitalsConstants.START_DATE_FIELD
-        ).insertValue(FormReportConsrants.START_DATE);
+        ).insertValue(FormReportConstants.START_DATE);
         new CalendarComponent(
                 driver,
                 FormAddVitalsConstants.END_DATE_FIELD
-        ).insertValue(FormReportConsrants.END_DATE);
+        ).insertValue(FormReportConstants.END_DATE);
         return this;
     }
 
@@ -53,7 +53,7 @@ public class ReportsStatisticsSteps extends AbstractSteps {
     public ReportsStatisticsSteps selectActivityType() {
         reportPage = new ReportsStatisticsPage(driver);
         reportPage.waitPageLoaded();
-        new DropDown(driver, "ActivityType").selectOption(FormReportConsrants.OPTION);
+        new DropDown(driver, "ActivityType").selectOption(FormReportConstants.OPTION);
         return this;
     }
 
@@ -64,7 +64,7 @@ public class ReportsStatisticsSteps extends AbstractSteps {
         reportPage.waitPageLoaded();
         new CreateActivityFormComponent(
                 driver,
-                SaveButtonConstants.SAVE_BUTTON,
+                SaveButtonConstants.SAVE_BUTTON_ID,
                 FormNameConstants.REPORT_FILTERS_FORM
         ).save();
         return this;
@@ -75,9 +75,9 @@ public class ReportsStatisticsSteps extends AbstractSteps {
     public ReportsStatisticsSteps checkDateInReport() {
         Table table = new Table(driver);
         String partOfStartDate =
-                FormReportConsrants.START_DATE.substring(0, FormReportConsrants.START_DATE.length() - 5);
+                FormReportConstants.START_DATE.substring(0, FormReportConstants.START_DATE.length() - 5);
         String partOfEndDate =
-                FormReportConsrants.END_DATE.substring(0, FormReportConsrants.END_DATE.length() - 5);
+                FormReportConstants.END_DATE.substring(0, FormReportConstants.END_DATE.length() - 5);
         boolean result = false;
         if (table.listOfDate() != null) {
             for (int i = 0; i < table.listOfDate().size(); i++) {
@@ -98,15 +98,15 @@ public class ReportsStatisticsSteps extends AbstractSteps {
     public ReportsStatisticsSteps checkDateAndActivityInReport() {
         Table table = new Table(driver);
         String partOfStartDate =
-                FormReportConsrants.START_DATE.substring(0, FormReportConsrants.START_DATE.length() - 5);
+                FormReportConstants.START_DATE.substring(0, FormReportConstants.START_DATE.length() - 5);
         String partOfEndDate =
-                FormReportConsrants.END_DATE.substring(0, FormReportConsrants.END_DATE.length() - 5);
+                FormReportConstants.END_DATE.substring(0, FormReportConstants.END_DATE.length() - 5);
         boolean result = false;
         if (table.listOfDate() != null) {
             for (int i = 0; i < table.listOfDate().size(); i++) {
                 if (((table.listOfDate().get(i).contains(partOfStartDate)) ||
                         (table.listOfDate().get(i).contains(partOfEndDate))) &&
-                        (table.listOfDateActivity(FormReportConsrants.OPTION).get(i).contains(FormReportConsrants.OPTION))) {
+                        (table.listOfDateActivity(FormReportConstants.OPTION).get(i).contains(FormReportConstants.OPTION))) {
 
                     result = true;
                 } else {

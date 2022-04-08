@@ -10,7 +10,7 @@ import pages.BasePage;
 @Log4j2
 public class OtherCalculatorFrame extends BasePage {
 
-    private static final By MODAL_WINDOW = By.xpath("//iframe[@id='OtherCalciFrame']");
+    private static final By MODAL_WINDOW_LOCATOR = By.xpath("//iframe[@id='OtherCalciFrame']");
     private static final String SECTION_BUTTON_LOCATOR_PATTERN =
             "//form[@id='calorie-calc']//a[contains(.,'%s')]";
 
@@ -20,7 +20,7 @@ public class OtherCalculatorFrame extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(MODAL_WINDOW));
+        explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(MODAL_WINDOW_LOCATOR));
     }
 
     @Override
@@ -28,11 +28,11 @@ public class OtherCalculatorFrame extends BasePage {
         return null;
     }
 
-    public boolean checkTablePacesDisplay(String label) {
-        return driver.findElements(By.xpath(String.format(FrameConstants.TABLE_LOCATOR_PATTERN, label))).isEmpty();
+    public boolean checkTablePacesDisplay(String text) {
+        return driver.findElements(By.xpath(String.format(FrameConstants.TABLE_LOCATOR_PATTERN, text))).isEmpty();
     }
 
-    public void clickOnButtonSectionOnCalc(String sectionName) {
-        driver.findElement(By.xpath(String.format(SECTION_BUTTON_LOCATOR_PATTERN, sectionName))).click();
+    public void clickOnButtonSectionOnCalc(String sectionText) {
+        driver.findElement(By.xpath(String.format(SECTION_BUTTON_LOCATOR_PATTERN, sectionText))).click();
     }
 }

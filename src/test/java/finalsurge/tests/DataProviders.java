@@ -64,10 +64,10 @@ public class DataProviders {
     public Object[][] inputForVitalsTask() {
         return new Object[][]{
 
-                {new VitalsModel().getEmptydate(), new VitalsModel().getSteps(), DATE_REQUIRED_MESSAGE, "The text is different"},
-                {new VitalsModel().getWrongdate(), new VitalsModel().getSteps(), WRONG_DATE_MESSAGE, "The text is different"},
-                {new VitalsModel().getDate(), new VitalsModel().getNegativesteps(), NEGATIVE_STEPS_MESSAGE, "The text is different"},
-                {new VitalsModel().getDate(), new VitalsModel().getNotnumbersteps(), LETTER_IN_STEPS_MESSAGE, "The text is different"}
+                {new VitalsModel().getEmptyDate(), new VitalsModel().getSteps(), DATE_REQUIRED_MESSAGE, "The text is different"},
+                {new VitalsModel().getWrongDate(), new VitalsModel().getSteps(), WRONG_DATE_MESSAGE, "The text is different"},
+                {new VitalsModel().getDate(), new VitalsModel().getNegativeSteps(), NEGATIVE_STEPS_MESSAGE, "The text is different"},
+                {new VitalsModel().getDate(), new VitalsModel().getNotNumberSteps(), LETTER_IN_STEPS_MESSAGE, "The text is different"}
         };
     }
 

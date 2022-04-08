@@ -30,7 +30,7 @@ public class AddWorkoutSteps extends AbstractSteps {
         addWorkoutPage.selectAnyActivityType(label, option);
         CreateActivityFormComponent form = new CreateActivityFormComponent(
                 driver,
-                SaveButtonConstants.SAVE_BUTTON,
+                SaveButtonConstants.SAVE_BUTTON_ID,
                 FormNameConstants.ADD_NEW_WORKOUT_FORM
         );
         Assert.assertTrue(
