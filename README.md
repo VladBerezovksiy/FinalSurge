@@ -4,7 +4,7 @@
 Our framework is **crossbrowser**. Therefore, if you want to use a specific browser,
 then you need to change the name of the browser in the code: (Image 1)
   
-![alt-text](src/test/resources/ChangeBrowserNameImage.jpg "Image 1 - Steps to change Browser")
+![alt-text](src/test/resources/ChangeBrowserImage.jpg "Image 1 - Steps to change Browser")
 
 ### TestNg command for run
 **Command to run all tests:**

@@ -4,6 +4,7 @@ import finalsurge.constants.size.WindowSizeConstants;
 import finalsurge.steps.pages.authorization.SingInSteps;
 import finalsurge.steps.pages.home.MainSteps;
 import finalsurge.utils.CapabilitiesGenerator;
+import finalsurge.utils.PropertiesUtils;
 import finalsurge.utils.TestListener;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.extern.log4j.Log4j2;
@@ -26,8 +27,7 @@ public class BaseTest {
 
     @BeforeMethod(alwaysRun = true)
     public void setup(ITestContext iTestContext) {
-        // Specify the driver you need "Chrome" or "Firefox" on line 28 (default "Chrome")
-        String browser = System.getProperty("browser", "chrome");
+        String browser = PropertiesUtils.getEnv("browser");
         String os = System.getProperty("os.name").toLowerCase();
 
         if (browser.contains("chrome")) {
