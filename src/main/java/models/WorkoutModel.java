@@ -12,6 +12,10 @@ import lombok.NoArgsConstructor;
 public class WorkoutModel {
 
     @Builder.Default
+    String activity = "Swim";
+    @Builder.Default
+    String optionActivity = "Drills";
+    @Builder.Default
     String date = "4/22/2022";
     @Builder.Default
     String name = "Run-Bike";
@@ -20,5 +24,5 @@ public class WorkoutModel {
     @Builder.Default
     String perceivedEffort = "Hard";
     @Builder.Default
-    String howIFeel = "Great";
+    String howIFeel = "Poor";
 }

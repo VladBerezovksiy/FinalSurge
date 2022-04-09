@@ -23,9 +23,9 @@ public class AddWorkoutSteps extends AbstractSteps {
         super(driver);
     }
 
-    @Step("Create new Workout with {label} activity and {option} option")
+    @Step("Create new Workout with {label} activity, {option} option, {date} date, {name} name, {distance}, dist, {perceivedEffort} effort and {howFeel} feel")
     @Description("Check that it is possible to add valid data in Workout Form")
-    public AddWorkoutSteps createNewWorkout(String label, String option) {
+    public AddWorkoutSteps createNewWorkout(String label, String option, String date, String name, String distance, String perceivedEffort, String howFell) {
         addWorkoutPage = new AddWorkoutPage(driver);
         addWorkoutPage.selectAnyActivityType(label, option);
         CreateActivityFormComponent form = new CreateActivityFormComponent(
@@ -37,34 +37,23 @@ public class AddWorkoutSteps extends AbstractSteps {
                 form.isComponentDisplayed(),
                 form.getClass().getSimpleName().concat(" not displayed!")
         );
-        fillWorkoutForm(new WorkoutModel());
+        fillWorkoutForm(date, name, distance, perceivedEffort, howFell);
         form.save();
         validatePageIsLoaded(new WorkoutDetailsPage(driver));
         return this;
     }
 
-    private void fillWorkoutForm(WorkoutModel workoutModel) {
-        new Input(driver, "WorkoutDate").insert(workoutModel.getDate());
-        new Input(driver, "Name").insert(workoutModel.getName());
-        new Input(driver, "Distance").insert(workoutModel.getDistance());
-        new DropDown(driver, "PerEffort").selectOption(workoutModel.getPerceivedEffort());
-        new RadioButton(driver, workoutModel.getHowIFeel()).click();
+    private void fillWorkoutForm(String date, String name, String distance, String perceivedEffort, String howFell) {
+        new Input(driver, "WorkoutDate").insert(date);
+        new Input(driver, "Name").insert(name);
+        new Input(driver, "Distance").insert(distance);
+        new DropDown(driver, "PerEffort").selectOption(perceivedEffort);
+        new RadioButton(driver, howFell).click();
     }
-
-    // TODO: Переделать сравнение элементов "validateWorkoutCreated"
 
     @Step("Check data from 'Workout Details' page is matched")
     @Description("Check that added data from 'Workout Details' page is matched")
-    public void validateWorkoutCreated(WorkoutModel expectedModel) {
-        Assert.assertEquals(
-                new WorkoutModel().getName(),
-                expectedModel.getName(),
-                String.format("'%s' is not valid", expectedModel.getName())
-        );
-        Assert.assertEquals(
-                new WorkoutModel().getDistance(),
-                expectedModel.getDistance(),
-                String.format("'%s' is not valid", expectedModel.getDistance())
-        );
+    public void validateWorkoutCreated(String activity, String optionActivity, String name, String distance, String perceivedEffort, String howFell) {
+        addWorkoutPage.validateValueFromWorkoutDetails(activity, optionActivity, name, distance, perceivedEffort, howFell);
     }
 }

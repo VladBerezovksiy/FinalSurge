@@ -13,6 +13,10 @@ public class OtherCalculatorFrame extends BasePage {
     private static final By MODAL_WINDOW_LOCATOR = By.xpath("//iframe[@id='OtherCalciFrame']");
     private static final String SECTION_BUTTON_LOCATOR_PATTERN =
             "//form[@id='calorie-calc']//a[contains(.,'%s')]";
+    private static final By PACE_CHART_TABLE_LOCATOR =
+            By.xpath("//form[@id='intensity-calc']//table[@class='table table-condensed table-hover']");
+    private static final By PACE_SPLITS_TABLE_LOCATOR =
+            By.xpath("//form[@id='intensity-calc']//table[@class='table table-condensed table-striped table-hover']");
 
     public OtherCalculatorFrame(WebDriver driver) {
         super(driver);
@@ -21,6 +25,14 @@ public class OtherCalculatorFrame extends BasePage {
     @Override
     public void waitPageLoaded() {
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(MODAL_WINDOW_LOCATOR));
+    }
+
+    public boolean checkPaceChartIsEmpty() {
+        return driver.findElements(PACE_CHART_TABLE_LOCATOR).isEmpty();
+    }
+
+    public boolean checkPaceSplitIsEmpty() {
+        return driver.findElements(PACE_SPLITS_TABLE_LOCATOR).isEmpty();
     }
 
     @Override

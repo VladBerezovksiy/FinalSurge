@@ -7,14 +7,30 @@ import org.testng.annotations.Test;
 
 public class AddWorkoutTest extends BaseTest {
 
-    @Test (groups="smoke", retryAnalyzer = Retry.class)
+    private final WorkoutModel workoutModel = new WorkoutModel();
+
+    @Test(groups = "smoke", retryAnalyzer = Retry.class)
     public void addWorkoutTest() {
         mainSteps
                 .openLoginPage()
                 .loginWithValidCredits()
                 .openAddWorkout()
-                .createNewWorkout("Swim", "Drills")
-                .validateWorkoutCreated(new WorkoutModel());
+                .createNewWorkout(
+                        workoutModel.getActivity(),
+                        workoutModel.getOptionActivity(),
+                        workoutModel.getDate(),
+                        workoutModel.getName(),
+                        workoutModel.getDistance(),
+                        workoutModel.getPerceivedEffort(),
+                        workoutModel.getHowIFeel()
+                )
+                .validateWorkoutCreated(
+                        workoutModel.getActivity(),
+                        workoutModel.getOptionActivity(),
+                        workoutModel.getName(),
+                        workoutModel.getDistance(),
+                        workoutModel.getPerceivedEffort(),
+                        workoutModel.getHowIFeel()
+                );
     }
-
 }

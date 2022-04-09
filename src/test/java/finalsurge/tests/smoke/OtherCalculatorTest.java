@@ -8,18 +8,20 @@ public class OtherCalculatorTest extends BaseTest {
 
     private final OtherCalcModel otherCalcModel = new OtherCalcModel();
 
-    // TODO: Add validate method
-
     @Test(groups = "smoke")
     public void otherCalculatorTest() {
         mainSteps
                 .openLoginPage()
                 .loginWithValidCredits()
                 .openOtherCalculator()
-                .calc(otherCalcModel.getDistance(),
+                .calc(
+                        otherCalcModel.getDistance(),
                         otherCalcModel.getMeasure(),
                         otherCalcModel.getHours(),
                         otherCalcModel.getMinutes(),
-                        otherCalcModel.getSeconds());
+                        otherCalcModel.getSeconds()
+                )
+                .validateCalcCreated();
+
     }
 }

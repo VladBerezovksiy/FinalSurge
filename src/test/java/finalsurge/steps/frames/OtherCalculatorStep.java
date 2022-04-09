@@ -48,4 +48,15 @@ public class OtherCalculatorStep extends AbstractSteps {
         );
         return this;
     }
+
+    @Step("Check data from 'Shoe' table is matched")
+    @Description("Check that added data from 'Shoe' table is matched")
+    public boolean validateCalcCreated() {
+        boolean result = false;
+        if ((!otherCalculatorFrame.checkPaceChartIsEmpty()) || (!otherCalculatorFrame.checkPaceSplitIsEmpty())){
+            result = true;
+        }
+        Assert.assertTrue(result, "Value doesn't match from Table");
+        return result;
+    }
 }
