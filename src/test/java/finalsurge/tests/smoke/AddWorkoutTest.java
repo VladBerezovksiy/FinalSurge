@@ -2,6 +2,8 @@ package finalsurge.tests.smoke;
 
 import finalsurge.tests.BaseTest;
 import finalsurge.utils.Retry;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import models.WorkoutModel;
 import org.testng.annotations.Test;
 
@@ -9,6 +11,7 @@ public class AddWorkoutTest extends BaseTest {
 
     private final WorkoutModel workoutModel = new WorkoutModel();
 
+    @Severity(value = SeverityLevel.CRITICAL)
     @Test(groups = "smoke", retryAnalyzer = Retry.class)
     public void addWorkoutTest() {
         mainSteps

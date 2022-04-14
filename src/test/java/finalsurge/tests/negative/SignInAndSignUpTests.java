@@ -3,11 +3,14 @@ package finalsurge.tests.negative;
 import finalsurge.tests.BaseTest;
 import finalsurge.tests.DataProviders;
 import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SignInAndSignUpTests extends BaseTest {
 
+    @Severity(value = SeverityLevel.CRITICAL)
     @Test(groups = "negative")
     public void signInWithInvalidCreditsTest() {
         singInSteps
@@ -31,6 +34,7 @@ public class SignInAndSignUpTests extends BaseTest {
                 .loginWithEmptyPasswordField();
     }
 
+    @Severity(value = SeverityLevel.MINOR)
     @Test(dataProvider = "inputForSignUpTask", dataProviderClass = DataProviders.class, groups = "negative")
     @Description("Check a=that all fields are required")
     public void checkRequiredFieldsTest(String firstname, String lastname, String email, String password, String retypePassword, String exp_message, String act_message) {
@@ -43,6 +47,7 @@ public class SignInAndSignUpTests extends BaseTest {
                 , act_message);
     }
 
+    @Severity(value = SeverityLevel.MINOR)
     @Test(dataProvider = "inputForCheckPasswordTask", dataProviderClass = DataProviders.class, groups = "negative")
     @Description("Check that the password matches the rules and retype password field")
     public void checkPasswordTest(String firstname, String lastname, String email, String password, String retypePassword, String exp_message, String act_message) {
