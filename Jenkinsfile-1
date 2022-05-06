@@ -1,0 +1,14 @@
+pipeline {
+
+  agent {
+    docker { image 'maven:3.8.5-jdk-11-slim' }
+  }
+
+  stages {
+    stage('Test') {
+      steps {
+        sh 'node --version'
+      }
+    }
+  }
+}

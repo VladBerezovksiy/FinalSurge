@@ -11,8 +11,6 @@ pipeline {
             steps {
                 git branch: '$BRANCH', url: 'https://github.com/VladBerezovksiy/FinalSurge.git'
 
-                sh "sudo docker run -it maven:3.8.5-jdk-11-slim"
-
                 sh "sudo mvn clean test -Dmaven.test.failure.ignore=true -Dmaven.compiler.source=11 -Dmaven.compiler.target=11"
             }
 
