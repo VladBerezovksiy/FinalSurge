@@ -10,7 +10,7 @@ pipeline {
         stage('test') {
 
             agent {
-                docker { image: 'maven:3.8.5-jdk-11-slim' }
+                docker { image 'maven:3.8.5-jdk-11-slim' }
             }
 
             steps {
