@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
+        stage('test') {
             steps {
                 git branch: '$BRANCH', url: 'https://github.com/VladBerezovksiy/FinalSurge.git'
 
