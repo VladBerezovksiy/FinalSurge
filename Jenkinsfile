@@ -20,7 +20,7 @@ pipeline {
                 }
             }
 
-         stage("Run Tests") {
+        stage("Run Tests") {
             steps {
                 script {
                     docker.image("maven:3.8.5-jdk-11-slim").inside {
@@ -28,8 +28,8 @@ pipeline {
                     }
                 }
             }
-         }
         }
+    }
 
         stage('reports') {
             steps {
