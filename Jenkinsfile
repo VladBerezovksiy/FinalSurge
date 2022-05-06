@@ -1,4 +1,5 @@
 pipeline {
+
     agent any
 
     tools {
@@ -6,11 +7,11 @@ pipeline {
     }
 
     stages {
-        stage('tests') {
+        stage('Checkout') {
             steps {
                 git branch: '$BRANCH', url: 'https://github.com/VladBerezovksiy/FinalSurge.git'
 
-                sh "mvn clean test -Dmaven.test.failure.ignore=true -Dmaven.compiler.source=11 -Dmaven.compiler.target=11"
+//                 sh "mvn clean test -Dmaven.test.failure.ignore=true -Dmaven.compiler.source=11 -Dmaven.compiler.target=11"
             }
 
             post {
@@ -18,6 +19,16 @@ pipeline {
                     junit '**/target/surefire-reports/TEST-*.xml'
                 }
             }
+
+         stage("Run Tests") {
+            steps {
+                script {
+                    docker.image("maven:3.8.5-jdk-11-slim").inside {
+                        sh "mvn clean test -Dmaven.test.failure.ignore=true -Dmaven.compiler.source=11 -Dmaven.compiler.target=11"
+                    }
+                }
+            }
+         }
         }
 
         stage('reports') {
