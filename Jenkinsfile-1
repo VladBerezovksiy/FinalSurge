@@ -24,9 +24,7 @@ pipeline {
                     junit '**/target/surefire-reports/TEST-*.xml'
                 }
             }
-        }
 
-        stage {
             script {
                 allure([
                         includeProperties: false,
