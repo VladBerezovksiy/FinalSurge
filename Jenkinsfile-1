@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('test') {
+        stage('Test and Reports') {
 
             agent {
                 docker { image 'maven:3.8.5-jdk-11-slim' }
@@ -24,9 +24,7 @@ pipeline {
                     junit '**/target/surefire-reports/TEST-*.xml'
                 }
             }
-        }
 
-        stage('reports') {
             steps {
                 script {
                     allure([
