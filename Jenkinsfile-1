@@ -1,18 +1,32 @@
 pipeline {
 
-    agent any
+    agent docker
 
     tools {
         maven "Maven"
     }
 
     stages {
-        stage('Test') {
 
-            agent {
-                docker { image 'maven:3.8.5-jdk-11-slim' }
+        stage ('Pull Libraries') {
+            steps {
+                catchError {
+                    script {
+                        docker.image('maven:3.8.5-jdk-11-slim')
+                    }
+                }
             }
 
+            steps {
+                catchError {
+                    script {
+                        docker.image('selenium/standalone-chrome:latest')
+                    }
+                }
+            }
+        }
+
+        stage ('Run Tests') {
             steps {
                 git branch: '$BRANCH', url: 'https://github.com/VladBerezovksiy/FinalSurge.git'
 
@@ -24,17 +38,17 @@ pipeline {
                     junit '**/target/surefire-reports/TEST-*.xml'
                 }
             }
+        }
 
-            steps {
-                script {
-                    allure([
-                            includeProperties: false,
-                            jdk: '',
-                            properties: [],
-                            reportBuildPolicy: 'ALWAYS',
-                            results: [[path: 'target/allure-results']]
-                    ])
-                }
+        stage ('Reports') {
+            script {
+                allure([
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: 'target/allure-results']]
+                ])
             }
         }
     }
