@@ -1,6 +1,6 @@
 pipeline {
 
-    agent docker
+    agent any
 
     tools {
         maven "Maven"
@@ -9,6 +9,7 @@ pipeline {
     stages {
 
         stage ('Pull Libraries') {
+
             steps {
                 catchError {
                     script {
