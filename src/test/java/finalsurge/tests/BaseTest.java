@@ -29,7 +29,6 @@ public class BaseTest {
     public void setup(ITestContext iTestContext) {
         String browser = PropertiesUtils.getEnv("browser");
         String os = System.getProperty("os.name").toLowerCase();
-
         if (browser.contains("chrome")) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(CapabilitiesGenerator.getChromeOptions());

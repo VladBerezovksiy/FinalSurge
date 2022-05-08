@@ -1,0 +1,25 @@
+version: "3"
+services:
+
+  selenium-hub:
+    image: selenium/hub:latest
+    ports:
+      - "9080:9080"
+
+  chrome:
+    image: selenium/node-chrome
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=hub
+    ports:
+      - "9090:5900"
+
+  test:
+    image: icemeetscoke/uiautomation:latest
+    depends_on:
+      - chrome
+    environment:
+      - HUB_HOST=hub
+    volumes:
+      - ./reports:/app/target
