@@ -3,6 +3,7 @@ package finalsurge.utils;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.safari.SafariOptions;
 
 @Log4j2
 public class CapabilitiesGenerator {
